@@ -7,17 +7,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500;1,600&family=La+Belle+Aurore&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Palette par défaut : Carnet Poudré Feutré (Sable rosé soutenu, Lin chaud & Prune sourd) */
+    /* Palette par défaut : Carnet Poudré Feutré */
     :root, [data-palette="paper-dust"] {
-      --bg: #DDD0C8;            /* Fond papier sable-taupe poudré plus soutenu */
-      --surface: #EFE7E1;       /* Panneaux lin poudré */
-      --surface-alt: #E5D9D1;   /* Survol / barres secondaires */
-      --card-bg: #F6F0EC;       /* Cartes papier épais */
+      --bg: #DDD0C8;
+      --surface: #EFE7E1;
+      --surface-alt: #E5D9D1;
+      --card-bg: #F6F0EC;
       --card-hover: #FCF9F7;
       --pill-bg: #E3D6CE;
       --input-bg: #E8DDD6;
-      --accent: #7A5F72;        /* Mauve prune sourd */
-      --accent-light: #3B2836;  /* Prune encre profond pour les titres */
+      --accent: #7A5F72;
+      --accent-light: #3B2836;
       --accent-muted: #987D8F;
       --btn-primary-text: #FAF6F3;
       --text: #33242E;
@@ -27,7 +27,6 @@
       --line-art: rgba(59, 40, 54, 0.08);
       --paper-shadow: 0 10px 26px -8px rgba(45, 30, 40, 0.14), 0 2px 6px -1px rgba(45, 30, 40, 0.07);
       --card-shadow: 0 6px 18px -6px rgba(45, 30, 40, 0.12);
-      --photo-tint: rgba(221, 208, 200, 0.05);
     }
 
     /* Palette 2 : Sakura Nocturne */
@@ -50,7 +49,6 @@
       --line-art: rgba(240, 217, 228, 0.06);
       --paper-shadow: 0 14px 32px -10px rgba(0, 0, 0, 0.45);
       --card-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.35);
-      --photo-tint: rgba(22, 19, 31, 0.12);
     }
 
     /* Palette 3 : Améthyste Velours */
@@ -73,7 +71,6 @@
       --line-art: rgba(241, 237, 247, 0.06);
       --paper-shadow: 0 14px 32px -10px rgba(0, 0, 0, 0.45);
       --card-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.35);
-      --photo-tint: rgba(27, 14, 40, 0.12);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -90,7 +87,6 @@
       transition: background-color 0.25s ease, color 0.25s ease;
     }
 
-    /* Grain papier coton tactile */
     body::before {
       content: "";
       position: fixed;
@@ -147,7 +143,7 @@
       flex: 1;
     }
 
-    /* En-tête + Bannière sans filtre étouffant */
+    /* En-tête + Bannière */
     .hero-card {
       background: var(--surface);
       border: 1px solid var(--border-strong);
@@ -243,7 +239,7 @@
     }
 
     .controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-    input[type="search"], select, input[type="text"], input[type="number"], input[type="url"], input[type="password"] {
+    input[type="search"], select, input[type="text"], input[type="number"], input[type="url"], input[type="password"], textarea {
       padding: 9px 15px;
       border: 1px solid var(--border);
       border-radius: 99px;
@@ -254,12 +250,18 @@
       outline: none;
       transition: 0.15s;
     }
-    input::placeholder { color: var(--text-soft); opacity: 0.8; }
-    dialog input[type="text"], dialog input[type="number"], dialog input[type="url"], dialog input[type="password"], dialog select {
+    input::placeholder, textarea::placeholder { color: var(--text-soft); opacity: 0.8; }
+    dialog input[type="text"], dialog input[type="number"], dialog input[type="url"], dialog input[type="password"], dialog select, dialog textarea {
       border-radius: 12px;
       width: 100%;
     }
-    input:focus, select:focus { border-color: var(--accent); background: var(--card-bg); }
+    dialog textarea {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.84rem;
+      line-height: 1.5;
+      resize: vertical;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--accent); background: var(--card-bg); }
 
     .btn {
       padding: 8px 15px;
@@ -511,7 +513,7 @@
     }
     #items-counter { font-size: 0.82rem; color: var(--text-soft); font-weight: 600; }
 
-    /* Grille Produits Uniforme (Épaisseur papier + carrés 1:1 verrouillés) */
+    /* Grille Produits Uniforme */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
@@ -658,7 +660,7 @@
     .card-admin-actions { display: none; gap: 4px; }
     body.is-admin .card-admin-actions { display: flex; }
 
-    /* Footer Éditorial */
+    /* Footer */
     footer {
       position: relative;
       z-index: 1;
@@ -689,7 +691,7 @@
       border: 1px solid var(--border-strong);
       border-radius: 22px;
       padding: 24px;
-      max-width: 490px;
+      max-width: 520px;
       width: 92%;
       margin: auto;
       box-shadow: var(--paper-shadow);
@@ -734,6 +736,7 @@
     <div class="admin-actions">
       <button class="btn btn-primary" onclick="openItemModal()">+ Ajouter un produit</button>
       <button class="btn" onclick="openFolderModal(null)">+ Nouveau dossier</button>
+      <button class="btn" onclick="openBulkFolderModal()">⚡ Création en masse</button>
       <button class="btn" onclick="openThemeModal()">🎨 Ambiance & Bannière</button>
       <button class="btn" onclick="openGithubModal()">🔑 Connexion GitHub</button>
     </div>
@@ -791,7 +794,6 @@
           <div id="items-counter"></div>
         </div>
 
-        <!-- Cartes visuelles des Collections -->
         <div class="boards-section" id="boards-section">
           <div class="section-heading">
             <h3 id="boards-heading">Mes Collections ✦</h3>
@@ -904,6 +906,37 @@
       <div class="modal-actions">
         <button type="button" class="btn" onclick="document.getElementById('folder-modal').close()">Annuler</button>
         <button type="submit" class="btn btn-primary">Enregistrer & Publier</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Modal Création de Dossiers en Masse -->
+  <dialog id="bulk-folder-modal">
+    <h3 class="serif" style="font-size:1.5rem; margin-bottom:8px;">⚡ Création d'arborescence en masse</h3>
+    <p style="font-size:0.82rem; color:var(--text-soft); margin-bottom:12px; line-height:1.45;">
+      Écris un dossier par ligne. Ajoute <strong>2 espaces</strong> (ou <code>--</code>) devant une ligne pour créer un sous-dossier, <strong>4 espaces</strong> pour un sous-sous-dossier, etc. Tu peux mettre un emoji au début de chaque ligne.
+    </p>
+    <form onsubmit="saveBulkFolders(event)">
+      <div class="form-group">
+        <label>Rattacher tout ce bloc à (optionnel)</label>
+        <select id="bulk-parent-select"></select>
+      </div>
+      <div class="form-group">
+        <label>Ton arborescence</label>
+        <textarea id="bulk-folders-text" rows="11" required placeholder="💅 Beauté & Ongles
+  ✨ Ongle24
+    🎨 Gels UV & Couleurs
+      🌸 Nudes & Milky
+      ✨ Pailletés
+    🛠️ Limes & Pinceaux
+  🧴 Skincare
+👗 Mode & Accessoires
+  👜 Sacs
+  💍 Bijoux"></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn" onclick="document.getElementById('bulk-folder-modal').close()">Annuler</button>
+        <button type="submit" class="btn btn-primary">Générer tout & Publier</button>
       </div>
     </form>
   </dialog>
@@ -1413,6 +1446,62 @@
       renderItems();
       document.getElementById('folder-modal').close();
       await pushToGithub();
+    }
+
+    /* Création en masse via texte indenté */
+    function openBulkFolderModal() {
+      const sel = document.getElementById('bulk-parent-select');
+      populateFolderSelect(sel, true);
+      sel.value = selectedFolderId !== 'all' ? selectedFolderId : '';
+      document.getElementById('bulk-folders-text').value = '';
+      document.getElementById('bulk-folder-modal').showModal();
+    }
+
+    async function saveBulkFolders(e) {
+      e.preventDefault();
+      const rootParentId = document.getElementById('bulk-parent-select').value || null;
+      const rawLines = document.getElementById('bulk-folders-text').value.split('\n');
+      const stack = [{ indent: -1, id: rootParentId }];
+      let createdCount = 0;
+
+      rawLines.forEach((line, idx) => {
+        if (!line.trim()) return;
+        // Calcule la profondeur (2 espaces, 1 tabulation, ou des tirets '--' en début de ligne)
+        const leadingSpaces = line.match(/^(\s*)/)[1].replace(/\t/g, '  ').length;
+        let clean = line.trim();
+        let dashDepth = 0;
+        while (clean.startsWith('-')) {
+          dashDepth++;
+          clean = clean.slice(1).trim();
+        }
+        const depth = dashDepth > 0 ? dashDepth * 2 : leadingSpaces;
+
+        while (stack.length > 1 && stack[stack.length - 1].indent >= depth) {
+          stack.pop();
+        }
+        const parentId = stack[stack.length - 1].id;
+
+        // Sépare l'emoji éventuel au début du nom
+        const emojiMatch = clean.match(/^(\p{Extended_Pictographic}|\S)\s+(.+)$/u);
+        let icon = '✦';
+        let name = clean;
+        if (emojiMatch && emojiMatch[1].length <= 4 && !/^[a-zA-Z0-9]/.test(emojiMatch[1])) {
+          icon = emojiMatch[1];
+          name = emojiMatch[2];
+        }
+
+        const newId = 'f-' + Date.now() + '-' + idx;
+        appData.folders.push({ id: newId, name, icon, parentId });
+        stack.push({ indent: depth, id: newId });
+        createdCount++;
+      });
+
+      if (createdCount > 0) {
+        renderFolders();
+        renderItems();
+        document.getElementById('bulk-folder-modal').close();
+        await pushToGithub();
+      }
     }
 
     async function deleteFolder(id) {
