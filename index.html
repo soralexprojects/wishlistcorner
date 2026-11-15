@@ -394,7 +394,6 @@
     .caret-btn:hover { background: var(--pill-bg); color: var(--accent-light); }
     .caret-spacer { width: 16px; flex-shrink: 0; }
 
-    /* Symbole monochrome forcé dans le violet-prune foncé du thème */
     .folder-symbol {
       color: var(--accent-light);
       font-weight: 700;
@@ -866,7 +865,7 @@
     <div class="layout">
       <aside>
         <div class="sidebar-header">
-          <span>Collections</span>
+          <span>Collections (A–Z)</span>
           <div class="sidebar-tools">
             <button class="tiny-pill-btn" onclick="expandAllFolders(true)" title="Tout déplier">+</button>
             <button class="tiny-pill-btn" onclick="expandAllFolders(false)" title="Tout replier">−</button>
@@ -934,7 +933,7 @@
     <form id="item-form" onsubmit="saveItem(event)">
       <input type="hidden" id="item-id" />
       <div class="form-group">
-        <label>Dossier de destination</label>
+        <label>Dossier de destination (classé A–Z)</label>
         <input type="text" id="item-folder-search" placeholder="🔎 Filtrer la liste des dossiers (ex: rouges, vsp...)" oninput="filterItemFolderSelect()" style="margin-bottom:4px; padding:7px 12px; font-size:0.8rem;" />
         <select id="item-folder" required></select>
       </div>
@@ -978,7 +977,7 @@
     </form>
   </dialog>
 
-  <!-- Modal Dossier (Création & Modification avec sélecteur de symboles) -->
+  <!-- Modal Dossier -->
   <dialog id="folder-modal">
     <h3 class="serif" id="folder-modal-title" style="font-size:1.5rem; margin-bottom:14px;">Dossier / Sous-dossier</h3>
     <form onsubmit="saveFolder(event)">
@@ -1012,7 +1011,7 @@
   <dialog id="bulk-folder-modal">
     <h3 class="serif" style="font-size:1.5rem; margin-bottom:8px;">⚡ Création d'arborescence en masse</h3>
     <p style="font-size:0.82rem; color:var(--text-soft); margin-bottom:12px; line-height:1.45;">
-      Écris un dossier par ligne. Ajoute <strong>2 espaces</strong> (ou <code>--</code>) devant une ligne pour créer un sous-dossier. Tu peux mettre un symbole monochrome en début de ligne (ex. <code>✿</code>, <code>◈</code>, <code>☾</code>, <code>♡</code>).
+      Écris un dossier par ligne. Ajoute <strong>2 espaces</strong> devant une ligne pour créer un sous-dossier. Mets un espace entre le symbole et le nom (ex. <code>◈ Crystal | Rouges.</code>). Tout sera trié de A à Z automatiquement.
     </p>
     <form onsubmit="saveBulkFolders(event)">
       <div class="form-group">
@@ -1022,11 +1021,11 @@
       <div class="form-group">
         <label>Ton arborescence</label>
         <textarea id="bulk-folders-text" rows="11" required placeholder="✦ Onglerie.
-  ✧ Gels & Vernis Semi-Permanents colorés.
-    ✿ VSP | Rouges.
-    ✿ VSP | Bleus.
-    ✿ VSP | Verts.
-  ◈ VSP | Crystal."></textarea>
+  ✶ Gels & Vernis Semi-Permanents colorés.
+    ◈ VSP | Rouges.
+    ◈ VSP | Bleus.
+    ◈ VSP | Verts.
+  ✶ VSP | Crystal."></textarea>
       </div>
       <div class="modal-actions">
         <button type="button" class="btn" onclick="document.getElementById('bulk-folder-modal').close()">Annuler</button>
@@ -1104,7 +1103,14 @@
     let selectedFolderId = 'all';
     let quickFilter = 'all';
     let isAdmin = false;
-    let expandedFolders = new Set(); // Dossiers dépliés (par défaut repliés pour garder la barre compacte)
+    let expandedFolders = new Set();
+
+    /* Tri alphabétique naturel en français (A -> Z) */
+    function sortFoldersAlpha(list) {
+      return [...list].sort((a, b) =>
+        (a.name || '').localeCompare(b.name || '', 'fr', { sensitivity: 'base', numeric: true })
+      );
+    }
 
     async function init() {
       const params = new URLSearchParams(window.location.search);
@@ -1117,7 +1123,6 @@
         if (clicks === 3) enableAdmin();
       });
 
-      // Remplir le sélecteur rapide de symboles
       const picker = document.getElementById('symbol-picker');
       MONO_SYMBOLS.forEach(sym => {
         const btn = document.createElement('button');
@@ -1194,6 +1199,9 @@
         const getRes = await fetch(apiUrl, { headers });
         if (!getRes.ok) throw new Error('Impossible de lire data.json sur GitHub');
         const fileInfo = await getRes.json();
+
+        // Trie les dossiers alphabétiquement dans le JSON sauvegardé
+        appData.folders = sortFoldersAlpha(appData.folders);
 
         const jsonStr = JSON.stringify(appData, null, 2);
         const contentBase64 = btoa(unescape(encodeURIComponent(jsonStr)));
@@ -1281,7 +1289,6 @@
     function selectFolder(id) {
       selectedFolderId = id;
       if (id !== 'all') {
-        // Déplie automatiquement le dossier sélectionné et ses parents
         expandedFolders.add(id);
         getAncestorFolderIds(id).forEach(pid => expandedFolders.add(pid));
       }
@@ -1306,7 +1313,6 @@
       allEl.onclick = () => selectFolder('all');
       container.appendChild(allEl);
 
-      // Si recherche de dossier active, trouve tous les dossiers correspondants et leurs parents
       let matchingIds = null;
       if (filterText) {
         matchingIds = new Set();
@@ -1319,13 +1325,13 @@
       }
 
       function buildTree(parentId, parentContainer) {
-        appData.folders.filter(f => f.parentId === parentId).forEach(folder => {
+        const children = sortFoldersAlpha(appData.folders.filter(f => f.parentId === parentId));
+        children.forEach(folder => {
           if (matchingIds && !matchingIds.has(folder.id)) return;
 
           const validIds = getDescendantFolderIds(folder.id);
           const count = appData.items.filter(i => validIds.includes(i.folderId)).length;
 
-          // En vue visiteur (non admin), masque les dossiers vides pour épurer la navigation
           if (!isAdmin && count === 0 && !filterText) return;
 
           const subFolders = appData.folders.filter(f => f.parentId === folder.id && (!matchingIds || matchingIds.has(f.id)) && (isAdmin || filterText || appData.items.some(i => getDescendantFolderIds(f.id).includes(i.folderId))));
@@ -1373,9 +1379,8 @@
       const heading = document.getElementById('boards-heading');
 
       const parentTarget = selectedFolderId === 'all' ? null : selectedFolderId;
-      let children = appData.folders.filter(f => f.parentId === parentTarget);
+      let children = sortFoldersAlpha(appData.folders.filter(f => f.parentId === parentTarget));
 
-      // En mode visiteur, masque les cartes collections vides
       if (!isAdmin) {
         children = children.filter(f => {
           const validIds = getDescendantFolderIds(f.id);
@@ -1503,7 +1508,8 @@
       const q = filterQuery.trim().toLowerCase();
       selectEl.innerHTML = includeRoot ? '<option value="">(Racine — Dossier principal)</option>' : '';
       function addOptions(parentId, prefix = '') {
-        appData.folders.filter(f => f.parentId === parentId).forEach(f => {
+        const children = sortFoldersAlpha(appData.folders.filter(f => f.parentId === parentId));
+        children.forEach(f => {
           const fullLabel = `${prefix}${f.icon || '✦'} ${f.name}`;
           if (!q || f.name.toLowerCase().includes(q)) {
             const opt = document.createElement('option');
@@ -1532,7 +1538,7 @@
       populateFolderSelect(document.getElementById('item-folder'), false);
       document.getElementById('item-modal-title').textContent = prefill && prefill.id ? 'Modifier le produit' : 'Ajouter un produit';
       document.getElementById('item-id').value = prefill?.id || '';
-      document.getElementById('item-folder').value = prefill?.folderId || (selectedFolderId !== 'all' ? selectedFolderId : (appData.folders[0]?.id || ''));
+      document.getElementById('item-folder').value = prefill?.folderId || (selectedFolderId !== 'all' ? selectedFolderId : (sortFoldersAlpha(appData.folders)[0]?.id || ''));
       document.getElementById('item-title').value = prefill?.title || '';
       document.getElementById('item-price').value = prefill?.price || '';
       document.getElementById('item-store').value = prefill?.store || '';
