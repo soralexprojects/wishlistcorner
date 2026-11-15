@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" data-palette="sakura-dark">
+<html lang="fr" data-palette="paper-dust">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,26 +7,53 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500;1,600&family=La+Belle+Aurore&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Palette 1 : Sakura Nocturne */
-    :root, [data-palette="sakura-dark"] {
+    /* Palette par défaut : Carnet Poudré Feutré (Sable rosé soutenu, Lin chaud & Prune sourd) */
+    :root, [data-palette="paper-dust"] {
+      --bg: #DDD0C8;            /* Fond papier sable-taupe poudré plus soutenu */
+      --surface: #EFE7E1;       /* Panneaux lin poudré */
+      --surface-alt: #E5D9D1;   /* Survol / barres secondaires */
+      --card-bg: #F6F0EC;       /* Cartes papier épais */
+      --card-hover: #FCF9F7;
+      --pill-bg: #E3D6CE;
+      --input-bg: #E8DDD6;
+      --accent: #7A5F72;        /* Mauve prune sourd */
+      --accent-light: #3B2836;  /* Prune encre profond pour les titres */
+      --accent-muted: #987D8F;
+      --btn-primary-text: #FAF6F3;
+      --text: #33242E;
+      --text-soft: #6C5665;
+      --border: rgba(59, 40, 54, 0.14);
+      --border-strong: rgba(59, 40, 54, 0.26);
+      --line-art: rgba(59, 40, 54, 0.08);
+      --paper-shadow: 0 10px 26px -8px rgba(45, 30, 40, 0.14), 0 2px 6px -1px rgba(45, 30, 40, 0.07);
+      --card-shadow: 0 6px 18px -6px rgba(45, 30, 40, 0.12);
+      --photo-tint: rgba(221, 208, 200, 0.05);
+    }
+
+    /* Palette 2 : Sakura Nocturne */
+    [data-palette="sakura-dark"] {
       --bg: #16131F;
       --surface: #201B2B;
       --surface-alt: #2B2438;
       --card-bg: #231E2E;
       --card-hover: #2E273D;
       --pill-bg: #352D44;
-      --accent: #C1A0AC;        /* Decanting */
-      --accent-light: #F0D9E4;  /* Mountain Heather */
-      --accent-muted: #806C79;  /* Moonscape */
+      --input-bg: #181522;
+      --accent: #C1A0AC;
+      --accent-light: #F0D9E4;
+      --accent-muted: #806C79;
+      --btn-primary-text: #16131F;
       --text: #F0D9E4;
       --text-soft: #C1A0AC;
       --border: rgba(240, 217, 228, 0.13);
       --border-strong: rgba(240, 217, 228, 0.26);
       --line-art: rgba(240, 217, 228, 0.06);
-      --photo-tint: rgba(22, 19, 31, 0.14);
+      --paper-shadow: 0 14px 32px -10px rgba(0, 0, 0, 0.45);
+      --card-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.35);
+      --photo-tint: rgba(22, 19, 31, 0.12);
     }
 
-    /* Palette 2 : Améthyste Velours */
+    /* Palette 3 : Améthyste Velours */
     [data-palette="amethyst-dark"] {
       --bg: #1B0E28;
       --surface: #28113C;
@@ -34,34 +61,19 @@
       --card-bg: #2A123F;
       --card-hover: #381B54;
       --pill-bg: #4B1F6F;
+      --input-bg: #1D102B;
       --accent: #C686DD;
       --accent-light: #F1EDF7;
       --accent-muted: #9C86B9;
+      --btn-primary-text: #1B0E28;
       --text: #F1EDF7;
       --text-soft: #C686DD;
       --border: rgba(241, 237, 247, 0.14);
       --border-strong: rgba(241, 237, 247, 0.28);
       --line-art: rgba(241, 237, 247, 0.06);
-      --photo-tint: rgba(27, 14, 40, 0.14);
-    }
-
-    /* Palette 3 : Carnet Poudré */
-    [data-palette="paper-light"] {
-      --bg: #EFE7E0;
-      --surface: #FAF6F2;
-      --surface-alt: #EAE0D8;
-      --card-bg: #FAF6F2;
-      --card-hover: #FFFFFF;
-      --pill-bg: #E5DAD1;
-      --accent: #806C79;
-      --accent-light: #2A123F;
-      --accent-muted: #9C86B9;
-      --text: #261F27;
-      --text-soft: #6E5D69;
-      --border: rgba(38, 31, 39, 0.12);
-      --border-strong: rgba(38, 31, 39, 0.24);
-      --line-art: rgba(38, 31, 39, 0.06);
-      --photo-tint: rgba(239, 231, 224, 0.08);
+      --paper-shadow: 0 14px 32px -10px rgba(0, 0, 0, 0.45);
+      --card-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.35);
+      --photo-tint: rgba(27, 14, 40, 0.12);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -78,15 +90,15 @@
       transition: background-color 0.25s ease, color 0.25s ease;
     }
 
-    /* Grain papier tactile mat */
+    /* Grain papier coton tactile */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: 0;
-      opacity: 0.42;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.18'/%3E%3C/svg%3E");
+      opacity: 0.48;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.22'/%3E%3C/svg%3E");
     }
 
     .bg-ornaments {
@@ -106,7 +118,7 @@
       position: relative;
       z-index: 10;
       display: none;
-      background: var(--surface-alt);
+      background: var(--surface);
       border-bottom: 1px solid var(--border-strong);
       color: var(--text);
       padding: 10px 24px;
@@ -115,6 +127,7 @@
       justify-content: space-between;
       flex-wrap: wrap;
       font-size: 0.83rem;
+      box-shadow: var(--card-shadow);
     }
     #admin-bar.active { display: flex; }
     .admin-actions { display: flex; gap: 8px; flex-wrap: wrap; }
@@ -134,15 +147,16 @@
       flex: 1;
     }
 
-    /* En-tête + Bannière Éditoriale */
+    /* En-tête + Bannière sans filtre étouffant */
     .hero-card {
       background: var(--surface);
       border: 1px solid var(--border-strong);
       border-radius: 24px;
       overflow: hidden;
+      box-shadow: var(--paper-shadow);
     }
     .hero-banner {
-      height: 132px;
+      height: 160px;
       width: 100%;
       position: relative;
       background-color: var(--surface-alt);
@@ -150,9 +164,9 @@
       background-position: center;
       border-bottom: 1px solid var(--border);
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: space-between;
-      padding: 0 32px;
+      padding: 18px 28px;
       overflow: hidden;
     }
     .hero-banner.default-art {
@@ -160,35 +174,44 @@
         repeating-linear-gradient(45deg, var(--line-art) 0, var(--line-art) 1px, transparent 0, transparent 28px),
         repeating-linear-gradient(-45deg, var(--line-art) 0, var(--line-art) 1px, transparent 0, transparent 28px);
     }
-    .hero-banner-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(22, 19, 31, 0.78) 0%, rgba(22, 19, 31, 0.35) 55%, rgba(22, 19, 31, 0.65) 100%);
-    }
-    [data-palette="paper-light"] .hero-banner-overlay {
-      background: linear-gradient(90deg, rgba(250, 246, 242, 0.88) 0%, rgba(250, 246, 242, 0.45) 100%);
-    }
+    /* Aucun voile sombre sur l'image : uniquement des badges lisibles autour du texte */
     .hero-quote {
       position: relative;
       z-index: 1;
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 1.45rem;
+      font-size: 1.35rem;
+      font-weight: 600;
       color: var(--accent-light);
+      background: rgba(246, 240, 236, 0.86);
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--border-strong);
+      padding: 5px 16px;
+      border-radius: 99px;
     }
+    [data-palette="sakura-dark"] .hero-quote,
+    [data-palette="amethyst-dark"] .hero-quote {
+      background: rgba(22, 19, 31, 0.78);
+    }
+
     .hero-tag {
       position: relative;
       z-index: 1;
       font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-soft);
+      letter-spacing: 0.16em;
+      font-weight: 700;
+      color: var(--accent-light);
       border: 1px solid var(--border-strong);
-      background: rgba(22, 19, 31, 0.75);
+      background: rgba(246, 240, 236, 0.86);
+      backdrop-filter: blur(6px);
       padding: 6px 14px;
       border-radius: 99px;
     }
-    [data-palette="paper-light"] .hero-tag { background: var(--surface); }
+    [data-palette="sakura-dark"] .hero-tag,
+    [data-palette="amethyst-dark"] .hero-tag {
+      background: rgba(22, 19, 31, 0.78);
+    }
 
     .header-bar {
       padding: 16px 28px;
@@ -227,16 +250,17 @@
       border-radius: 99px;
       font-family: inherit;
       font-size: 0.84rem;
-      background: var(--bg);
+      background: var(--input-bg);
       color: var(--text);
       outline: none;
       transition: 0.15s;
     }
+    input::placeholder { color: var(--text-soft); opacity: 0.8; }
     dialog input[type="text"], dialog input[type="number"], dialog input[type="url"], dialog input[type="password"], dialog select {
       border-radius: 12px;
       width: 100%;
     }
-    input:focus, select:focus { border-color: var(--accent); }
+    input:focus, select:focus { border-color: var(--accent); background: var(--card-bg); }
 
     .btn {
       padding: 8px 15px;
@@ -251,10 +275,10 @@
       transition: 0.15s;
       display: inline-flex; align-items: center; gap: 6px;
     }
-    .btn:hover { border-color: var(--accent); background: var(--surface-alt); }
+    .btn:hover { border-color: var(--accent); background: var(--card-bg); }
     .btn-primary {
       background: var(--accent);
-      color: #16131F;
+      color: var(--btn-primary-text);
       border-color: var(--accent);
       font-weight: 700;
     }
@@ -276,6 +300,7 @@
       padding: 20px 14px;
       position: sticky;
       top: 18px;
+      box-shadow: var(--paper-shadow);
     }
     .sidebar-header {
       display: flex;
@@ -309,16 +334,17 @@
     }
     .tree-item:hover { background: var(--surface-alt); }
     .tree-item.active {
-      background: var(--pill-bg);
+      background: var(--card-bg);
       border-color: var(--border-strong);
       color: var(--accent-light);
       font-weight: 700;
+      box-shadow: 0 2px 8px rgba(45, 30, 40, 0.06);
     }
     .tree-left { display: flex; align-items: center; gap: 9px; overflow: hidden; }
     .tree-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .count-pill {
       font-size: 0.72rem;
-      background: var(--bg);
+      background: var(--input-bg);
       color: var(--text-soft);
       border: 1px solid var(--border);
       padding: 2px 8px;
@@ -327,12 +353,12 @@
     }
     .tree-item.active .count-pill {
       background: var(--accent);
-      color: #16131F;
+      color: var(--btn-primary-text);
       border-color: var(--accent);
     }
     .tree-children {
       margin-left: 15px;
-      border-left: 1px solid var(--border);
+      border-left: 1px solid var(--border-strong);
       padding-left: 8px;
       margin-bottom: 4px;
     }
@@ -341,7 +367,7 @@
     .mini-icon-btn {
       background: none; border: none; cursor: pointer; font-size: 0.78rem; padding: 2px 5px; border-radius: 6px; color: var(--text);
     }
-    .mini-icon-btn:hover { background: var(--bg); }
+    .mini-icon-btn:hover { background: var(--pill-bg); }
 
     /* Panneau Droit */
     .main-panel {
@@ -352,6 +378,7 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
+      box-shadow: var(--paper-shadow);
     }
 
     .toolbar-row {
@@ -367,7 +394,7 @@
     .filter-pill {
       padding: 6px 14px;
       border-radius: 99px;
-      background: var(--bg);
+      background: var(--input-bg);
       border: 1px solid var(--border);
       color: var(--text-soft);
       font-size: 0.8rem;
@@ -378,12 +405,12 @@
     .filter-pill:hover { border-color: var(--accent); color: var(--text); }
     .filter-pill.active {
       background: var(--accent);
-      color: #16131F;
+      color: var(--btn-primary-text);
       border-color: var(--accent);
       font-weight: 700;
     }
 
-    /* Section Cartes Collections (façon "My Boards" sur Hellenaw) */
+    /* Section Cartes Collections */
     .boards-section {
       display: flex;
       flex-direction: column;
@@ -396,7 +423,7 @@
     }
     .section-heading h3 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.45rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: var(--accent-light);
       white-space: nowrap;
@@ -412,7 +439,7 @@
       gap: 14px;
     }
     .board-card {
-      background: var(--bg);
+      background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 8px;
@@ -422,11 +449,12 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
+      box-shadow: var(--card-shadow);
     }
     .board-card:hover {
       border-color: var(--accent);
       transform: translateY(-2px);
-      background: var(--surface-alt);
+      background: var(--card-hover);
     }
     .board-cover {
       width: 100%;
@@ -444,13 +472,9 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.88) saturate(0.85);
       transition: 0.25s ease;
     }
-    .board-card:hover .board-cover img {
-      filter: brightness(1) saturate(1);
-      transform: scale(1.03);
-    }
+    .board-card:hover .board-cover img { transform: scale(1.03); }
     .board-cover-placeholder {
       position: absolute;
       inset: 0;
@@ -486,9 +510,9 @@
       font-weight: 700;
       color: var(--accent-light);
     }
-    #items-counter { font-size: 0.82rem; color: var(--text-soft); font-weight: 500; }
+    #items-counter { font-size: 0.82rem; color: var(--text-soft); font-weight: 600; }
 
-    /* Grille Produits Uniforme + Harmonisation des photos */
+    /* Grille Produits Uniforme (Épaisseur papier + carrés 1:1 verrouillés) */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
@@ -498,13 +522,14 @@
     .card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      outline: 1px solid rgba(240, 217, 228, 0.04);
+      outline: 1px solid rgba(59, 40, 54, 0.05);
       outline-offset: -5px;
       border-radius: 18px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       height: 100%;
+      box-shadow: var(--card-shadow);
       transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
       cursor: pointer;
     }
@@ -518,10 +543,9 @@
       width: 100%;
       height: 0;
       padding-bottom: 100%;
-      background: var(--bg);
+      background: var(--card-bg);
       overflow: hidden;
     }
-    /* Filtre d'harmonisation pour fondre les photos e-commerce criardes dans l'ambiance sombre */
     .card-img-wrap img {
       position: absolute;
       top: 10px;
@@ -531,49 +555,31 @@
       object-fit: cover;
       object-position: center;
       border-radius: 12px;
-      border: 1px solid var(--border-strong);
-      filter: brightness(0.91) contrast(1.03) saturate(0.84);
-      transition: filter 0.25s ease, transform 0.3s ease;
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease;
     }
-    /* Voile atmosphérique très léger sur l'image au repos */
-    .card-img-wrap::after {
-      content: "";
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      width: calc(100% - 20px);
-      height: calc(100% - 10px);
-      border-radius: 12px;
-      background: var(--photo-tint);
-      pointer-events: none;
-      transition: opacity 0.25s ease;
-    }
-    .card:hover .card-img-wrap img {
-      filter: brightness(1) contrast(1) saturate(1);
-    }
-    .card:hover .card-img-wrap::after {
-      opacity: 0;
-    }
+    .card:hover .card-img-wrap img { transform: scale(1.02); }
 
     .price-pill {
       position: absolute;
       bottom: 10px;
       left: 18px;
       z-index: 2;
-      background: var(--bg);
+      background: var(--card-bg);
       border: 1px solid var(--border-strong);
       color: var(--accent-light);
       font-weight: 700;
       font-size: 0.8rem;
       padding: 4px 10px;
       border-radius: 99px;
+      box-shadow: 0 2px 6px rgba(45, 30, 40, 0.12);
     }
     .fav-pill {
       position: absolute;
       top: 18px;
       right: 18px;
       z-index: 2;
-      background: var(--bg);
+      background: var(--card-bg);
       border: 1px solid var(--border-strong);
       color: var(--accent-light);
       width: 30px;
@@ -582,6 +588,7 @@
       display: grid;
       place-items: center;
       font-size: 0.82rem;
+      box-shadow: 0 2px 6px rgba(45, 30, 40, 0.12);
     }
 
     .card-body {
@@ -615,7 +622,7 @@
     .card-note {
       font-size: 0.78rem;
       color: var(--text-soft);
-      background: var(--bg);
+      background: var(--input-bg);
       border: 1px solid var(--border);
       padding: 6px 9px;
       border-radius: 10px;
@@ -646,13 +653,13 @@
     }
     .visit-btn:hover {
       background: var(--accent);
-      color: #16131F;
+      color: var(--btn-primary-text);
       border-color: var(--accent);
     }
     .card-admin-actions { display: none; gap: 4px; }
     body.is-admin .card-admin-actions { display: flex; }
 
-    /* Footer Éditorial (ferme visuellement la page) */
+    /* Footer Éditorial */
     footer {
       position: relative;
       z-index: 1;
@@ -663,7 +670,7 @@
     }
     .footer-inner {
       background: var(--surface);
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-strong);
       border-radius: 18px;
       padding: 14px 26px;
       display: flex;
@@ -673,6 +680,7 @@
       gap: 10px;
       font-size: 0.8rem;
       color: var(--text-soft);
+      box-shadow: var(--card-shadow);
     }
 
     /* Modals */
@@ -685,8 +693,9 @@
       max-width: 490px;
       width: 92%;
       margin: auto;
+      box-shadow: var(--paper-shadow);
     }
-    dialog::backdrop { background: rgba(12, 10, 16, 0.78); }
+    dialog::backdrop { background: rgba(38, 26, 34, 0.55); backdrop-filter: blur(3px); }
     .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
     .form-group label { font-size: 0.8rem; font-weight: 600; color: var(--text-soft); }
     .modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 18px; }
@@ -699,14 +708,14 @@
       border-radius: 14px;
       border: 1px solid var(--border);
       margin-bottom: 14px;
-      background: var(--bg);
+      background: var(--card-bg);
     }
 
     @media (max-width: 840px) {
       .layout { grid-template-columns: 1fr; }
       aside { position: static; }
-      .hero-banner { height: 96px; padding: 0 18px; }
-      .hero-quote { font-size: 1.15rem; }
+      .hero-banner { height: 115px; padding: 14px 18px; }
+      .hero-quote { font-size: 1.1rem; }
     }
   </style>
 </head>
@@ -714,10 +723,10 @@
 
   <div class="bg-ornaments" aria-hidden="true">
     <svg viewBox="0 0 1440 900" fill="none" preserveAspectRatio="xMidYMid slice">
-      <circle cx="1320" cy="140" r="340" stroke="var(--line-art)" stroke-width="1.2" />
-      <circle cx="1320" cy="140" r="240" stroke="var(--line-art)" stroke-width="1" stroke-dasharray="6 8" />
-      <circle cx="110" cy="780" r="380" stroke="var(--line-art)" stroke-width="1.2" />
-      <path d="M-50 420 Q 420 260 880 480 T 1520 380" stroke="var(--line-art)" stroke-width="1" />
+      <circle cx="1320" cy="140" r="340" stroke="var(--line-art)" stroke-width="1.3" />
+      <circle cx="1320" cy="140" r="240" stroke="var(--line-art)" stroke-width="1.1" stroke-dasharray="6 8" />
+      <circle cx="110" cy="780" r="380" stroke="var(--line-art)" stroke-width="1.3" />
+      <path d="M-50 420 Q 420 260 880 480 T 1520 380" stroke="var(--line-art)" stroke-width="1.1" />
     </svg>
   </div>
 
@@ -733,8 +742,7 @@
 
   <div class="shell">
     <div class="hero-card">
-      <div class="hero-banner default-art" id="hero-banner">
-        <div class="hero-banner-overlay"></div>
+      <div class="hero-banner" id="hero-banner">
         <div class="hero-quote" id="hero-quote">« Wish upon a star. »</div>
         <div class="hero-tag">✦ Wishlist Collection</div>
       </div>
@@ -757,9 +765,9 @@
             <option value="price-desc">Prix décroissant</option>
           </select>
           <select id="palette-switcher" onchange="switchPalette(this.value)" title="Changer la palette">
+            <option value="paper-dust">📜 Carnet Poudré</option>
             <option value="sakura-dark">🌙 Sakura Nocturne</option>
             <option value="amethyst-dark">🔮 Améthyste Velours</option>
-            <option value="paper-light">📜 Carnet Poudré</option>
           </select>
         </div>
       </div>
@@ -784,7 +792,7 @@
           <div id="items-counter"></div>
         </div>
 
-        <!-- Cartes visuelles des Collections / Sous-collections -->
+        <!-- Cartes visuelles des Collections -->
         <div class="boards-section" id="boards-section">
           <div class="section-heading">
             <h3 id="boards-heading">Mes Collections ✦</h3>
@@ -917,15 +925,15 @@
         <input type="text" id="cfg-quote" placeholder="« Wish upon a star. »" />
       </div>
       <div class="form-group">
-        <label>Image de fond de la bannière (URL optionnelle)</label>
-        <input type="url" id="cfg-banner" placeholder="https://... (laisser vide pour le motif géométrique)" />
+        <label>Image de fond de la bannière (URL)</label>
+        <input type="url" id="cfg-banner" placeholder="https://..." />
       </div>
       <div class="form-group">
         <label>Palette par défaut pour tes visiteurs</label>
         <select id="cfg-palette">
+          <option value="paper-dust">Carnet Poudré (Sable rosé & Prune sourd)</option>
           <option value="sakura-dark">Sakura Nocturne (Prune profond & Rose bruyère)</option>
           <option value="amethyst-dark">Améthyste Velours (Violet impérial & Lilas)</option>
-          <option value="paper-light">Carnet Poudré (Crème & Mauve sourd)</option>
         </select>
       </div>
       <div class="modal-actions">
@@ -962,6 +970,7 @@
   </dialog>
 
   <script>
+    const DEFAULT_BANNER = "https://i.pinimg.com/1200x/92/4a/46/924a4673fd6e48c1254e32d51c874038.jpg";
     let appData = { config: {}, folders: [], items: [] };
     let selectedFolderId = 'all';
     let quickFilter = 'all';
@@ -1071,19 +1080,20 @@
       const c = appData.config || {};
       document.getElementById('site-title').textContent = c.title || 'WishlistCorner.';
       document.title = c.title || 'WishlistCorner.';
-      document.getElementById('site-subtitle').textContent = c.subtitle || '';
+      document.getElementById('site-subtitle').textContent = c.subtitle || 'I wish, I wish, I wish.';
       document.getElementById('hero-quote').textContent = c.quote || '« Wish upon a star. »';
 
       const bannerEl = document.getElementById('hero-banner');
-      if (c.bannerUrl) {
-        bannerEl.style.backgroundImage = `url('${c.bannerUrl}')`;
+      const bannerImg = c.bannerUrl || DEFAULT_BANNER;
+      if (bannerImg) {
+        bannerEl.style.backgroundImage = `url('${bannerImg}')`;
         bannerEl.classList.remove('default-art');
       } else {
         bannerEl.style.backgroundImage = '';
         bannerEl.classList.add('default-art');
       }
 
-      const pal = c.palette || 'sakura-dark';
+      const pal = (c.palette && c.palette !== 'paper-light') ? c.palette : 'paper-dust';
       switchPalette(pal);
     }
 
@@ -1159,7 +1169,6 @@
       buildTree(null, container);
     }
 
-    /* Génère les cartes visuelles des collections avec miniature automatique */
     function renderVisualBoards() {
       const section = document.getElementById('boards-section');
       const grid = document.getElementById('boards-grid');
@@ -1392,8 +1401,8 @@
       document.getElementById('cfg-title').value = appData.config.title || 'WishlistCorner.';
       document.getElementById('cfg-subtitle').value = appData.config.subtitle || '';
       document.getElementById('cfg-quote').value = appData.config.quote || '« Wish upon a star. »';
-      document.getElementById('cfg-banner').value = appData.config.bannerUrl || '';
-      document.getElementById('cfg-palette').value = appData.config.palette || 'sakura-dark';
+      document.getElementById('cfg-banner').value = appData.config.bannerUrl || DEFAULT_BANNER;
+      document.getElementById('cfg-palette').value = (appData.config.palette && appData.config.palette !== 'paper-light') ? appData.config.palette : 'paper-dust';
       document.getElementById('theme-modal').showModal();
     }
 
