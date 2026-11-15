@@ -894,13 +894,24 @@
   ],
   "items": [
     {
-      "id": "item-1794781937802",
-      "folderId": "f-1794776028110",
-      "title": "Gel Polish VSP Sparkling Christmas Tree",
+      "id": "item-1794781966921",
+      "folderId": "f-1794775957366",
+      "title": "Gel Polish VSP Santa's Kiss",
       "price": 7.99,
       "store": "Ongle24",
-      "url": "https://ongle24.com/products/gel-polish-sparkling-christmas-tree",
-      "image": "http://ongle24.com/cdn/shop/files/6456_GelPolish-Sparkling-Christmas-Tree_01.jpg?v=1784816070&width=2048",
+      "url": "https://ongle24.com/products/gel-polish-vsp-santas-kiss",
+      "image": "http://ongle24.com/cdn/shop/files/6920_GelPolish-Santa_s-Kiss_01.jpg?v=1793793188&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
+      "id": "item-1794781895316",
+      "folderId": "f-1794775957366",
+      "title": "Gel Polish VSP Sparkling Fireplace",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-sparkling-fireplace",
+      "image": "http://ongle24.com/cdn/shop/files/6455_GelPolish-Sparkling-Fireplace_01.jpg?v=1784816030&width=2048",
       "note": "",
       "priority": "normal"
     },
