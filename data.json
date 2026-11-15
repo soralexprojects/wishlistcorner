@@ -22,12 +22,6 @@
       "parentId": "f-beaute"
     },
     {
-      "id": "f-gels",
-      "name": "Gels UV & Couleurs",
-      "icon": "🎨",
-      "parentId": "f-ongle24"
-    },
-    {
       "id": "f-tech",
       "name": "Tech & Maison",
       "icon": "🎧",
