@@ -894,6 +894,17 @@
   ],
   "items": [
     {
+      "id": "item-1794781895316",
+      "folderId": "f-1794775957366",
+      "title": "Gel Polish VSP Sparkling Fireplace",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-sparkling-fireplace",
+      "image": "http://ongle24.com/cdn/shop/files/6455_GelPolish-Sparkling-Fireplace_01.jpg?v=1784816030&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1794781497214",
       "folderId": "f-1794775957366",
       "title": "Gel Polish VSP Merry Mirage",
