@@ -28,9 +28,8 @@
       flex-direction: column;
     }
 
-    /* Header */
     header {
-      background: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.88);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       padding: 14px 24px;
@@ -53,7 +52,7 @@
     .brand p { font-size: 0.8rem; color: var(--muted); }
 
     .controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-    input[type="search"], select, input[type="text"], input[type="number"], input[type="url"] {
+    input[type="search"], select, input[type="text"], input[type="number"], input[type="url"], input[type="password"] {
       padding: 9px 13px;
       border: 1px solid var(--border);
       border-radius: 10px;
@@ -65,7 +64,6 @@
     }
     input:focus, select:focus { border-color: var(--accent); }
 
-    /* Admin Toolbar */
     #admin-bar {
       display: none;
       background: #18181b;
@@ -79,6 +77,7 @@
     }
     #admin-bar.active { display: flex; }
     .admin-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    #sync-status { font-weight: 600; color: #a7f3d0; }
 
     .btn {
       padding: 8px 14px;
@@ -99,7 +98,6 @@
     .btn-dark { background: #27272a; color: #fff; border-color: #3f3f46; }
     .btn-dark:hover { background: #3f3f46; }
 
-    /* Layout */
     .layout {
       display: grid;
       grid-template-columns: 270px 1fr;
@@ -109,7 +107,6 @@
       margin: 0 auto;
     }
 
-    /* Sidebar Arborescence */
     aside {
       border-right: 1px solid var(--border);
       padding: 20px 14px;
@@ -123,9 +120,6 @@
       font-weight: 700;
       margin-bottom: 10px;
       padding: 0 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
     .tree-item {
       display: flex;
@@ -164,7 +158,6 @@
     }
     .mini-icon-btn:hover { background: rgba(0,0,0,0.08); }
 
-    /* Main Content & Cards (Style Chestr) */
     main { padding: 24px; }
     .breadcrumb {
       font-size: 0.85rem; color: var(--muted); margin-bottom: 18px;
@@ -185,7 +178,6 @@
       display: flex;
       flex-direction: column;
       transition: transform 0.18s ease, box-shadow 0.18s ease;
-      position: relative;
     }
     .card:hover {
       transform: translateY(-3px);
@@ -277,7 +269,6 @@
     .card-admin-actions { display: none; gap: 4px; }
     body.is-admin .card-admin-actions { display: flex; }
 
-    /* Modals */
     dialog {
       border: none;
       border-radius: 18px;
@@ -300,15 +291,13 @@
 </head>
 <body>
 
-  <!-- Barre Admin (visible uniquement avec ?admin=1 ou triple clic sur le logo) -->
   <div id="admin-bar">
-    <div>🛠️ <strong>Mode Gestion WishlistCorner</strong> — Tes modifications sont sauvées dans ton navigateur jusqu'à l'export.</div>
+    <div>🛠️ <strong>Mode Gestion</strong> — <span id="sync-status">Prêt</span></div>
     <div class="admin-actions">
       <button class="btn btn-primary" onclick="openItemModal()">+ Ajouter un produit</button>
       <button class="btn btn-dark" onclick="openFolderModal(null)">+ Nouveau dossier</button>
       <button class="btn btn-dark" onclick="openThemeModal()">🎨 Personnaliser</button>
-      <button class="btn" onclick="exportDataJson()">💾 Télécharger data.json</button>
-      <button class="btn btn-dark" onclick="resetLocalDraft()">↺ Recharger GitHub</button>
+      <button class="btn" onclick="openGithubModal()">🔑 Connexion GitHub</button>
     </div>
   </div>
 
@@ -334,9 +323,7 @@
 
   <div class="layout">
     <aside>
-      <div class="sidebar-title">
-        <span>Collections</span>
-      </div>
+      <div class="sidebar-title"><span>Collections</span></div>
       <div id="folder-tree"></div>
     </aside>
 
@@ -393,7 +380,7 @@
       </div>
       <div class="modal-actions">
         <button type="button" class="btn" onclick="document.getElementById('item-modal').close()">Annuler</button>
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <button type="submit" class="btn btn-primary">Enregistrer & Publier</button>
       </div>
     </form>
   </dialog>
@@ -402,7 +389,6 @@
   <dialog id="folder-modal">
     <h3 style="margin-bottom:14px;">Dossier / Sous-dossier</h3>
     <form onsubmit="saveFolder(event)">
-      <input type="hidden" id="folder-parent-id" />
       <div class="form-group">
         <label>Dossier parent</label>
         <select id="folder-parent-select"></select>
@@ -419,7 +405,7 @@
       </div>
       <div class="modal-actions">
         <button type="button" class="btn" onclick="document.getElementById('folder-modal').close()">Annuler</button>
-        <button type="submit" class="btn btn-primary">Créer</button>
+        <button type="submit" class="btn btn-primary">Créer & Publier</button>
       </div>
     </form>
   </dialog>
@@ -448,7 +434,33 @@
       </div>
       <div class="modal-actions">
         <button type="button" class="btn" onclick="document.getElementById('theme-modal').close()">Annuler</button>
-        <button type="submit" class="btn btn-primary">Appliquer</button>
+        <button type="submit" class="btn btn-primary">Appliquer & Publier</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Modal Connexion GitHub -->
+  <dialog id="github-modal">
+    <h3 style="margin-bottom:8px;">Publication automatique sur GitHub</h3>
+    <p style="font-size:0.82rem; color:var(--muted); margin-bottom:14px;">
+      Renseigne ces infos une seule fois pour que chaque produit ajouté soit publié automatiquement en ligne sans télécharger de fichier.
+    </p>
+    <form onsubmit="saveGithubConfig(event)">
+      <div class="form-group">
+        <label>Ton pseudo GitHub</label>
+        <input type="text" id="gh-owner" required placeholder="Ex: ollie-dev" />
+      </div>
+      <div class="form-group">
+        <label>Nom du dépôt (Repository)</label>
+        <input type="text" id="gh-repo" required value="wishlistcorner" />
+      </div>
+      <div class="form-group">
+        <label>Token d'accès personnel (PAT)</label>
+        <input type="password" id="gh-token" required placeholder="github_pat_..." />
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn" onclick="document.getElementById('github-modal').close()">Fermer</button>
+        <button type="submit" class="btn btn-primary">Enregistrer la connexion</button>
       </div>
     </form>
   </dialog>
@@ -460,11 +472,8 @@
 
     async function init() {
       const params = new URLSearchParams(window.location.search);
-      if (params.get('admin') === '1' || params.has('add_url')) {
-        enableAdmin();
-      }
+      if (params.get('admin') === '1' || params.has('add_url')) enableAdmin();
 
-      // Triple clic sur le logo pour activer le mode admin discrètement
       let clicks = 0;
       document.getElementById('brand-logo').addEventListener('click', () => {
         clicks++;
@@ -472,23 +481,18 @@
         if (clicks === 3) enableAdmin();
       });
 
-      const localDraft = localStorage.getItem('wishlistcorner_draft');
-      if (isAdmin && localDraft) {
-        appData = JSON.parse(localDraft);
-      } else {
-        try {
-          const res = await fetch('data.json?t=' + Date.now());
-          appData = await res.json();
-        } catch (e) {
-          console.error('Erreur chargement data.json', e);
-        }
+      try {
+        const res = await fetch('data.json?t=' + Date.now());
+        appData = await res.json();
+      } catch (e) {
+        console.error('Erreur chargement data.json', e);
       }
 
       applyTheme();
       renderFolders();
       renderItems();
+      updateSyncBadge();
 
-      // Si ouvert depuis le Bookmarklet d'importation
       if (params.has('add_url')) {
         openItemModal({
           url: params.get('add_url') || '',
@@ -507,14 +511,61 @@
       document.getElementById('admin-bar').classList.add('active');
     }
 
-    function persistDraft() {
-      localStorage.setItem('wishlistcorner_draft', JSON.stringify(appData));
+    function getGhConfig() {
+      return JSON.parse(localStorage.getItem('wc_gh_config') || 'null');
     }
 
-    function resetLocalDraft() {
-      if (confirm('Recharger la version publiée sur GitHub et effacer les modifications non exportées ?')) {
-        localStorage.removeItem('wishlistcorner_draft');
-        location.reload();
+    function updateSyncBadge(msg = null) {
+      const el = document.getElementById('sync-status');
+      if (msg) { el.textContent = msg; return; }
+      const cfg = getGhConfig();
+      el.textContent = cfg && cfg.token ? '🟢 Connecté à GitHub (publication auto)' : '🟠 Clique sur "Connexion GitHub" pour activer la sauvegarde auto';
+    }
+
+    // Publication automatique sur GitHub via API
+    async function pushToGithub() {
+      const cfg = getGhConfig();
+      if (!cfg || !cfg.token) {
+        alert('Configure d’abord ta connexion GitHub en cliquant sur "🔑 Connexion GitHub" dans la barre noire en haut.');
+        openGithubModal();
+        return;
+      }
+
+      updateSyncBadge('⏳ Publication en cours sur GitHub...');
+      const apiUrl = `https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/data.json`;
+      const headers = {
+        'Authorization': `Bearer ${cfg.token}`,
+        'Accept': 'application/vnd.github+json',
+        'Content-Type': 'application/json'
+      };
+
+      try {
+        // 1. Récupérer le SHA actuel de data.json
+        const getRes = await fetch(apiUrl, { headers });
+        if (!getRes.ok) throw new Error('Impossible de lire data.json sur GitHub (vérifie le pseudo/dépôt/token)');
+        const fileInfo = await getRes.json();
+
+        // 2. Encoder le JSON en Base64 compatible UTF-8 (accents, emojis)
+        const jsonStr = JSON.stringify(appData, null, 2);
+        const contentBase64 = btoa(unescape(encodeURIComponent(jsonStr)));
+
+        // 3. Envoyer la mise à jour
+        const putRes = await fetch(apiUrl, {
+          method: 'PUT',
+          headers,
+          body: JSON.stringify({
+            message: 'Mise à jour WishlistCorner',
+            content: contentBase64,
+            sha: fileInfo.sha
+          })
+        });
+
+        if (!putRes.ok) throw new Error('Erreur lors de l’écriture sur GitHub');
+        updateSyncBadge('✅ Publié en ligne ! (visible sous 30 sec)');
+      } catch (err) {
+        console.error(err);
+        updateSyncBadge('❌ Erreur : ' + err.message);
+        alert('Erreur de publication : ' + err.message);
       }
     }
 
@@ -527,12 +578,9 @@
         document.documentElement.style.setProperty('--accent', c.accentColor);
         document.documentElement.style.setProperty('--accent-soft', c.accentColor + '18');
       }
-      if (c.bgColor) {
-        document.documentElement.style.setProperty('--bg', c.bgColor);
-      }
+      if (c.bgColor) document.documentElement.style.setProperty('--bg', c.bgColor);
     }
 
-    // Récupère un dossier et tous ses sous-dossiers récursivement
     function getDescendantFolderIds(folderId) {
       let ids = [folderId];
       appData.folders.filter(f => f.parentId === folderId).forEach(child => {
@@ -545,7 +593,6 @@
       const container = document.getElementById('folder-tree');
       container.innerHTML = '';
 
-      // Bouton "Tout voir"
       const allEl = document.createElement('div');
       allEl.className = 'tree-item' + (selectedFolderId === 'all' ? ' active' : '');
       allEl.innerHTML = `<div class="tree-left"><span>✨</span><span class="tree-name">Tout voir</span></div><span class="count-pill">${appData.items.length}</span>`;
@@ -553,8 +600,7 @@
       container.appendChild(allEl);
 
       function buildTree(parentId, parentContainer) {
-        const children = appData.folders.filter(f => f.parentId === parentId);
-        children.forEach(folder => {
+        appData.folders.filter(f => f.parentId === parentId).forEach(folder => {
           const validIds = getDescendantFolderIds(folder.id);
           const count = appData.items.filter(i => validIds.includes(i.folderId)).length;
 
@@ -585,7 +631,6 @@
           }
         });
       }
-
       buildTree(null, container);
     }
 
@@ -648,7 +693,6 @@
       `).join('');
     }
 
-    // Fonctions Admin
     function populateFolderSelect(selectEl, includeRoot = false) {
       selectEl.innerHTML = includeRoot ? '<option value="">(Racine — Dossier principal)</option>' : '';
       function addOptions(parentId, prefix = '') {
@@ -683,7 +727,7 @@
       if (item) openItemModal(item);
     }
 
-    function saveItem(e) {
+    async function saveItem(e) {
       e.preventDefault();
       const id = document.getElementById('item-id').value;
       const obj = {
@@ -703,18 +747,18 @@
       } else {
         appData.items.unshift(obj);
       }
-      persistDraft();
       renderFolders();
       renderItems();
       document.getElementById('item-modal').close();
+      await pushToGithub();
     }
 
-    function deleteItem(id) {
+    async function deleteItem(id) {
       if (confirm('Supprimer cet article ?')) {
         appData.items = appData.items.filter(i => i.id !== id);
-        persistDraft();
         renderFolders();
         renderItems();
+        await pushToGithub();
       }
     }
 
@@ -726,7 +770,7 @@
       document.getElementById('folder-modal').showModal();
     }
 
-    function saveFolder(e) {
+    async function saveFolder(e) {
       e.preventDefault();
       const parentId = document.getElementById('folder-parent-select').value || null;
       appData.folders.push({
@@ -735,19 +779,19 @@
         icon: document.getElementById('folder-icon').value || '📁',
         parentId
       });
-      persistDraft();
       renderFolders();
       document.getElementById('folder-modal').close();
+      await pushToGithub();
     }
 
-    function deleteFolder(id) {
-      if (confirm('Supprimer ce dossier (et déplacer ses articles à la racine) ?')) {
+    async function deleteFolder(id) {
+      if (confirm('Supprimer ce dossier ?')) {
         const toDelete = getDescendantFolderIds(id);
         appData.folders = appData.folders.filter(f => !toDelete.includes(f.id));
         if (toDelete.includes(selectedFolderId)) selectedFolderId = 'all';
-        persistDraft();
         renderFolders();
         renderItems();
+        await pushToGithub();
       }
     }
 
@@ -759,23 +803,34 @@
       document.getElementById('theme-modal').showModal();
     }
 
-    function saveTheme(e) {
+    async function saveTheme(e) {
       e.preventDefault();
       appData.config.title = document.getElementById('cfg-title').value;
       appData.config.subtitle = document.getElementById('cfg-subtitle').value;
       appData.config.accentColor = document.getElementById('cfg-accent').value;
       appData.config.bgColor = document.getElementById('cfg-bg').value;
-      persistDraft();
       applyTheme();
       document.getElementById('theme-modal').close();
+      await pushToGithub();
     }
 
-    function exportDataJson() {
-      const blob = new Blob([JSON.stringify(appData, null, 2)], { type: 'application/json' });
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'data.json';
-      a.click();
+    function openGithubModal() {
+      const cfg = getGhConfig() || {};
+      document.getElementById('gh-owner').value = cfg.owner || '';
+      document.getElementById('gh-repo').value = cfg.repo || 'wishlistcorner';
+      document.getElementById('gh-token').value = cfg.token || '';
+      document.getElementById('github-modal').showModal();
+    }
+
+    function saveGithubConfig(e) {
+      e.preventDefault();
+      localStorage.setItem('wc_gh_config', JSON.stringify({
+        owner: document.getElementById('gh-owner').value.trim(),
+        repo: document.getElementById('gh-repo').value.trim(),
+        token: document.getElementById('gh-token').value.trim()
+      }));
+      updateSyncBadge();
+      document.getElementById('github-modal').close();
     }
 
     init();
