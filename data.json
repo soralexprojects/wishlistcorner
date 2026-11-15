@@ -44,6 +44,12 @@
       "name": "VSP  | Verts.",
       "icon": "✦",
       "parentId": "f-ongle24"
+    },
+    {
+      "id": "f-1794776044962",
+      "name": "VSP | Jaunes.",
+      "icon": "✦",
+      "parentId": "f-ongle24"
     }
   ],
   "items": []
