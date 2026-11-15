@@ -70,6 +70,12 @@
       "parentId": "f-1794780181994-13"
     },
     {
+      "id": "f-1794780894097-4",
+      "name": "Brainkillers.",
+      "icon": "◈",
+      "parentId": "f-1794780789852-34"
+    },
+    {
       "id": "f-1794780181994-16",
       "name": "Buffs/Pollisoirs.",
       "icon": "◈",
@@ -184,6 +190,12 @@
       "parentId": "f-beaute"
     },
     {
+      "id": "f-1794780894097-0",
+      "name": "Cozy Games.",
+      "icon": "◈",
+      "parentId": "f-1794780789852-34"
+    },
+    {
       "id": "f-1794777404011-7",
       "name": "Crystal | Argentés.",
       "icon": "◈",
@@ -290,6 +302,12 @@
       "name": "Fraises à Ponce.",
       "icon": "◈",
       "parentId": "f-1794780181994-8"
+    },
+    {
+      "id": "f-1794780894097-3",
+      "name": "Franchises.",
+      "icon": "◈",
+      "parentId": "f-1794780789852-34"
     },
     {
       "id": "f-1794780789852-1",
@@ -454,6 +472,12 @@
       "parentId": "f-1794780789852-13"
     },
     {
+      "id": "f-1794780894097-5",
+      "name": "Horror.",
+      "icon": "◈",
+      "parentId": "f-1794780789852-34"
+    },
+    {
       "id": "f-1794780181994-29",
       "name": "Huiles à Cuticules.",
       "icon": "◈",
@@ -518,6 +542,18 @@
       "name": "Jelly | Violets.",
       "icon": "◈",
       "parentId": "f-1794776226453"
+    },
+    {
+      "id": "f-1794780894097-1",
+      "name": "Jeux à Choix.",
+      "icon": "◈",
+      "parentId": "f-1794780789852-34"
+    },
+    {
+      "id": "f-1794780894097-2",
+      "name": "Jeux à Lore (histoire).",
+      "icon": "◈",
+      "parentId": "f-1794780789852-34"
     },
     {
       "id": "f-1794780789852-33",
