@@ -10,224 +10,8 @@
   },
   "folders": [
     {
-      "id": "f-beaute",
-      "name": "Onglerie.",
-      "icon": "✦",
-      "parentId": null
-    },
-    {
-      "id": "f-ongle24",
-      "name": "Gels & Vernis Semi-Permanents colorés.",
-      "icon": "✶",
-      "parentId": "f-beaute"
-    },
-    {
-      "id": "f-tech",
-      "name": "Tech.",
-      "icon": "✦",
-      "parentId": null
-    },
-    {
-      "id": "f-1794775957366",
-      "name": "VSP | Rouges.",
-      "icon": "◈",
-      "parentId": "f-1794777867129"
-    },
-    {
-      "id": "f-1794776006056",
-      "name": "VSP | Bleus.",
-      "icon": "◈",
-      "parentId": "f-1794777867129"
-    },
-    {
-      "id": "f-1794776028110",
-      "name": "VSP  | Verts.",
-      "icon": "◈",
-      "parentId": "f-1794777867129"
-    },
-    {
-      "id": "f-1794776044962",
-      "name": "VSP | Jaunes.",
-      "icon": "◈",
-      "parentId": "f-1794777867129"
-    },
-    {
-      "id": "f-1794776062981",
-      "name": "VSP | Gris.",
-      "icon": "◈",
-      "parentId": "f-1794777867129"
-    },
-    {
-      "id": "f-1794776071537",
-      "name": "VSP | Noirs.",
-      "icon": "◈",
-      "parentId": "f-1794777867129"
-    },
-    {
-      "id": "f-1794776088390",
-      "name": "VSP | Dorés.",
-      "icon": "◈",
-      "parentId": "f-1794777867129"
-    },
-    {
-      "id": "f-1794776101457",
-      "name": "VSP | Argentés.",
-      "icon": "◈",
-      "parentId": "f-1794777867129"
-    },
-    {
-      "id": "f-1794776121944",
-      "name": "VSP | Violets.",
-      "icon": "◈",
-      "parentId": "f-1794777867129"
-    },
-    {
-      "id": "f-1794776133487",
-      "name": "VSP | Oranges.",
-      "icon": "◈",
-      "parentId": "f-1794777867129"
-    },
-    {
-      "id": "f-1794776214272",
-      "name": "VSP | Crystal.",
-      "icon": "✶",
-      "parentId": "f-ongle24"
-    },
-    {
-      "id": "f-1794776226453",
-      "name": "VSP | Jelly.",
-      "icon": "✶",
-      "parentId": "f-ongle24"
-    },
-    {
-      "id": "f-1794776236845",
-      "name": "VSP | Cat-Eyes.",
-      "icon": "✶",
-      "parentId": "f-ongle24"
-    },
-    {
-      "id": "f-1794777404011-0",
-      "name": "Crystal | Rouges.",
-      "icon": "◈",
-      "parentId": "f-1794776214272"
-    },
-    {
-      "id": "f-1794777404011-1",
-      "name": "Crystal | Bleus.",
-      "icon": "◈",
-      "parentId": "f-1794776214272"
-    },
-    {
-      "id": "f-1794777404011-2",
-      "name": "Crystal | Verts.",
-      "icon": "◈",
-      "parentId": "f-1794776214272"
-    },
-    {
-      "id": "f-1794777404011-3",
-      "name": "Crystal | Jaunes.",
-      "icon": "◈",
-      "parentId": "f-1794776214272"
-    },
-    {
-      "id": "f-1794777404011-4",
-      "name": "Crystal | Gris.",
-      "icon": "◈",
-      "parentId": "f-1794776214272"
-    },
-    {
-      "id": "f-1794777404011-5",
-      "name": "Crystal | Noirs.",
-      "icon": "◈",
-      "parentId": "f-1794776214272"
-    },
-    {
-      "id": "f-1794777404011-6",
-      "name": "Crystal | Dorés.",
-      "icon": "◈",
-      "parentId": "f-1794776214272"
-    },
-    {
-      "id": "f-1794777404011-7",
-      "name": "Crystal | Argentés.",
-      "icon": "◈",
-      "parentId": "f-1794776214272"
-    },
-    {
-      "id": "f-1794777404011-8",
-      "name": "Crystal | Violets.",
-      "icon": "◈",
-      "parentId": "f-1794776214272"
-    },
-    {
-      "id": "f-1794777404011-9",
-      "name": "Crystal | Oranges.",
-      "icon": "◈",
-      "parentId": "f-1794776214272"
-    },
-    {
-      "id": "f-1794777695514-0",
-      "name": "Jelly | Rouges.",
-      "icon": "◈",
-      "parentId": "f-1794776226453"
-    },
-    {
-      "id": "f-1794777695514-1",
-      "name": "Jelly | Bleus.",
-      "icon": "◈",
-      "parentId": "f-1794776226453"
-    },
-    {
-      "id": "f-1794777695514-2",
-      "name": "Jelly | Verts.",
-      "icon": "◈",
-      "parentId": "f-1794776226453"
-    },
-    {
-      "id": "f-1794777695514-3",
-      "name": "Jelly | Jaunes.",
-      "icon": "◈",
-      "parentId": "f-1794776226453"
-    },
-    {
-      "id": "f-1794777695514-4",
-      "name": "Jelly | Gris.",
-      "icon": "◈",
-      "parentId": "f-1794776226453"
-    },
-    {
-      "id": "f-1794777695514-5",
-      "name": "Jelly | Noirs.",
-      "icon": "◈",
-      "parentId": "f-1794776226453"
-    },
-    {
-      "id": "f-1794777695514-6",
-      "name": "Jelly | Dorés.",
-      "icon": "◈",
-      "parentId": "f-1794776226453"
-    },
-    {
-      "id": "f-1794777695514-7",
-      "name": "Jelly | Argentés.",
-      "icon": "◈",
-      "parentId": "f-1794776226453"
-    },
-    {
-      "id": "f-1794777695514-8",
-      "name": "Jelly | Violets.",
-      "icon": "◈",
-      "parentId": "f-1794776226453"
-    },
-    {
-      "id": "f-1794777695514-9",
-      "name": "Jelly | Oranges.",
-      "icon": "◈",
-      "parentId": "f-1794776226453"
-    },
-    {
-      "id": "f-1794777765750-0",
-      "name": "Cat-Eyes | Rouges.",
+      "id": "f-1794777765750-7",
+      "name": "Cat-Eyes | Argentés.",
       "icon": "◈",
       "parentId": "f-1794776236845"
     },
@@ -238,14 +22,8 @@
       "parentId": "f-1794776236845"
     },
     {
-      "id": "f-1794777765750-2",
-      "name": "Cat-Eyes | Verts.",
-      "icon": "◈",
-      "parentId": "f-1794776236845"
-    },
-    {
-      "id": "f-1794777765750-3",
-      "name": "Cat-Eyes | Jaunes.",
+      "id": "f-1794777765750-6",
+      "name": "Cat-Eyes | Dorés.",
       "icon": "◈",
       "parentId": "f-1794776236845"
     },
@@ -256,26 +34,14 @@
       "parentId": "f-1794776236845"
     },
     {
+      "id": "f-1794777765750-3",
+      "name": "Cat-Eyes | Jaunes.",
+      "icon": "◈",
+      "parentId": "f-1794776236845"
+    },
+    {
       "id": "f-1794777765750-5",
       "name": "Cat-Eyes | Noirs.",
-      "icon": "◈",
-      "parentId": "f-1794776236845"
-    },
-    {
-      "id": "f-1794777765750-6",
-      "name": "Cat-Eyes | Dorés.",
-      "icon": "◈",
-      "parentId": "f-1794776236845"
-    },
-    {
-      "id": "f-1794777765750-7",
-      "name": "Cat-Eyes | Argentés.",
-      "icon": "◈",
-      "parentId": "f-1794776236845"
-    },
-    {
-      "id": "f-1794777765750-8",
-      "name": "Cat-Eyes | Violets.",
       "icon": "◈",
       "parentId": "f-1794776236845"
     },
@@ -286,10 +52,244 @@
       "parentId": "f-1794776236845"
     },
     {
+      "id": "f-1794777765750-0",
+      "name": "Cat-Eyes | Rouges.",
+      "icon": "◈",
+      "parentId": "f-1794776236845"
+    },
+    {
+      "id": "f-1794777765750-2",
+      "name": "Cat-Eyes | Verts.",
+      "icon": "◈",
+      "parentId": "f-1794776236845"
+    },
+    {
+      "id": "f-1794777765750-8",
+      "name": "Cat-Eyes | Violets.",
+      "icon": "◈",
+      "parentId": "f-1794776236845"
+    },
+    {
+      "id": "f-1794777404011-7",
+      "name": "Crystal | Argentés.",
+      "icon": "◈",
+      "parentId": "f-1794776214272"
+    },
+    {
+      "id": "f-1794777404011-1",
+      "name": "Crystal | Bleus.",
+      "icon": "◈",
+      "parentId": "f-1794776214272"
+    },
+    {
+      "id": "f-1794777404011-6",
+      "name": "Crystal | Dorés.",
+      "icon": "◈",
+      "parentId": "f-1794776214272"
+    },
+    {
+      "id": "f-1794777404011-4",
+      "name": "Crystal | Gris.",
+      "icon": "◈",
+      "parentId": "f-1794776214272"
+    },
+    {
+      "id": "f-1794777404011-3",
+      "name": "Crystal | Jaunes.",
+      "icon": "◈",
+      "parentId": "f-1794776214272"
+    },
+    {
+      "id": "f-1794777404011-5",
+      "name": "Crystal | Noirs.",
+      "icon": "◈",
+      "parentId": "f-1794776214272"
+    },
+    {
+      "id": "f-1794777404011-9",
+      "name": "Crystal | Oranges.",
+      "icon": "◈",
+      "parentId": "f-1794776214272"
+    },
+    {
+      "id": "f-1794777404011-0",
+      "name": "Crystal | Rouges.",
+      "icon": "◈",
+      "parentId": "f-1794776214272"
+    },
+    {
+      "id": "f-1794777404011-2",
+      "name": "Crystal | Verts.",
+      "icon": "◈",
+      "parentId": "f-1794776214272"
+    },
+    {
+      "id": "f-1794777404011-8",
+      "name": "Crystal | Violets.",
+      "icon": "◈",
+      "parentId": "f-1794776214272"
+    },
+    {
+      "id": "f-ongle24",
+      "name": "Gels & Vernis Semi-Permanents colorés.",
+      "icon": "✶",
+      "parentId": "f-beaute"
+    },
+    {
+      "id": "f-1794777695514-7",
+      "name": "Jelly | Argentés.",
+      "icon": "◈",
+      "parentId": "f-1794776226453"
+    },
+    {
+      "id": "f-1794777695514-1",
+      "name": "Jelly | Bleus.",
+      "icon": "◈",
+      "parentId": "f-1794776226453"
+    },
+    {
+      "id": "f-1794777695514-6",
+      "name": "Jelly | Dorés.",
+      "icon": "◈",
+      "parentId": "f-1794776226453"
+    },
+    {
+      "id": "f-1794777695514-4",
+      "name": "Jelly | Gris.",
+      "icon": "◈",
+      "parentId": "f-1794776226453"
+    },
+    {
+      "id": "f-1794777695514-3",
+      "name": "Jelly | Jaunes.",
+      "icon": "◈",
+      "parentId": "f-1794776226453"
+    },
+    {
+      "id": "f-1794777695514-5",
+      "name": "Jelly | Noirs.",
+      "icon": "◈",
+      "parentId": "f-1794776226453"
+    },
+    {
+      "id": "f-1794777695514-9",
+      "name": "Jelly | Oranges.",
+      "icon": "◈",
+      "parentId": "f-1794776226453"
+    },
+    {
+      "id": "f-1794777695514-0",
+      "name": "Jelly | Rouges.",
+      "icon": "◈",
+      "parentId": "f-1794776226453"
+    },
+    {
+      "id": "f-1794777695514-2",
+      "name": "Jelly | Verts.",
+      "icon": "◈",
+      "parentId": "f-1794776226453"
+    },
+    {
+      "id": "f-1794777695514-8",
+      "name": "Jelly | Violets.",
+      "icon": "◈",
+      "parentId": "f-1794776226453"
+    },
+    {
+      "id": "f-beaute",
+      "name": "Onglerie.",
+      "icon": "✦",
+      "parentId": null
+    },
+    {
+      "id": "f-tech",
+      "name": "Tech.",
+      "icon": "✦",
+      "parentId": null
+    },
+    {
+      "id": "f-1794776028110",
+      "name": "VSP  | Verts.",
+      "icon": "◈",
+      "parentId": "f-1794777867129"
+    },
+    {
+      "id": "f-1794776101457",
+      "name": "VSP | Argentés.",
+      "icon": "◈",
+      "parentId": "f-1794777867129"
+    },
+    {
+      "id": "f-1794776006056",
+      "name": "VSP | Bleus.",
+      "icon": "◈",
+      "parentId": "f-1794777867129"
+    },
+    {
+      "id": "f-1794776236845",
+      "name": "VSP | Cat-Eyes.",
+      "icon": "✶",
+      "parentId": "f-ongle24"
+    },
+    {
       "id": "f-1794777867129",
       "name": "VSP | Couleurs.",
-      "icon": "✦",
+      "icon": "✶",
       "parentId": "f-ongle24"
+    },
+    {
+      "id": "f-1794776214272",
+      "name": "VSP | Crystal.",
+      "icon": "✶",
+      "parentId": "f-ongle24"
+    },
+    {
+      "id": "f-1794776088390",
+      "name": "VSP | Dorés.",
+      "icon": "◈",
+      "parentId": "f-1794777867129"
+    },
+    {
+      "id": "f-1794776062981",
+      "name": "VSP | Gris.",
+      "icon": "◈",
+      "parentId": "f-1794777867129"
+    },
+    {
+      "id": "f-1794776044962",
+      "name": "VSP | Jaunes.",
+      "icon": "◈",
+      "parentId": "f-1794777867129"
+    },
+    {
+      "id": "f-1794776226453",
+      "name": "VSP | Jelly.",
+      "icon": "✶",
+      "parentId": "f-ongle24"
+    },
+    {
+      "id": "f-1794776071537",
+      "name": "VSP | Noirs.",
+      "icon": "◈",
+      "parentId": "f-1794777867129"
+    },
+    {
+      "id": "f-1794776133487",
+      "name": "VSP | Oranges.",
+      "icon": "◈",
+      "parentId": "f-1794777867129"
+    },
+    {
+      "id": "f-1794775957366",
+      "name": "VSP | Rouges.",
+      "icon": "◈",
+      "parentId": "f-1794777867129"
+    },
+    {
+      "id": "f-1794776121944",
+      "name": "VSP | Violets.",
+      "icon": "◈",
+      "parentId": "f-1794777867129"
     }
   ],
   "items": []
