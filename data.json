@@ -92,6 +92,12 @@
       "name": "VSP | Crystal.",
       "icon": "✦",
       "parentId": "f-beaute"
+    },
+    {
+      "id": "f-1794776226453",
+      "name": "VSP | Jelly.",
+      "icon": "✦",
+      "parentId": "f-beaute"
     }
   ],
   "items": []
