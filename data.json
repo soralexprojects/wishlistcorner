@@ -16,6 +16,18 @@
       "parentId": "f-1794780181994-8"
     },
     {
+      "id": "f-1794780789852-30",
+      "name": "Bagues.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-29"
+    },
+    {
+      "id": "f-1794780789852-15",
+      "name": "Bas.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-13"
+    },
+    {
       "id": "f-1794780181994-0",
       "name": "Bases.",
       "icon": "✶",
@@ -28,10 +40,28 @@
       "parentId": "f-1794780181994-8"
     },
     {
+      "id": "f-1794780789852-29",
+      "name": "Bijoux.",
+      "icon": "✦",
+      "parentId": null
+    },
+    {
+      "id": "f-1794780789852-2",
+      "name": "Blind Boxes.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-0"
+    },
+    {
       "id": "f-1794780181994-10",
       "name": "Bols de Dépose.",
       "icon": "◈",
       "parentId": "f-1794780181994-8"
+    },
+    {
+      "id": "f-1794780789852-19",
+      "name": "Bottes.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-18"
     },
     {
       "id": "f-1794780327023",
@@ -104,6 +134,42 @@
       "name": "Cat-Eyes | Violets.",
       "icon": "◈",
       "parentId": "f-1794776236845"
+    },
+    {
+      "id": "f-1794780789852-12",
+      "name": "Ceux qui se collectionnent.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-10"
+    },
+    {
+      "id": "f-1794780789852-11",
+      "name": "Ceux qui se portent.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-10"
+    },
+    {
+      "id": "f-1794780789852-18",
+      "name": "Chaussures.",
+      "icon": "✦",
+      "parentId": null
+    },
+    {
+      "id": "f-1794780789852-0",
+      "name": "Collectibles.",
+      "icon": "✦",
+      "parentId": null
+    },
+    {
+      "id": "f-1794780789852-31",
+      "name": "Colliers.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-29"
+    },
+    {
+      "id": "f-1794780789852-7",
+      "name": "Complete Saga.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-5"
     },
     {
       "id": "f-1794780315105",
@@ -184,10 +250,28 @@
       "parentId": "f-1794780181994-0"
     },
     {
+      "id": "f-1794780789852-6",
+      "name": "Editions Collector.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-5"
+    },
+    {
+      "id": "f-1794780789852-23",
+      "name": "Electroménager.",
+      "icon": "✦",
+      "parentId": null
+    },
+    {
       "id": "f-1794780181994-14",
       "name": "Embouts Emeri.",
       "icon": "◈",
       "parentId": "f-1794780181994-8"
+    },
+    {
+      "id": "f-1794780789852-4",
+      "name": "Figurines.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-0"
     },
     {
       "id": "f-1794780181994-17",
@@ -206,6 +290,12 @@
       "name": "Fraises à Ponce.",
       "icon": "◈",
       "parentId": "f-1794780181994-8"
+    },
+    {
+      "id": "f-1794780789852-1",
+      "name": "Funko Pops.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-0"
     },
     {
       "id": "f-1794780181994-24",
@@ -298,6 +388,24 @@
       "parentId": "f-1794779281035-0"
     },
     {
+      "id": "f-1794780789852-32",
+      "name": "Giftcards.",
+      "icon": "✦",
+      "parentId": null
+    },
+    {
+      "id": "f-1794780789852-27",
+      "name": "Glosses.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-24"
+    },
+    {
+      "id": "f-1794780789852-22",
+      "name": "Goth.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-18"
+    },
+    {
       "id": "f-1794780230135",
       "name": "Grit | 80.",
       "icon": "⊹",
@@ -338,6 +446,12 @@
       "name": "Gummy Bases.",
       "icon": "◈",
       "parentId": "f-1794780181994-0"
+    },
+    {
+      "id": "f-1794780789852-14",
+      "name": "Hauts.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-13"
     },
     {
       "id": "f-1794780181994-29",
@@ -406,16 +520,58 @@
       "parentId": "f-1794776226453"
     },
     {
+      "id": "f-1794780789852-33",
+      "name": "Jeux Vidéos.",
+      "icon": "✦",
+      "parentId": null
+    },
+    {
+      "id": "f-1794780789852-9",
+      "name": "Kindle.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-5"
+    },
+    {
       "id": "f-1794780181994-12",
       "name": "Limes.",
       "icon": "◈",
       "parentId": "f-1794780181994-8"
     },
     {
+      "id": "f-1794780789852-25",
+      "name": "Liners.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-24"
+    },
+    {
+      "id": "f-1794780789852-5",
+      "name": "Livres.",
+      "icon": "✦",
+      "parentId": null
+    },
+    {
+      "id": "f-1794780789852-16",
+      "name": "Manteaux.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-13"
+    },
+    {
+      "id": "f-1794780789852-24",
+      "name": "Maquillage.",
+      "icon": "✦",
+      "parentId": null
+    },
+    {
       "id": "f-1794780181994-8",
       "name": "Matériel.",
       "icon": "✶",
       "parentId": "f-beaute"
+    },
+    {
+      "id": "f-1794780789852-20",
+      "name": "Montantes.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-18"
     },
     {
       "id": "f-1794780181994-4",
@@ -428,6 +584,30 @@
       "name": "Onglerie.",
       "icon": "✦",
       "parentId": null
+    },
+    {
+      "id": "f-1794780789852-28",
+      "name": "Paillettes.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-24"
+    },
+    {
+      "id": "f-1794780789852-10",
+      "name": "Parfums.",
+      "icon": "✦",
+      "parentId": null
+    },
+    {
+      "id": "f-1794780789852-35",
+      "name": "PC.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-33"
+    },
+    {
+      "id": "f-1794780789852-3",
+      "name": "Peluches.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-0"
     },
     {
       "id": "f-1794780181994-20",
@@ -460,6 +640,12 @@
       "parentId": "f-1794780181994-0"
     },
     {
+      "id": "f-1794780789852-26",
+      "name": "Rouges à Lèvres Mat.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-24"
+    },
+    {
       "id": "f-1794780181994-26",
       "name": "Sandwich Popits | Forme Amande.",
       "icon": "◈",
@@ -478,6 +664,12 @@
       "parentId": "f-1794780181994-8"
     },
     {
+      "id": "f-1794780789852-21",
+      "name": "Sneakers.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-18"
+    },
+    {
       "id": "f-1794780181994-30",
       "name": "Soak Off Remover.",
       "icon": "◈",
@@ -488,6 +680,18 @@
       "name": "Soins.",
       "icon": "✶",
       "parentId": "f-beaute"
+    },
+    {
+      "id": "f-1794780789852-8",
+      "name": "Sologie/Duologie.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-5"
+    },
+    {
+      "id": "f-1794780789852-34",
+      "name": "Switch 2.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-33"
     },
     {
       "id": "f-tech",
@@ -512,6 +716,18 @@
       "name": "Top Coats.",
       "icon": "✶",
       "parentId": "f-beaute"
+    },
+    {
+      "id": "f-1794780789852-17",
+      "name": "Vestes.",
+      "icon": "✶",
+      "parentId": "f-1794780789852-13"
+    },
+    {
+      "id": "f-1794780789852-13",
+      "name": "Vêtements.",
+      "icon": "✦",
+      "parentId": null
     },
     {
       "id": "f-1794776028110",
