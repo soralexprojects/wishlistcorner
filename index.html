@@ -357,19 +357,22 @@
       border-color: var(--accent);
       background: var(--card-hover);
     }
-    .card-img-wrap {
+   .card-img-wrap {
       position: relative;
       width: 100%;
-      aspect-ratio: 1 / 1;
-      flex-shrink: 0;
+      height: 0;
+      padding-bottom: 100%; /* Verrouille un carré 1:1 strict et indéformable */
       background: var(--bg);
-      padding: 10px 10px 0 10px;
+      overflow: hidden;
     }
     .card-img-wrap img {
-      width: 100%;
-      height: 100%;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: calc(100% - 20px);
+      height: calc(100% - 10px);
       object-fit: cover;
-      display: block;
+      object-position: center;
       border-radius: 12px;
       border: 1px solid var(--border);
     }
