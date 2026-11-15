@@ -894,6 +894,17 @@
   ],
   "items": [
     {
+      "id": "item-1794782262828",
+      "folderId": "f-1794776088390",
+      "title": "Gel Polish VSP Gold Glitter",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-massive-gold-glitter",
+      "image": "http://ongle24.com/cdn/shop/files/4159_GelPolishGoldGlitter_1_c31c8fdd-4c97-43dd-99e8-c4df6759d132.png?v=1716563840&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1794782159939",
       "folderId": "f-1794776071537",
       "title": "Gel Polish VSP Platinum Black",
