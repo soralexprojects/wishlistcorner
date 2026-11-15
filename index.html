@@ -174,7 +174,6 @@
         repeating-linear-gradient(45deg, var(--line-art) 0, var(--line-art) 1px, transparent 0, transparent 28px),
         repeating-linear-gradient(-45deg, var(--line-art) 0, var(--line-art) 1px, transparent 0, transparent 28px);
     }
-    /* Aucun voile sombre sur l'image : uniquement des badges lisibles autour du texte */
     .hero-quote {
       position: relative;
       z-index: 1;
@@ -883,10 +882,11 @@
     </form>
   </dialog>
 
-  <!-- Modal Dossier -->
+  <!-- Modal Dossier (Création & Modification) -->
   <dialog id="folder-modal">
-    <h3 class="serif" style="font-size:1.5rem; margin-bottom:14px;">Dossier / Sous-dossier</h3>
+    <h3 class="serif" id="folder-modal-title" style="font-size:1.5rem; margin-bottom:14px;">Dossier / Sous-dossier</h3>
     <form onsubmit="saveFolder(event)">
+      <input type="hidden" id="folder-id" />
       <div class="form-group">
         <label>Dossier parent</label>
         <select id="folder-parent-select"></select>
@@ -903,7 +903,7 @@
       </div>
       <div class="modal-actions">
         <button type="button" class="btn" onclick="document.getElementById('folder-modal').close()">Annuler</button>
-        <button type="submit" class="btn btn-primary">Créer & Publier</button>
+        <button type="submit" class="btn btn-primary">Enregistrer & Publier</button>
       </div>
     </form>
   </dialog>
@@ -1148,6 +1148,7 @@
             </div>
             <div style="display:flex; align-items:center; gap:4px;">
               <div class="folder-admin-btns">
+                <button class="mini-icon-btn" title="Modifier ce dossier" onclick="event.stopPropagation(); editFolder('${folder.id}')">✎</button>
                 <button class="mini-icon-btn" title="Ajouter un sous-dossier" onclick="event.stopPropagation(); openFolderModal('${folder.id}')">+</button>
                 <button class="mini-icon-btn" title="Supprimer" onclick="event.stopPropagation(); deleteFolder('${folder.id}')">×</button>
               </div>
@@ -1364,22 +1365,50 @@
     }
 
     function openFolderModal(parentId) {
+      document.getElementById('folder-modal-title').textContent = 'Nouveau dossier / sous-dossier';
+      document.getElementById('folder-id').value = '';
       const sel = document.getElementById('folder-parent-select');
       populateFolderSelect(sel, true);
       sel.value = parentId || '';
+      document.getElementById('folder-icon').value = '✦';
       document.getElementById('folder-name').value = '';
+      document.getElementById('folder-modal').showModal();
+    }
+
+    function editFolder(id) {
+      const folder = appData.folders.find(f => f.id === id);
+      if (!folder) return;
+      document.getElementById('folder-modal-title').textContent = 'Modifier le dossier';
+      document.getElementById('folder-id').value = folder.id;
+      const sel = document.getElementById('folder-parent-select');
+      populateFolderSelect(sel, true);
+      const forbidden = getDescendantFolderIds(folder.id);
+      Array.from(sel.options).forEach(opt => {
+        if (forbidden.includes(opt.value)) opt.disabled = true;
+      });
+      sel.value = folder.parentId || '';
+      document.getElementById('folder-icon').value = folder.icon || '✦';
+      document.getElementById('folder-name').value = folder.name;
       document.getElementById('folder-modal').showModal();
     }
 
     async function saveFolder(e) {
       e.preventDefault();
+      const id = document.getElementById('folder-id').value;
       const parentId = document.getElementById('folder-parent-select').value || null;
-      appData.folders.push({
-        id: 'f-' + Date.now(),
-        name: document.getElementById('folder-name').value,
-        icon: document.getElementById('folder-icon').value || '✦',
-        parentId
-      });
+      const name = document.getElementById('folder-name').value;
+      const icon = document.getElementById('folder-icon').value || '✦';
+
+      if (id) {
+        const folder = appData.folders.find(f => f.id === id);
+        if (folder) {
+          folder.name = name;
+          folder.icon = icon;
+          folder.parentId = parentId;
+        }
+      } else {
+        appData.folders.push({ id: 'f-' + Date.now(), name, icon, parentId });
+      }
       renderFolders();
       renderItems();
       document.getElementById('folder-modal').close();
