@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WishlistCorner</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* Palette 1 : Sakura Nocturne (Back in Black + Mountain Heather + Decanting + Funkie Friday) */
     :root, [data-palette="sakura-dark"] {
       --bg: #16131F;
-      --surface: #221D2D;
-      --surface-alt: #2C2538;
-      --card-bg: #241F30;
+      --surface: #201B2B;
+      --surface-alt: #2B2438;
+      --card-bg: #231E2E;
       --card-hover: #2E273D;
-      --pill-bg: #362E45;
+      --pill-bg: #352D44;
       --accent: #C1A0AC;        /* Decanting */
       --accent-light: #F0D9E4;  /* Mountain Heather */
       --accent-muted: #806C79;  /* Moonscape */
@@ -22,40 +22,43 @@
       --text-soft: #C1A0AC;
       --border: rgba(240, 217, 228, 0.14);
       --border-strong: rgba(240, 217, 228, 0.28);
+      --line-art: rgba(240, 217, 228, 0.06);
     }
 
     /* Palette 2 : Améthyste Velours (Imperial Violet + Dusted Lavender + Orchid Smoke) */
     [data-palette="amethyst-dark"] {
       --bg: #1B0E28;
-      --surface: #2A123F;       /* Imperial Violet */
-      --surface-alt: #371A52;
+      --surface: #28113C;
+      --surface-alt: #361950;
       --card-bg: #2A123F;
       --card-hover: #381B54;
-      --pill-bg: #4B1F6F;       /* Amethyst Noir */
-      --accent: #C686DD;        /* Orchid Smoke */
-      --accent-light: #F1EDF7;  /* Moon Pearl */
-      --accent-muted: #9C86B9;  /* Dusted Lavender */
+      --pill-bg: #4B1F6F;
+      --accent: #C686DD;
+      --accent-light: #F1EDF7;
+      --accent-muted: #9C86B9;
       --text: #F1EDF7;
       --text-soft: #C686DD;
       --border: rgba(241, 237, 247, 0.15);
       --border-strong: rgba(241, 237, 247, 0.3);
+      --line-art: rgba(241, 237, 247, 0.06);
     }
 
     /* Palette 3 : Carnet Poudré (Version claire) */
     [data-palette="paper-light"] {
-      --bg: #F3EDE8;
-      --surface: #FAF7F4;
-      --surface-alt: #EBE3DC;
-      --card-bg: #FAF7F4;
+      --bg: #EFE7E0;
+      --surface: #FAF6F2;
+      --surface-alt: #EAE0D8;
+      --card-bg: #FAF6F2;
       --card-hover: #FFFFFF;
-      --pill-bg: #E6DCD5;
-      --accent: #806C79;        /* Moonscape */
+      --pill-bg: #E5DAD1;
+      --accent: #806C79;
       --accent-light: #2A123F;
       --accent-muted: #9C86B9;
       --text: #261F27;
       --text-soft: #6E5D69;
-      --border: rgba(38, 31, 39, 0.12);
-      --border-strong: rgba(38, 31, 39, 0.25);
+      --border: rgba(38, 31, 39, 0.13);
+      --border-strong: rgba(38, 31, 39, 0.26);
+      --line-art: rgba(38, 31, 39, 0.06);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -63,13 +66,37 @@
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: var(--bg);
-      background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
-      background-size: 22px 22px;
       color: var(--text);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
       transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Grain papier tactile mat sur tout le fond */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.38;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.16'/%3E%3C/svg%3E");
+    }
+
+    /* Courbes architecturales fines en arrière-plan (façon Fresh From Our Garden / Moon Blooming) */
+    .bg-ornaments {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .bg-ornaments svg {
+      width: 100%;
+      height: 100%;
     }
 
     h1, h2, .serif {
@@ -78,6 +105,8 @@
 
     /* Barre Admin */
     #admin-bar {
+      position: relative;
+      z-index: 10;
       display: none;
       background: var(--surface-alt);
       border-bottom: 1px solid var(--border-strong);
@@ -95,6 +124,8 @@
 
     /* Conteneur Global Éditorial */
     .shell {
+      position: relative;
+      z-index: 1;
       max-width: 1420px;
       width: 100%;
       margin: 22px auto;
@@ -104,12 +135,65 @@
       gap: 18px;
     }
 
-    /* En-tête */
-    header {
+    /* En-tête + Bannière Éditoriale intégrée (façon Hellenaw & Khaula) */
+    .hero-card {
       background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 18px 26px;
+      border: 1px solid var(--border-strong);
+      border-radius: 24px;
+      overflow: hidden;
+    }
+    .hero-banner {
+      height: 118px;
+      width: 100%;
+      position: relative;
+      background-color: var(--surface-alt);
+      background-size: cover;
+      background-position: center;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      overflow: hidden;
+    }
+    /* Motif géométrique éditorial quand aucune image n'est mise */
+    .hero-banner.default-art {
+      background-image:
+        repeating-linear-gradient(45deg, var(--line-art) 0, var(--line-art) 1px, transparent 0, transparent 28px),
+        repeating-linear-gradient(-45deg, var(--line-art) 0, var(--line-art) 1px, transparent 0, transparent 28px);
+    }
+    .hero-banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(22, 19, 31, 0.72) 0%, rgba(22, 19, 31, 0.35) 100%);
+    }
+    [data-palette="paper-light"] .hero-banner-overlay {
+      background: linear-gradient(90deg, rgba(250, 246, 242, 0.85) 0%, rgba(250, 246, 242, 0.45) 100%);
+    }
+    .hero-quote {
+      position: relative;
+      z-index: 1;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.35rem;
+      color: var(--accent-light);
+      letter-spacing: 0.01em;
+    }
+    .hero-tag {
+      position: relative;
+      z-index: 1;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      border: 1px solid var(--border-strong);
+      background: var(--surface);
+      padding: 5px 12px;
+      border-radius: 99px;
+    }
+
+    .header-bar {
+      padding: 16px 26px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -127,17 +211,15 @@
       font-weight: 700; font-size: 22px;
     }
     .brand h1 {
-      font-size: 1.75rem;
+      font-size: 1.8rem;
       font-weight: 700;
       line-height: 1.05;
-      letter-spacing: -0.01em;
       color: var(--accent-light);
     }
     .brand p {
       font-size: 0.8rem;
       color: var(--text-soft);
       margin-top: 2px;
-      letter-spacing: 0.02em;
     }
 
     .controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
@@ -191,8 +273,8 @@
     /* Sidebar Collections */
     aside {
       background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 22px;
+      border: 1px solid var(--border-strong);
+      border-radius: 24px;
       padding: 20px 14px;
       position: sticky;
       top: 18px;
@@ -208,7 +290,7 @@
     .sidebar-header span {
       font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       color: var(--text-soft);
       font-weight: 700;
     }
@@ -266,8 +348,8 @@
     /* Panneau Droit */
     .main-panel {
       background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 22px;
+      border: 1px solid var(--border-strong);
+      border-radius: 24px;
       padding: 22px;
       display: flex;
       flex-direction: column;
@@ -311,7 +393,7 @@
       gap: 10px;
     }
     .breadcrumb h2 {
-      font-size: 1.65rem;
+      font-size: 1.7rem;
       font-weight: 700;
       color: var(--accent-light);
     }
@@ -334,7 +416,7 @@
     }
     .sub-tile:hover { border-color: var(--accent); background: var(--surface-alt); }
 
-    /* Grille Uniforme : toutes les cartes et carrés ont exactement les mêmes dimensions */
+    /* Grille Uniforme : carrés 1:1 verrouillés et cartes identiques */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -344,6 +426,8 @@
     .card {
       background: var(--card-bg);
       border: 1px solid var(--border);
+      outline: 1px solid rgba(255, 255, 255, 0.02);
+      outline-offset: -5px;
       border-radius: 18px;
       overflow: hidden;
       display: flex;
@@ -357,7 +441,7 @@
       border-color: var(--accent);
       background: var(--card-hover);
     }
-   .card-img-wrap {
+    .card-img-wrap {
       position: relative;
       width: 100%;
       height: 0;
@@ -380,6 +464,7 @@
       position: absolute;
       bottom: 10px;
       left: 18px;
+      z-index: 2;
       background: var(--bg);
       border: 1px solid var(--border-strong);
       color: var(--accent-light);
@@ -392,6 +477,7 @@
       position: absolute;
       top: 18px;
       right: 18px;
+      z-index: 2;
       background: var(--bg);
       border: 1px solid var(--border-strong);
       color: var(--accent-light);
@@ -424,7 +510,7 @@
       font-size: 0.94rem;
       font-weight: 600;
       line-height: 1.35;
-      min-height: 2.7em; /* Réserve exactement 2 lignes pour aligner toutes les cartes */
+      min-height: 2.7em;
       color: var(--text);
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -501,46 +587,66 @@
     @media (max-width: 840px) {
       .layout { grid-template-columns: 1fr; }
       aside { position: static; }
+      .hero-banner { height: 92px; padding: 0 18px; }
+      .hero-quote { font-size: 1.1rem; }
     }
   </style>
 </head>
 <body>
+
+  <!-- Ornements géométriques fins en arrière-plan -->
+  <div class="bg-ornaments" aria-hidden="true">
+    <svg viewBox="0 0 1440 900" fill="none" preserveAspectRatio="xMidYMid slice">
+      <circle cx="1320" cy="140" r="340" stroke="var(--line-art)" stroke-width="1.2" />
+      <circle cx="1320" cy="140" r="240" stroke="var(--line-art)" stroke-width="1" stroke-dasharray="6 8" />
+      <circle cx="110" cy="780" r="380" stroke="var(--line-art)" stroke-width="1.2" />
+      <path d="M-50 420 Q 420 260 880 480 T 1520 380" stroke="var(--line-art)" stroke-width="1" />
+    </svg>
+  </div>
 
   <div id="admin-bar">
     <div>✦ <strong>Mode Gestion</strong> — <span id="sync-status">Prêt</span></div>
     <div class="admin-actions">
       <button class="btn btn-primary" onclick="openItemModal()">+ Ajouter un produit</button>
       <button class="btn" onclick="openFolderModal(null)">+ Nouveau dossier</button>
-      <button class="btn" onclick="openThemeModal()">🎨 Ambiance & Texte</button>
+      <button class="btn" onclick="openThemeModal()">🎨 Ambiance & Bannière</button>
       <button class="btn" onclick="openGithubModal()">🔑 Connexion GitHub</button>
     </div>
   </div>
 
   <div class="shell">
-    <header>
-      <div class="brand" id="brand-logo" title="Triple-clique pour activer le mode gestion">
-        <div class="brand-emblem">W</div>
-        <div>
-          <h1 id="site-title">WishlistCorner</h1>
-          <p id="site-subtitle">Mes envies, idées cadeaux et coups de cœur</p>
-        </div>
+    <div class="hero-card">
+      <div class="hero-banner default-art" id="hero-banner">
+        <div class="hero-banner-overlay"></div>
+        <div class="hero-quote" id="hero-quote">« Curated inspirations, little treasures & gift ideas »</div>
+        <div class="hero-tag">Wishlist Collection</div>
       </div>
 
-      <div class="controls">
-        <input type="search" id="search-input" placeholder="Rechercher un article..." oninput="renderItems()" />
-        <select id="sort-select" onchange="renderItems()">
-          <option value="default">Tri : Par défaut</option>
-          <option value="fav">Coups de cœur d'abord</option>
-          <option value="price-asc">Prix croissant</option>
-          <option value="price-desc">Prix décroissant</option>
-        </select>
-        <select id="palette-switcher" onchange="switchPalette(this.value)" title="Changer la palette">
-          <option value="sakura-dark">🌙 Sakura Nocturne</option>
-          <option value="amethyst-dark">🔮 Améthyste Velours</option>
-          <option value="paper-light">📜 Carnet Poudré</option>
-        </select>
+      <div class="header-bar">
+        <div class="brand" id="brand-logo" title="Triple-clique pour activer le mode gestion">
+          <div class="brand-emblem">W</div>
+          <div>
+            <h1 id="site-title">WishlistCorner</h1>
+            <p id="site-subtitle">Mes envies, idées cadeaux et coups de cœur</p>
+          </div>
+        </div>
+
+        <div class="controls">
+          <input type="search" id="search-input" placeholder="Rechercher un article..." oninput="renderItems()" />
+          <select id="sort-select" onchange="renderItems()">
+            <option value="default">Tri : Par défaut</option>
+            <option value="fav">Coups de cœur d'abord</option>
+            <option value="price-asc">Prix croissant</option>
+            <option value="price-desc">Prix décroissant</option>
+          </select>
+          <select id="palette-switcher" onchange="switchPalette(this.value)" title="Changer la palette">
+            <option value="sakura-dark">🌙 Sakura Nocturne</option>
+            <option value="amethyst-dark">🔮 Améthyste Velours</option>
+            <option value="paper-light">📜 Carnet Poudré</option>
+          </select>
+        </div>
       </div>
-    </header>
+    </div>
 
     <div class="layout">
       <aside>
@@ -660,7 +766,7 @@
     </form>
   </dialog>
 
-  <!-- Modal Thème -->
+  <!-- Modal Thème & Bannière -->
   <dialog id="theme-modal">
     <h3 class="serif" style="font-size:1.5rem; margin-bottom:14px;">Personnaliser WishlistCorner</h3>
     <form onsubmit="saveTheme(event)">
@@ -671,6 +777,14 @@
       <div class="form-group">
         <label>Sous-titre</label>
         <input type="text" id="cfg-subtitle" />
+      </div>
+      <div class="form-group">
+        <label>Citation / Phrase dans la bannière</label>
+        <input type="text" id="cfg-quote" placeholder="« Curated inspirations, little treasures & gift ideas »" />
+      </div>
+      <div class="form-group">
+        <label>Image de fond de la bannière (URL optionnelle)</label>
+        <input type="url" id="cfg-banner" placeholder="https://... (laisser vide pour le motif géométrique)" />
       </div>
       <div class="form-group">
         <label>Palette par défaut pour tes visiteurs</label>
@@ -824,6 +938,17 @@
       document.getElementById('site-title').textContent = c.title || 'WishlistCorner';
       document.title = c.title || 'WishlistCorner';
       document.getElementById('site-subtitle').textContent = c.subtitle || '';
+      document.getElementById('hero-quote').textContent = c.quote || '« Curated inspirations, little treasures & gift ideas »';
+
+      const bannerEl = document.getElementById('hero-banner');
+      if (c.bannerUrl) {
+        bannerEl.style.backgroundImage = `url('${c.bannerUrl}')`;
+        bannerEl.classList.remove('default-art');
+      } else {
+        bannerEl.style.backgroundImage = '';
+        bannerEl.classList.add('default-art');
+      }
+
       const pal = c.palette || 'sakura-dark';
       switchPalette(pal);
     }
@@ -1099,6 +1224,8 @@
     function openThemeModal() {
       document.getElementById('cfg-title').value = appData.config.title || 'WishlistCorner';
       document.getElementById('cfg-subtitle').value = appData.config.subtitle || '';
+      document.getElementById('cfg-quote').value = appData.config.quote || '« Curated inspirations, little treasures & gift ideas »';
+      document.getElementById('cfg-banner').value = appData.config.bannerUrl || '';
       document.getElementById('cfg-palette').value = appData.config.palette || 'sakura-dark';
       document.getElementById('theme-modal').showModal();
     }
@@ -1107,6 +1234,8 @@
       e.preventDefault();
       appData.config.title = document.getElementById('cfg-title').value;
       appData.config.subtitle = document.getElementById('cfg-subtitle').value;
+      appData.config.quote = document.getElementById('cfg-quote').value;
+      appData.config.bannerUrl = document.getElementById('cfg-banner').value.trim();
       appData.config.palette = document.getElementById('cfg-palette').value;
       applyTheme();
       document.getElementById('theme-modal').close();
