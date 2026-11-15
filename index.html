@@ -1,21 +1,43 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WishlistCorner</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
+    :root, [data-theme="dark"] {
+      --accent: #fb7185;
+      --accent-strong: #f43f5e;
+      --accent-soft: rgba(251, 113, 133, 0.14);
+      --bg: #111013;
+      --surface: #19181d;
+      --card-bg: #201e25;
+      --card-hover: #27242d;
+      --pill-bg: #26242c;
+      --text: #f4f2f7;
+      --muted: #9b96a6;
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.55);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+    }
+
+    [data-theme="light"] {
       --accent: #e11d48;
+      --accent-strong: #be123c;
       --accent-soft: #ffe4e6;
-      --bg: #fafafa;
+      --bg: #f6f3f0;
+      --surface: #ffffff;
       --card-bg: #ffffff;
-      --text: #18181b;
-      --muted: #71717a;
-      --border: #e4e4e7;
-      --radius: 16px;
+      --card-hover: #fff9fa;
+      --pill-bg: #ede8e3;
+      --text: #1c1917;
+      --muted: #78716c;
+      --border: rgba(28, 25, 23, 0.08);
+      --shadow: 0 12px 30px -10px rgba(28, 25, 23, 0.08);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,198 +48,307 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      transition: background 0.25s ease, color 0.25s ease;
     }
 
-    header {
-      background: rgba(255,255,255,0.88);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 14px 24px;
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .brand { display: flex; align-items: center; gap: 10px; cursor: pointer; user-select: none; }
-    .brand-badge {
-      width: 36px; height: 36px; border-radius: 10px;
-      background: var(--accent); color: #fff;
-      display: grid; place-items: center; font-weight: 700; font-size: 18px;
-    }
-    .brand h1 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
-    .brand p { font-size: 0.8rem; color: var(--muted); }
-
-    .controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-    input[type="search"], select, input[type="text"], input[type="number"], input[type="url"], input[type="password"] {
-      padding: 9px 13px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      font-family: inherit;
-      font-size: 0.88rem;
-      background: #fff;
-      color: var(--text);
-      outline: none;
-    }
-    input:focus, select:focus { border-color: var(--accent); }
-
+    /* Barre Admin */
     #admin-bar {
       display: none;
-      background: #18181b;
+      background: linear-gradient(90deg, #27151c, #1c1924);
+      border-bottom: 1px solid rgba(251, 113, 133, 0.3);
       color: #fff;
       padding: 10px 24px;
       gap: 10px;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
     }
     #admin-bar.active { display: flex; }
     .admin-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-    #sync-status { font-weight: 600; color: #a7f3d0; }
+    #sync-status { font-weight: 600; color: #fda4af; }
+
+    /* Header Bento Flottant */
+    .top-wrap {
+      max-width: 1480px;
+      width: 100%;
+      margin: 16px auto 0;
+      padding: 0 20px;
+    }
+    header {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 14px 22px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; cursor: pointer; user-select: none; }
+    .brand-badge {
+      width: 40px; height: 40px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #fff;
+      display: grid; place-items: center; font-weight: 800; font-size: 18px;
+      box-shadow: 0 6px 16px rgba(244, 63, 94, 0.35);
+    }
+    .brand h1 { font-size: 1.22rem; font-weight: 800; letter-spacing: -0.02em; }
+    .brand p { font-size: 0.8rem; color: var(--muted); }
+
+    .controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    input[type="search"], select, input[type="text"], input[type="number"], input[type="url"], input[type="password"] {
+      padding: 10px 15px;
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      font-family: inherit;
+      font-size: 0.86rem;
+      background: var(--pill-bg);
+      color: var(--text);
+      outline: none;
+      transition: 0.18s;
+    }
+    dialog input[type="text"], dialog input[type="number"], dialog input[type="url"], dialog input[type="password"], dialog select {
+      border-radius: var(--radius-md);
+      width: 100%;
+    }
+    input:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
 
     .btn {
-      padding: 8px 14px;
-      border-radius: 10px;
+      padding: 9px 15px;
+      border-radius: 99px;
       border: 1px solid var(--border);
-      background: #fff;
+      background: var(--pill-bg);
       color: var(--text);
       font-family: inherit;
       font-weight: 600;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       cursor: pointer;
-      transition: 0.15s;
+      transition: 0.18s;
       display: inline-flex; align-items: center; gap: 6px;
     }
-    .btn:hover { background: #f4f4f5; }
-    .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-    .btn-primary:hover { filter: brightness(0.92); background: var(--accent); }
-    .btn-dark { background: #27272a; color: #fff; border-color: #3f3f46; }
-    .btn-dark:hover { background: #3f3f46; }
+    .btn:hover { filter: brightness(1.12); transform: translateY(-1px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #fff;
+      border: none;
+      box-shadow: 0 4px 14px rgba(244, 63, 94, 0.3);
+    }
+    .icon-toggle {
+      width: 38px; height: 38px; padding: 0; justify-content: center; border-radius: 50%;
+    }
 
+    /* Layout Bento */
     .layout {
       display: grid;
-      grid-template-columns: 270px 1fr;
+      grid-template-columns: 280px 1fr;
+      gap: 20px;
       flex: 1;
-      max-width: 1440px;
+      max-width: 1480px;
       width: 100%;
-      margin: 0 auto;
+      margin: 20px auto;
+      padding: 0 20px 30px;
+      align-items: start;
     }
 
+    /* Sidebar Bento Flottante */
     aside {
-      border-right: 1px solid var(--border);
-      padding: 20px 14px;
-      background: #fff;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 18px 14px;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 18px;
     }
     .sidebar-title {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       color: var(--muted);
       font-weight: 700;
       margin-bottom: 10px;
-      padding: 0 10px;
+      padding: 0 12px;
     }
     .tree-item {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 8px 10px;
-      border-radius: 10px;
+      padding: 9px 12px;
+      border-radius: 99px;
       cursor: pointer;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 500;
       color: var(--text);
-      transition: 0.12s;
-      margin-bottom: 2px;
+      transition: 0.15s;
+      margin-bottom: 3px;
     }
-    .tree-item:hover { background: #f4f4f5; }
+    .tree-item:hover { background: var(--pill-bg); }
     .tree-item.active {
       background: var(--accent-soft);
       color: var(--accent);
       font-weight: 700;
     }
-    .tree-left { display: flex; align-items: center; gap: 8px; overflow: hidden; }
+    .tree-left { display: flex; align-items: center; gap: 9px; overflow: hidden; }
     .tree-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .count-pill {
-      font-size: 0.75rem;
-      background: #f4f4f5;
+      font-size: 0.74rem;
+      background: var(--pill-bg);
       color: var(--muted);
-      padding: 2px 7px;
+      padding: 2px 8px;
       border-radius: 99px;
+      font-weight: 600;
     }
-    .tree-item.active .count-pill { background: #fff; color: var(--accent); }
-    .tree-children { margin-left: 16px; border-left: 1px dashed var(--border); padding-left: 6px; }
-    .folder-admin-btns { display: none; gap: 4px; }
+    .tree-item.active .count-pill { background: var(--accent); color: #fff; }
+    .tree-children {
+      margin-left: 16px;
+      border-left: 1px dashed var(--border);
+      padding-left: 8px;
+      margin-bottom: 4px;
+    }
+    .folder-admin-btns { display: none; gap: 2px; }
     body.is-admin .tree-item:hover .folder-admin-btns { display: flex; }
     .mini-icon-btn {
-      background: none; border: none; cursor: pointer; font-size: 0.78rem; padding: 2px 4px; border-radius: 4px;
+      background: none; border: none; cursor: pointer; font-size: 0.78rem; padding: 3px 5px; border-radius: 6px; color: var(--text);
     }
-    .mini-icon-btn:hover { background: rgba(0,0,0,0.08); }
+    .mini-icon-btn:hover { background: rgba(255,255,255,0.12); }
 
-    main { padding: 24px; }
+    /* Zone Principale */
+    main { display: flex; flex-direction: column; gap: 16px; }
+
+    /* Puces de filtres rapides (façon Bento V2) */
+    .quick-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .filter-pill {
+      padding: 7px 14px;
+      border-radius: 99px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+    .filter-pill:hover { color: var(--text); border-color: var(--accent); }
+    .filter-pill.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    /* Tuiles Sous-dossiers visuels */
+    .subfolders-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .sub-tile {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 0.86rem;
+      font-weight: 600;
+      transition: 0.15s;
+    }
+    .sub-tile:hover {
+      border-color: var(--accent);
+      background: var(--card-hover);
+      transform: translateY(-2px);
+    }
+
     .breadcrumb {
-      font-size: 0.85rem; color: var(--muted); margin-bottom: 18px;
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 2px 4px;
     }
-    .breadcrumb strong { color: var(--text); font-size: 1.15rem; }
+    .breadcrumb strong { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.01em; }
+    #items-counter { font-size: 0.84rem; color: var(--muted); font-weight: 600; }
 
+    /* Grille Bento / Cartes */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
-      gap: 20px;
+      gap: 18px;
     }
     .card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-radius: var(--radius-xl);
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
     }
     .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 24px -10px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+      background: var(--card-hover);
+      border-color: rgba(251, 113, 133, 0.35);
+      box-shadow: var(--shadow);
     }
     .card-img-wrap {
       position: relative;
       width: 100%;
       aspect-ratio: 1 / 1;
-      background: #f4f4f5;
+      background: #16151a;
       overflow: hidden;
+      padding: 10px 10px 0 10px;
     }
     .card-img-wrap img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform 0.3s ease;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      transition: transform 0.35s ease;
     }
-    .card:hover .card-img-wrap img { transform: scale(1.04); }
-    .price-badge {
+    .card:hover .card-img-wrap img { transform: scale(1.03); }
+
+    .price-pill {
       position: absolute;
-      bottom: 10px; left: 10px;
-      background: rgba(24, 24, 27, 0.88);
-      backdrop-filter: blur(6px);
+      bottom: 12px;
+      left: 20px;
+      background: rgba(17, 16, 19, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.1);
       color: #fff;
       font-weight: 700;
-      font-size: 0.85rem;
-      padding: 4px 10px;
+      font-size: 0.82rem;
+      padding: 5px 11px;
       border-radius: 99px;
     }
-    .fav-badge {
+    .fav-pill {
       position: absolute;
-      top: 10px; right: 10px;
-      background: #fff;
-      padding: 4px 8px;
-      border-radius: 99px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      top: 18px;
+      right: 18px;
+      background: rgba(17, 16, 19, 0.82);
+      backdrop-filter: blur(8px);
+      color: #fb7185;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 0.9rem;
+      border: 1px solid rgba(251, 113, 133, 0.3);
     }
+
     .card-body {
-      padding: 14px;
+      padding: 14px 16px 16px;
       display: flex;
       flex-direction: column;
       flex: 1;
@@ -226,13 +357,13 @@
     .store-tag {
       font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
       color: var(--accent);
       font-weight: 700;
     }
     .card-title {
       font-size: 0.95rem;
-      font-weight: 600;
+      font-weight: 700;
       line-height: 1.35;
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -240,52 +371,70 @@
       overflow: hidden;
     }
     .card-note {
-      font-size: 0.8rem;
+      font-size: 0.79rem;
       color: var(--muted);
-      background: #f8fafc;
-      padding: 6px 8px;
-      border-radius: 8px;
+      background: var(--pill-bg);
+      padding: 6px 10px;
+      border-radius: var(--radius-md);
       margin-top: 2px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
     .card-footer {
       margin-top: auto;
       padding-top: 10px;
       display: flex;
       gap: 8px;
+      align-items: center;
     }
     .visit-btn {
       flex: 1;
       text-align: center;
       text-decoration: none;
-      background: #f4f4f5;
+      background: var(--pill-bg);
       color: var(--text);
       font-weight: 600;
-      font-size: 0.83rem;
-      padding: 8px 12px;
-      border-radius: 10px;
+      font-size: 0.82rem;
+      padding: 9px 12px;
+      border-radius: 99px;
       transition: 0.15s;
     }
     .visit-btn:hover { background: var(--accent); color: #fff; }
     .card-admin-actions { display: none; gap: 4px; }
     body.is-admin .card-admin-actions { display: flex; }
 
+    /* Modals */
     dialog {
-      border: none;
-      border-radius: 18px;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
       padding: 24px;
-      max-width: 480px;
+      max-width: 500px;
       width: 92%;
       margin: auto;
-      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.65);
     }
-    dialog::backdrop { background: rgba(0,0,0,0.45); backdrop-filter: blur(3px); }
-    .form-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
-    .form-group label { font-size: 0.82rem; font-weight: 600; }
-    .modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
+    dialog::backdrop { background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(5px); }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+    .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--muted); }
+    .modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 18px; }
 
-    @media (max-width: 820px) {
+    /* Quick View Modal */
+    .qv-img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      margin-bottom: 14px;
+      background: #16151a;
+    }
+
+    @media (max-width: 840px) {
       .layout { grid-template-columns: 1fr; }
-      aside { border-right: none; border-bottom: 1px solid var(--border); }
+      aside { position: static; }
     }
   </style>
 </head>
@@ -295,31 +444,34 @@
     <div>🛠️ <strong>Mode Gestion</strong> — <span id="sync-status">Prêt</span></div>
     <div class="admin-actions">
       <button class="btn btn-primary" onclick="openItemModal()">+ Ajouter un produit</button>
-      <button class="btn btn-dark" onclick="openFolderModal(null)">+ Nouveau dossier</button>
-      <button class="btn btn-dark" onclick="openThemeModal()">🎨 Personnaliser</button>
+      <button class="btn" onclick="openFolderModal(null)">+ Nouveau dossier</button>
+      <button class="btn" onclick="openThemeModal()">🎨 Personnaliser</button>
       <button class="btn" onclick="openGithubModal()">🔑 Connexion GitHub</button>
     </div>
   </div>
 
-  <header>
-    <div class="brand" id="brand-logo" title="Triple-clique pour activer le mode gestion">
-      <div class="brand-badge">W</div>
-      <div>
-        <h1 id="site-title">WishlistCorner</h1>
-        <p id="site-subtitle">Mes envies, idées cadeaux et coups de cœur</p>
+  <div class="top-wrap">
+    <header>
+      <div class="brand" id="brand-logo" title="Triple-clique pour activer le mode gestion">
+        <div class="brand-badge">W</div>
+        <div>
+          <h1 id="site-title">WishlistCorner</h1>
+          <p id="site-subtitle">Mes envies, idées cadeaux et coups de cœur</p>
+        </div>
       </div>
-    </div>
 
-    <div class="controls">
-      <input type="search" id="search-input" placeholder="Rechercher un article, une marque..." oninput="renderItems()" />
-      <select id="sort-select" onchange="renderItems()">
-        <option value="default">Tri : Par défaut</option>
-        <option value="fav">Coups de cœur d'abord</option>
-        <option value="price-asc">Prix croissant</option>
-        <option value="price-desc">Prix décroissant</option>
-      </select>
-    </div>
-  </header>
+      <div class="controls">
+        <input type="search" id="search-input" placeholder="Rechercher un article, une marque..." oninput="renderItems()" />
+        <select id="sort-select" onchange="renderItems()">
+          <option value="default">Tri : Par défaut</option>
+          <option value="fav">Coups de cœur d'abord</option>
+          <option value="price-asc">Prix croissant</option>
+          <option value="price-desc">Prix décroissant</option>
+        </select>
+        <button class="btn icon-toggle" id="theme-toggle-btn" onclick="toggleLightDark()" title="Changer le mode clair/sombre">☀️</button>
+      </div>
+    </header>
+  </div>
 
   <div class="layout">
     <aside>
@@ -328,15 +480,43 @@
     </aside>
 
     <main>
+      <!-- Filtres rapides façon Bento -->
+      <div class="quick-pills" id="quick-pills">
+        <button class="filter-pill active" data-filter="all" onclick="setQuickFilter('all', this)">✨ Tout</button>
+        <button class="filter-pill" data-filter="fav" onclick="setQuickFilter('fav', this)">💖 Coups de cœur</button>
+        <button class="filter-pill" data-filter="under20" onclick="setQuickFilter('under20', this)">💸 Moins de 20 €</button>
+        <button class="filter-pill" data-filter="under50" onclick="setQuickFilter('under50', this)">🎁 Moins de 50 €</button>
+      </div>
+
       <div class="breadcrumb">
         <div id="current-path"><strong>Tous les articles</strong></div>
         <div id="items-counter"></div>
       </div>
+
+      <!-- Tuiles des sous-dossiers directs -->
+      <div class="subfolders-bar" id="subfolders-bar"></div>
+
+      <!-- Grille produits -->
       <div class="grid" id="items-grid"></div>
     </main>
   </div>
 
-  <!-- Modal Produit -->
+  <!-- Modal Aperçu Rapide (Quick View pour les visiteurs) -->
+  <dialog id="quickview-modal">
+    <img id="qv-image" class="qv-img" src="" alt="" />
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+      <span class="store-tag" id="qv-store"></span>
+      <span id="qv-price" style="font-weight:800; font-size:1.1rem; color:var(--accent);"></span>
+    </div>
+    <h3 id="qv-title" style="font-size:1.15rem; margin-bottom:10px; line-height:1.35;"></h3>
+    <p id="qv-note" class="card-note" style="font-size:0.88rem; margin-bottom:16px;"></p>
+    <div class="modal-actions">
+      <button type="button" class="btn" onclick="document.getElementById('quickview-modal').close()">Fermer</button>
+      <a id="qv-link" href="#" target="_blank" rel="noopener" class="btn btn-primary" style="text-decoration:none;">Voir sur la boutique ↗</a>
+    </div>
+  </dialog>
+
+  <!-- Modal Produit (Admin) -->
   <dialog id="item-modal">
     <h3 id="item-modal-title" style="margin-bottom:14px;">Ajouter un produit</h3>
     <form id="item-form" onsubmit="saveItem(event)">
@@ -393,7 +573,7 @@
         <label>Dossier parent</label>
         <select id="folder-parent-select"></select>
       </div>
-      <div style="display:grid; grid-template-columns:70px 1fr; gap:10px;">
+      <div style="display:grid; grid-template-columns:80px 1fr; gap:10px;">
         <div class="form-group">
           <label>Icône</label>
           <input type="text" id="folder-icon" value="📁" maxlength="4" />
@@ -422,15 +602,9 @@
         <label>Sous-titre</label>
         <input type="text" id="cfg-subtitle" />
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-        <div class="form-group">
-          <label>Couleur principale</label>
-          <input type="color" id="cfg-accent" style="height:40px; padding:2px;" />
-        </div>
-        <div class="form-group">
-          <label>Couleur de fond</label>
-          <input type="color" id="cfg-bg" style="height:40px; padding:2px;" />
-        </div>
+      <div class="form-group">
+        <label>Couleur d'accentuation</label>
+        <input type="color" id="cfg-accent" style="height:42px; padding:2px; width:100%;" />
       </div>
       <div class="modal-actions">
         <button type="button" class="btn" onclick="document.getElementById('theme-modal').close()">Annuler</button>
@@ -443,12 +617,12 @@
   <dialog id="github-modal">
     <h3 style="margin-bottom:8px;">Publication automatique sur GitHub</h3>
     <p style="font-size:0.82rem; color:var(--muted); margin-bottom:14px;">
-      Renseigne ces infos une seule fois pour que chaque produit ajouté soit publié automatiquement en ligne sans télécharger de fichier.
+      Renseigne ces infos une seule fois pour publier automatiquement tes ajouts en ligne.
     </p>
     <form onsubmit="saveGithubConfig(event)">
       <div class="form-group">
         <label>Ton pseudo GitHub</label>
-        <input type="text" id="gh-owner" required placeholder="Ex: ollie-dev" />
+        <input type="text" id="gh-owner" required placeholder="soralexprojects" />
       </div>
       <div class="form-group">
         <label>Nom du dépôt (Repository)</label>
@@ -460,7 +634,7 @@
       </div>
       <div class="modal-actions">
         <button type="button" class="btn" onclick="document.getElementById('github-modal').close()">Fermer</button>
-        <button type="submit" class="btn btn-primary">Enregistrer la connexion</button>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
       </div>
     </form>
   </dialog>
@@ -468,6 +642,7 @@
   <script>
     let appData = { config: {}, folders: [], items: [] };
     let selectedFolderId = 'all';
+    let quickFilter = 'all';
     let isAdmin = false;
 
     async function init() {
@@ -505,6 +680,13 @@
       }
     }
 
+    function toggleLightDark() {
+      const html = document.documentElement;
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      document.getElementById('theme-toggle-btn').textContent = next === 'dark' ? '☀️' : '🌙';
+    }
+
     function enableAdmin() {
       isAdmin = true;
       document.body.classList.add('is-admin');
@@ -522,11 +704,10 @@
       el.textContent = cfg && cfg.token ? '🟢 Connecté à GitHub (publication auto)' : '🟠 Clique sur "Connexion GitHub" pour activer la sauvegarde auto';
     }
 
-    // Publication automatique sur GitHub via API
     async function pushToGithub() {
       const cfg = getGhConfig();
       if (!cfg || !cfg.token) {
-        alert('Configure d’abord ta connexion GitHub en cliquant sur "🔑 Connexion GitHub" dans la barre noire en haut.');
+        alert('Configure d’abord ta connexion GitHub en cliquant sur "🔑 Connexion GitHub" dans la barre du haut.');
         openGithubModal();
         return;
       }
@@ -540,16 +721,13 @@
       };
 
       try {
-        // 1. Récupérer le SHA actuel de data.json
         const getRes = await fetch(apiUrl, { headers });
         if (!getRes.ok) throw new Error('Impossible de lire data.json sur GitHub (vérifie le pseudo/dépôt/token)');
         const fileInfo = await getRes.json();
 
-        // 2. Encoder le JSON en Base64 compatible UTF-8 (accents, emojis)
         const jsonStr = JSON.stringify(appData, null, 2);
         const contentBase64 = btoa(unescape(encodeURIComponent(jsonStr)));
 
-        // 3. Envoyer la mise à jour
         const putRes = await fetch(apiUrl, {
           method: 'PUT',
           headers,
@@ -576,9 +754,16 @@
       document.getElementById('site-subtitle').textContent = c.subtitle || '';
       if (c.accentColor) {
         document.documentElement.style.setProperty('--accent', c.accentColor);
-        document.documentElement.style.setProperty('--accent-soft', c.accentColor + '18');
+        document.documentElement.style.setProperty('--accent-strong', c.accentColor);
+        document.documentElement.style.setProperty('--accent-soft', c.accentColor + '24');
       }
-      if (c.bgColor) document.documentElement.style.setProperty('--bg', c.bgColor);
+    }
+
+    function setQuickFilter(filter, btnEl) {
+      quickFilter = filter;
+      document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+      btnEl.classList.add('active');
+      renderItems();
     }
 
     function getDescendantFolderIds(folderId) {
@@ -589,6 +774,12 @@
       return ids;
     }
 
+    function selectFolder(id) {
+      selectedFolderId = id;
+      renderFolders();
+      renderItems();
+    }
+
     function renderFolders() {
       const container = document.getElementById('folder-tree');
       container.innerHTML = '';
@@ -596,7 +787,7 @@
       const allEl = document.createElement('div');
       allEl.className = 'tree-item' + (selectedFolderId === 'all' ? ' active' : '');
       allEl.innerHTML = `<div class="tree-left"><span>✨</span><span class="tree-name">Tout voir</span></div><span class="count-pill">${appData.items.length}</span>`;
-      allEl.onclick = () => { selectedFolderId = 'all'; renderFolders(); renderItems(); };
+      allEl.onclick = () => selectFolder('all');
       container.appendChild(allEl);
 
       function buildTree(parentId, parentContainer) {
@@ -619,7 +810,7 @@
               <span class="count-pill">${count}</span>
             </div>
           `;
-          itemEl.onclick = () => { selectedFolderId = folder.id; renderFolders(); renderItems(); };
+          itemEl.onclick = () => selectFolder(folder.id);
           parentContainer.appendChild(itemEl);
 
           const subFolders = appData.folders.filter(f => f.parentId === folder.id);
@@ -634,6 +825,24 @@
       buildTree(null, container);
     }
 
+    function renderSubfolderTiles() {
+      const bar = document.getElementById('subfolders-bar');
+      const parentTarget = selectedFolderId === 'all' ? null : selectedFolderId;
+      const children = appData.folders.filter(f => f.parentId === parentTarget);
+
+      let html = '';
+      if (selectedFolderId !== 'all') {
+        const curr = appData.folders.find(f => f.id === selectedFolderId);
+        const backId = curr && curr.parentId ? curr.parentId : 'all';
+        html += `<div class="sub-tile" onclick="selectFolder('${backId}')">← Retour</div>`;
+      }
+      children.forEach(f => {
+        const count = appData.items.filter(i => getDescendantFolderIds(f.id).includes(i.folderId)).length;
+        html += `<div class="sub-tile" onclick="selectFolder('${f.id}')"><span>${f.icon || '📁'}</span><span>${f.name}</span><span class="count-pill">${count}</span></div>`;
+      });
+      bar.innerHTML = html;
+    }
+
     function getFolderBreadcrumb(folderId) {
       if (folderId === 'all') return 'Tous les articles';
       const path = [];
@@ -645,7 +854,26 @@
       return path.join(' › ');
     }
 
+    function openQuickView(id) {
+      const item = appData.items.find(i => i.id === id);
+      if (!item) return;
+      document.getElementById('qv-image').src = item.image || 'https://placehold.co/600x400?text=Produit';
+      document.getElementById('qv-store').textContent = item.store || 'Boutique';
+      document.getElementById('qv-price').textContent = item.price ? `${Number(item.price).toFixed(2).replace('.', ',')} €` : '';
+      document.getElementById('qv-title').textContent = item.title;
+      const noteEl = document.getElementById('qv-note');
+      if (item.note) {
+        noteEl.textContent = '📝 ' + item.note;
+        noteEl.style.display = 'block';
+      } else {
+        noteEl.style.display = 'none';
+      }
+      document.getElementById('qv-link').href = item.url;
+      document.getElementById('quickview-modal').showModal();
+    }
+
     function renderItems() {
+      renderSubfolderTiles();
       const grid = document.getElementById('items-grid');
       const query = document.getElementById('search-input').value.toLowerCase();
       const sort = document.getElementById('sort-select').value;
@@ -655,6 +883,10 @@
         const validIds = getDescendantFolderIds(selectedFolderId);
         list = list.filter(i => validIds.includes(i.folderId));
       }
+      if (quickFilter === 'fav') list = list.filter(i => i.priority === 'coup-de-coeur');
+      if (quickFilter === 'under20') list = list.filter(i => i.price && i.price <= 20);
+      if (quickFilter === 'under50') list = list.filter(i => i.price && i.price <= 50);
+
       if (query) {
         list = list.filter(i =>
           (i.title || '').toLowerCase().includes(query) ||
@@ -671,21 +903,21 @@
       document.getElementById('items-counter').textContent = `${list.length} article${list.length > 1 ? 's' : ''}`;
 
       grid.innerHTML = list.map(item => `
-        <article class="card">
+        <article class="card" onclick="openQuickView('${item.id}')">
           <div class="card-img-wrap">
             <img src="${item.image || 'https://placehold.co/400x400?text=Produit'}" alt="${item.title}" loading="lazy" />
-            ${item.price ? `<span class="price-badge">${Number(item.price).toFixed(2).replace('.', ',')} €</span>` : ''}
-            ${item.priority === 'coup-de-coeur' ? `<span class="fav-badge">💖 Coup de cœur</span>` : ''}
+            ${item.price ? `<span class="price-pill">${Number(item.price).toFixed(2).replace('.', ',')} €</span>` : ''}
+            ${item.priority === 'coup-de-coeur' ? `<span class="fav-pill" title="Coup de cœur">💖</span>` : ''}
           </div>
           <div class="card-body">
             <div class="store-tag">${item.store || 'Boutique'}</div>
             <h2 class="card-title" title="${item.title}">${item.title}</h2>
             ${item.note ? `<div class="card-note">${item.note}</div>` : ''}
-            <div class="card-footer">
+            <div class="card-footer" onclick="event.stopPropagation()">
               <a href="${item.url}" target="_blank" rel="noopener" class="visit-btn">Voir l'article ↗</a>
               <div class="card-admin-actions">
-                <button class="btn" style="padding:6px 9px;" onclick='editItem("${item.id}")'>✏️</button>
-                <button class="btn" style="padding:6px 9px;" onclick='deleteItem("${item.id}")'>🗑️</button>
+                <button class="btn" style="padding:7px 10px;" onclick='editItem("${item.id}")'>✏️</button>
+                <button class="btn" style="padding:7px 10px;" onclick='deleteItem("${item.id}")'>🗑️</button>
               </div>
             </div>
           </div>
@@ -798,8 +1030,7 @@
     function openThemeModal() {
       document.getElementById('cfg-title').value = appData.config.title || 'WishlistCorner';
       document.getElementById('cfg-subtitle').value = appData.config.subtitle || '';
-      document.getElementById('cfg-accent').value = appData.config.accentColor || '#e11d48';
-      document.getElementById('cfg-bg').value = appData.config.bgColor || '#fafafa';
+      document.getElementById('cfg-accent').value = appData.config.accentColor || '#fb7185';
       document.getElementById('theme-modal').showModal();
     }
 
@@ -808,7 +1039,6 @@
       appData.config.title = document.getElementById('cfg-title').value;
       appData.config.subtitle = document.getElementById('cfg-subtitle').value;
       appData.config.accentColor = document.getElementById('cfg-accent').value;
-      appData.config.bgColor = document.getElementById('cfg-bg').value;
       applyTheme();
       document.getElementById('theme-modal').close();
       await pushToGithub();
@@ -816,7 +1046,7 @@
 
     function openGithubModal() {
       const cfg = getGhConfig() || {};
-      document.getElementById('gh-owner').value = cfg.owner || '';
+      document.getElementById('gh-owner').value = cfg.owner || 'soralexprojects';
       document.getElementById('gh-repo').value = cfg.repo || 'wishlistcorner';
       document.getElementById('gh-token').value = cfg.token || '';
       document.getElementById('github-modal').showModal();
