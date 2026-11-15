@@ -288,26 +288,29 @@
     /* Grille Principale */
     .layout {
       display: grid;
-      grid-template-columns: 270px 1fr;
+      grid-template-columns: 290px 1fr;
       gap: 20px;
       align-items: start;
     }
 
-    /* Sidebar Collections */
+    /* Sidebar Collections avec accordéon & recherche rapide */
     aside {
       background: var(--surface);
       border: 1px solid var(--border-strong);
       border-radius: 24px;
-      padding: 20px 14px;
+      padding: 18px 14px;
       position: sticky;
       top: 18px;
+      max-height: calc(100vh - 36px);
+      display: flex;
+      flex-direction: column;
       box-shadow: var(--paper-shadow);
     }
     .sidebar-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 12px 12px;
+      padding: 0 10px 10px;
       margin-bottom: 10px;
       border-bottom: 1px solid var(--border);
     }
@@ -318,20 +321,46 @@
       color: var(--text-soft);
       font-weight: 700;
     }
+    .sidebar-tools { display: flex; gap: 4px; }
+    .tiny-pill-btn {
+      background: var(--input-bg);
+      border: 1px solid var(--border);
+      color: var(--text-soft);
+      font-size: 0.7rem;
+      padding: 2px 7px;
+      border-radius: 99px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .tiny-pill-btn:hover { border-color: var(--accent); color: var(--accent-light); }
+
+    .folder-search-box {
+      width: 100%;
+      padding: 7px 12px !important;
+      font-size: 0.8rem !important;
+      margin-bottom: 10px;
+    }
+
+    #folder-tree {
+      overflow-y: auto;
+      padding-right: 2px;
+      flex: 1;
+    }
 
     .tree-item {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 9px 12px;
+      padding: 7px 10px;
       border-radius: 12px;
       cursor: pointer;
-      font-size: 0.87rem;
+      font-size: 0.85rem;
       font-weight: 500;
       color: var(--text);
       transition: 0.12s;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
       border: 1px solid transparent;
+      gap: 4px;
     }
     .tree-item:hover { background: var(--surface-alt); }
     .tree-item.active {
@@ -341,16 +370,49 @@
       font-weight: 700;
       box-shadow: 0 2px 8px rgba(45, 30, 40, 0.06);
     }
-    .tree-left { display: flex; align-items: center; gap: 9px; overflow: hidden; }
+    .tree-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow: hidden;
+      flex: 1;
+      min-width: 0;
+    }
+    .caret-btn {
+      background: none;
+      border: none;
+      color: var(--text-soft);
+      cursor: pointer;
+      width: 16px;
+      height: 18px;
+      display: grid;
+      place-items: center;
+      font-size: 0.72rem;
+      flex-shrink: 0;
+      border-radius: 4px;
+    }
+    .caret-btn:hover { background: var(--pill-bg); color: var(--accent-light); }
+    .caret-spacer { width: 16px; flex-shrink: 0; }
+
+    /* Symbole monochrome forcé dans le violet-prune foncé du thème */
+    .folder-symbol {
+      color: var(--accent-light);
+      font-weight: 700;
+      flex-shrink: 0;
+      font-size: 0.92rem;
+      line-height: 1;
+    }
+
     .tree-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .count-pill {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       background: var(--input-bg);
       color: var(--text-soft);
       border: 1px solid var(--border);
-      padding: 2px 8px;
+      padding: 1px 7px;
       border-radius: 99px;
       font-weight: 600;
+      flex-shrink: 0;
     }
     .tree-item.active .count-pill {
       background: var(--accent);
@@ -358,15 +420,17 @@
       border-color: var(--accent);
     }
     .tree-children {
-      margin-left: 15px;
+      margin-left: 13px;
       border-left: 1px solid var(--border-strong);
-      padding-left: 8px;
-      margin-bottom: 4px;
+      padding-left: 6px;
+      margin-bottom: 3px;
     }
-    .folder-admin-btns { display: none; gap: 2px; }
+    .tree-children.collapsed { display: none; }
+
+    .folder-admin-btns { display: none; gap: 1px; flex-shrink: 0; }
     body.is-admin .tree-item:hover .folder-admin-btns { display: flex; }
     .mini-icon-btn {
-      background: none; border: none; cursor: pointer; font-size: 0.78rem; padding: 2px 5px; border-radius: 6px; color: var(--text);
+      background: none; border: none; cursor: pointer; font-size: 0.76rem; padding: 2px 4px; border-radius: 5px; color: var(--accent-light);
     }
     .mini-icon-btn:hover { background: var(--pill-bg); }
 
@@ -482,7 +546,7 @@
       display: grid;
       place-items: center;
       font-size: 1.6rem;
-      color: var(--text-soft);
+      color: var(--accent-light);
     }
     .board-title {
       font-size: 0.85rem;
@@ -701,6 +765,30 @@
     .form-group label { font-size: 0.8rem; font-weight: 600; color: var(--text-soft); }
     .modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 18px; }
 
+    .symbol-picker {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      padding: 8px;
+      background: var(--input-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-top: 4px;
+    }
+    .sym-chip {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--accent-light);
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .sym-chip:hover { border-color: var(--accent); background: var(--pill-bg); }
+
     .qv-img {
       width: 100%;
       aspect-ratio: 1 / 1;
@@ -714,7 +802,7 @@
 
     @media (max-width: 840px) {
       .layout { grid-template-columns: 1fr; }
-      aside { position: static; }
+      aside { position: static; max-height: none; }
       .hero-banner { height: 115px; padding: 14px 18px; }
       .hero-quote { font-size: 1.1rem; }
     }
@@ -779,7 +867,12 @@
       <aside>
         <div class="sidebar-header">
           <span>Collections</span>
+          <div class="sidebar-tools">
+            <button class="tiny-pill-btn" onclick="expandAllFolders(true)" title="Tout déplier">+</button>
+            <button class="tiny-pill-btn" onclick="expandAllFolders(false)" title="Tout replier">−</button>
+          </div>
         </div>
+        <input type="search" id="folder-filter-input" class="folder-search-box" placeholder="Filtrer les dossiers..." oninput="renderFolders()" />
         <div id="folder-tree"></div>
       </aside>
 
@@ -842,6 +935,7 @@
       <input type="hidden" id="item-id" />
       <div class="form-group">
         <label>Dossier de destination</label>
+        <input type="text" id="item-folder-search" placeholder="🔎 Filtrer la liste des dossiers (ex: rouges, vsp...)" oninput="filterItemFolderSelect()" style="margin-bottom:4px; padding:7px 12px; font-size:0.8rem;" />
         <select id="item-folder" required></select>
       </div>
       <div class="form-group">
@@ -884,7 +978,7 @@
     </form>
   </dialog>
 
-  <!-- Modal Dossier (Création & Modification) -->
+  <!-- Modal Dossier (Création & Modification avec sélecteur de symboles) -->
   <dialog id="folder-modal">
     <h3 class="serif" id="folder-modal-title" style="font-size:1.5rem; margin-bottom:14px;">Dossier / Sous-dossier</h3>
     <form onsubmit="saveFolder(event)">
@@ -896,12 +990,16 @@
       <div style="display:grid; grid-template-columns:80px 1fr; gap:10px;">
         <div class="form-group">
           <label>Symbole</label>
-          <input type="text" id="folder-icon" value="✦" maxlength="4" />
+          <input type="text" id="folder-icon" value="✦" maxlength="4" style="text-align:center; font-weight:700; color:var(--accent-light);" />
         </div>
         <div class="form-group">
           <label>Nom du dossier</label>
-          <input type="text" id="folder-name" required placeholder="Ex: Gels de construction" />
+          <input type="text" id="folder-name" required placeholder="Ex: VSP | Rouges." />
         </div>
+      </div>
+      <div class="form-group">
+        <label>Symboles rapides (couleur prune foncé assortie)</label>
+        <div class="symbol-picker" id="symbol-picker"></div>
       </div>
       <div class="modal-actions">
         <button type="button" class="btn" onclick="document.getElementById('folder-modal').close()">Annuler</button>
@@ -914,7 +1012,7 @@
   <dialog id="bulk-folder-modal">
     <h3 class="serif" style="font-size:1.5rem; margin-bottom:8px;">⚡ Création d'arborescence en masse</h3>
     <p style="font-size:0.82rem; color:var(--text-soft); margin-bottom:12px; line-height:1.45;">
-      Écris un dossier par ligne. Ajoute <strong>2 espaces</strong> (ou <code>--</code>) devant une ligne pour créer un sous-dossier, <strong>4 espaces</strong> pour un sous-sous-dossier, etc. Tu peux mettre un emoji au début de chaque ligne.
+      Écris un dossier par ligne. Ajoute <strong>2 espaces</strong> (ou <code>--</code>) devant une ligne pour créer un sous-dossier. Tu peux mettre un symbole monochrome en début de ligne (ex. <code>✿</code>, <code>◈</code>, <code>☾</code>, <code>♡</code>).
     </p>
     <form onsubmit="saveBulkFolders(event)">
       <div class="form-group">
@@ -923,16 +1021,12 @@
       </div>
       <div class="form-group">
         <label>Ton arborescence</label>
-        <textarea id="bulk-folders-text" rows="11" required placeholder="💅 Beauté & Ongles
-  ✨ Ongle24
-    🎨 Gels UV & Couleurs
-      🌸 Nudes & Milky
-      ✨ Pailletés
-    🛠️ Limes & Pinceaux
-  🧴 Skincare
-👗 Mode & Accessoires
-  👜 Sacs
-  💍 Bijoux"></textarea>
+        <textarea id="bulk-folders-text" rows="11" required placeholder="✦ Onglerie.
+  ✧ Gels & Vernis Semi-Permanents colorés.
+    ✿ VSP | Rouges.
+    ✿ VSP | Bleus.
+    ✿ VSP | Verts.
+  ◈ VSP | Crystal."></textarea>
       </div>
       <div class="modal-actions">
         <button type="button" class="btn" onclick="document.getElementById('bulk-folder-modal').close()">Annuler</button>
@@ -1004,10 +1098,13 @@
 
   <script>
     const DEFAULT_BANNER = "https://i.pinimg.com/1200x/92/4a/46/924a4673fd6e48c1254e32d51c874038.jpg";
+    const MONO_SYMBOLS = ['✦','✧','⋆','✩','✵','✶','✷','☾','☽','✿','❀','❁','✾','✽','❦','♡','♥','ღ','◈','◇','◆','❖','•','◦','◎','▪','▸','⚜','♛','∞'];
+
     let appData = { config: {}, folders: [], items: [] };
     let selectedFolderId = 'all';
     let quickFilter = 'all';
     let isAdmin = false;
+    let expandedFolders = new Set(); // Dossiers dépliés (par défaut repliés pour garder la barre compacte)
 
     async function init() {
       const params = new URLSearchParams(window.location.search);
@@ -1018,6 +1115,17 @@
         clicks++;
         setTimeout(() => clicks = 0, 600);
         if (clicks === 3) enableAdmin();
+      });
+
+      // Remplir le sélecteur rapide de symboles
+      const picker = document.getElementById('symbol-picker');
+      MONO_SYMBOLS.forEach(sym => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'sym-chip';
+        btn.textContent = sym;
+        btn.onclick = () => { document.getElementById('folder-icon').value = sym; };
+        picker.appendChild(btn);
       });
 
       try {
@@ -1145,8 +1253,38 @@
       return ids;
     }
 
+    function getAncestorFolderIds(folderId) {
+      const ids = [];
+      let curr = appData.folders.find(f => f.id === folderId);
+      while (curr && curr.parentId) {
+        ids.push(curr.parentId);
+        curr = appData.folders.find(f => f.id === curr.parentId);
+      }
+      return ids;
+    }
+
+    function toggleFolderExpand(id) {
+      if (expandedFolders.has(id)) expandedFolders.delete(id);
+      else expandedFolders.add(id);
+      renderFolders();
+    }
+
+    function expandAllFolders(expand) {
+      if (expand) {
+        appData.folders.forEach(f => expandedFolders.add(f.id));
+      } else {
+        expandedFolders.clear();
+      }
+      renderFolders();
+    }
+
     function selectFolder(id) {
       selectedFolderId = id;
+      if (id !== 'all') {
+        // Déplie automatiquement le dossier sélectionné et ses parents
+        expandedFolders.add(id);
+        getAncestorFolderIds(id).forEach(pid => expandedFolders.add(pid));
+      }
       renderFolders();
       renderItems();
     }
@@ -1159,30 +1297,56 @@
 
     function renderFolders() {
       const container = document.getElementById('folder-tree');
+      const filterText = (document.getElementById('folder-filter-input')?.value || '').trim().toLowerCase();
       container.innerHTML = '';
 
       const allEl = document.createElement('div');
       allEl.className = 'tree-item' + (selectedFolderId === 'all' ? ' active' : '');
-      allEl.innerHTML = `<div class="tree-left"><span>✦</span><span class="tree-name">Tout voir</span></div><span class="count-pill">${appData.items.length}</span>`;
+      allEl.innerHTML = `<div class="tree-left"><span class="caret-spacer"></span><span class="folder-symbol">✦</span><span class="tree-name">Tout voir</span></div><span class="count-pill">${appData.items.length}</span>`;
       allEl.onclick = () => selectFolder('all');
       container.appendChild(allEl);
 
+      // Si recherche de dossier active, trouve tous les dossiers correspondants et leurs parents
+      let matchingIds = null;
+      if (filterText) {
+        matchingIds = new Set();
+        appData.folders.forEach(f => {
+          if (f.name.toLowerCase().includes(filterText)) {
+            matchingIds.add(f.id);
+            getAncestorFolderIds(f.id).forEach(pid => matchingIds.add(pid));
+          }
+        });
+      }
+
       function buildTree(parentId, parentContainer) {
         appData.folders.filter(f => f.parentId === parentId).forEach(folder => {
+          if (matchingIds && !matchingIds.has(folder.id)) return;
+
           const validIds = getDescendantFolderIds(folder.id);
           const count = appData.items.filter(i => validIds.includes(i.folderId)).length;
+
+          // En vue visiteur (non admin), masque les dossiers vides pour épurer la navigation
+          if (!isAdmin && count === 0 && !filterText) return;
+
+          const subFolders = appData.folders.filter(f => f.parentId === folder.id && (!matchingIds || matchingIds.has(f.id)) && (isAdmin || filterText || appData.items.some(i => getDescendantFolderIds(f.id).includes(i.folderId))));
+          const hasChildren = subFolders.length > 0;
+          const isOpen = filterText ? true : expandedFolders.has(folder.id);
 
           const itemEl = document.createElement('div');
           itemEl.className = 'tree-item' + (selectedFolderId === folder.id ? ' active' : '');
           itemEl.innerHTML = `
             <div class="tree-left">
-              <span>${folder.icon || '✦'}</span>
-              <span class="tree-name">${folder.name}</span>
+              ${hasChildren
+                ? `<button type="button" class="caret-btn" onclick="event.stopPropagation(); toggleFolderExpand('${folder.id}')">${isOpen ? '▾' : '▸'}</button>`
+                : `<span class="caret-spacer"></span>`
+              }
+              <span class="folder-symbol">${folder.icon || '✦'}</span>
+              <span class="tree-name" title="${folder.name}">${folder.name}</span>
             </div>
-            <div style="display:flex; align-items:center; gap:4px;">
+            <div style="display:flex; align-items:center; gap:3px;">
               <div class="folder-admin-btns">
-                <button class="mini-icon-btn" title="Modifier ce dossier" onclick="event.stopPropagation(); editFolder('${folder.id}')">✎</button>
-                <button class="mini-icon-btn" title="Ajouter un sous-dossier" onclick="event.stopPropagation(); openFolderModal('${folder.id}')">+</button>
+                <button class="mini-icon-btn" title="Modifier" onclick="event.stopPropagation(); editFolder('${folder.id}')">✎</button>
+                <button class="mini-icon-btn" title="Sous-dossier" onclick="event.stopPropagation(); openFolderModal('${folder.id}')">+</button>
                 <button class="mini-icon-btn" title="Supprimer" onclick="event.stopPropagation(); deleteFolder('${folder.id}')">×</button>
               </div>
               <span class="count-pill">${count}</span>
@@ -1191,10 +1355,9 @@
           itemEl.onclick = () => selectFolder(folder.id);
           parentContainer.appendChild(itemEl);
 
-          const subFolders = appData.folders.filter(f => f.parentId === folder.id);
-          if (subFolders.length > 0) {
+          if (hasChildren) {
             const subWrap = document.createElement('div');
-            subWrap.className = 'tree-children';
+            subWrap.className = 'tree-children' + (isOpen ? '' : ' collapsed');
             buildTree(folder.id, subWrap);
             parentContainer.appendChild(subWrap);
           }
@@ -1210,7 +1373,15 @@
       const heading = document.getElementById('boards-heading');
 
       const parentTarget = selectedFolderId === 'all' ? null : selectedFolderId;
-      const children = appData.folders.filter(f => f.parentId === parentTarget);
+      let children = appData.folders.filter(f => f.parentId === parentTarget);
+
+      // En mode visiteur, masque les cartes collections vides
+      if (!isAdmin) {
+        children = children.filter(f => {
+          const validIds = getDescendantFolderIds(f.id);
+          return appData.items.some(i => validIds.includes(i.folderId));
+        });
+      }
 
       backBtn.style.display = selectedFolderId !== 'all' ? 'inline-flex' : 'none';
       heading.textContent = selectedFolderId === 'all' ? 'Mes Collections ✦' : 'Sous-collections ✦';
@@ -1239,7 +1410,7 @@
                 : `<div class="board-cover-placeholder">${f.icon || '✦'}</div>`
               }
             </div>
-            <div class="board-title">${f.icon || '✦'} ${f.name}</div>
+            <div class="board-title"><span class="folder-symbol">${f.icon || '✦'}</span> ${f.name}</div>
             <div class="board-meta">${folderItems.length} article${folderItems.length > 1 ? 's' : ''}</div>
           </div>
         `;
@@ -1328,21 +1499,36 @@
       `).join('');
     }
 
-    function populateFolderSelect(selectEl, includeRoot = false) {
+    function populateFolderSelect(selectEl, includeRoot = false, filterQuery = '') {
+      const q = filterQuery.trim().toLowerCase();
       selectEl.innerHTML = includeRoot ? '<option value="">(Racine — Dossier principal)</option>' : '';
       function addOptions(parentId, prefix = '') {
         appData.folders.filter(f => f.parentId === parentId).forEach(f => {
-          const opt = document.createElement('option');
-          opt.value = f.id;
-          opt.textContent = `${prefix}${f.icon || '✦'} ${f.name}`;
-          selectEl.appendChild(opt);
+          const fullLabel = `${prefix}${f.icon || '✦'} ${f.name}`;
+          if (!q || f.name.toLowerCase().includes(q)) {
+            const opt = document.createElement('option');
+            opt.value = f.id;
+            opt.textContent = fullLabel;
+            selectEl.appendChild(opt);
+          }
           addOptions(f.id, prefix + '— ');
         });
       }
       addOptions(null);
     }
 
+    function filterItemFolderSelect() {
+      const sel = document.getElementById('item-folder');
+      const currentVal = sel.value;
+      const q = document.getElementById('item-folder-search').value;
+      populateFolderSelect(sel, false, q);
+      if (currentVal && Array.from(sel.options).some(o => o.value === currentVal)) {
+        sel.value = currentVal;
+      }
+    }
+
     function openItemModal(prefill = null) {
+      document.getElementById('item-folder-search').value = '';
       populateFolderSelect(document.getElementById('item-folder'), false);
       document.getElementById('item-modal-title').textContent = prefill && prefill.id ? 'Modifier le produit' : 'Ajouter un produit';
       document.getElementById('item-id').value = prefill?.id || '';
@@ -1448,7 +1634,6 @@
       await pushToGithub();
     }
 
-    /* Création en masse via texte indenté */
     function openBulkFolderModal() {
       const sel = document.getElementById('bulk-parent-select');
       populateFolderSelect(sel, true);
@@ -1466,7 +1651,6 @@
 
       rawLines.forEach((line, idx) => {
         if (!line.trim()) return;
-        // Calcule la profondeur (2 espaces, 1 tabulation, ou des tirets '--' en début de ligne)
         const leadingSpaces = line.match(/^(\s*)/)[1].replace(/\t/g, '  ').length;
         let clean = line.trim();
         let dashDepth = 0;
@@ -1481,7 +1665,6 @@
         }
         const parentId = stack[stack.length - 1].id;
 
-        // Sépare l'emoji éventuel au début du nom
         const emojiMatch = clean.match(/^(\p{Extended_Pictographic}|\S)\s+(.+)$/u);
         let icon = '✦';
         let name = clean;
