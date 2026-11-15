@@ -1,0 +1,38 @@
+{
+  "config": {
+    "title": "WishlistCorner",
+    "subtitle": "Mes envies, idées cadeaux et coups de cœur",
+    "accentColor": "#e11d48",
+    "bgColor": "#fafafa"
+  },
+  "folders": [
+    { "id": "f-beaute", "name": "Beauté & Ongles", "icon": "💅", "parentId": null },
+    { "id": "f-ongle24", "name": "Ongle24", "icon": "✨", "parentId": "f-beaute" },
+    { "id": "f-gels", "name": "Gels UV & Couleurs", "icon": "🎨", "parentId": "f-ongle24" },
+    { "id": "f-tech", "name": "Tech & Maison", "icon": "🎧", "parentId": null }
+  ],
+  "items": [
+    {
+      "id": "item-1",
+      "folderId": "f-gels",
+      "title": "Gel de construction Milky Pink - 15ml",
+      "price": 8.95,
+      "store": "Ongle24",
+      "url": "https://www.ongle24.com/",
+      "image": "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80",
+      "note": "Teinte n°04 - Idéal pour babyboomer",
+      "priority": "coup-de-coeur"
+    },
+    {
+      "id": "item-2",
+      "folderId": "f-tech",
+      "title": "Casque sans fil à réduction de bruit",
+      "price": 129.00,
+      "store": "Amazon",
+      "url": "https://www.amazon.fr/",
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80",
+      "note": "Coloris Crème ou Noir",
+      "priority": "normal"
+    }
+  ]
+}
