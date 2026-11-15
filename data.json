@@ -136,12 +136,6 @@
       "parentId": "f-beaute"
     },
     {
-      "id": "f-1794779281035-0",
-      "name": "Gels en Pot | Couleurs.",
-      "icon": "✶",
-      "parentId": "f-ongle24"
-    },
-    {
       "id": "f-1794779281035-8",
       "name": "GEP | Argentés.",
       "icon": "◈",
@@ -152,6 +146,12 @@
       "name": "GEP | Bleus.",
       "icon": "◈",
       "parentId": "f-1794779281035-0"
+    },
+    {
+      "id": "f-1794779281035-0",
+      "name": "GEP | Couleurs.",
+      "icon": "✶",
+      "parentId": "f-ongle24"
     },
     {
       "id": "f-1794779281035-7",
