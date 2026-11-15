@@ -1,15 +1,38 @@
 {
   "config": {
-    "title": "WishlistCorner",
-    "subtitle": "Mes envies, idées cadeaux et coups de cœur",
+    "title": "WishlistCorner.",
+    "subtitle": "I wish, I wish, I wish.",
     "accentColor": "#e11d48",
-    "bgColor": "#fafafa"
+    "bgColor": "#fafafa",
+    "quote": "« Wish upon a star. »",
+    "bannerUrl": "https://i.pinimg.com/1200x/1d/33/3a/1d333a8f3a9c0673a930fb4fbed9884d.jpg",
+    "palette": "sakura-dark"
   },
   "folders": [
-    { "id": "f-beaute", "name": "Beauté & Ongles", "icon": "💅", "parentId": null },
-    { "id": "f-ongle24", "name": "Ongle24", "icon": "✨", "parentId": "f-beaute" },
-    { "id": "f-gels", "name": "Gels UV & Couleurs", "icon": "🎨", "parentId": "f-ongle24" },
-    { "id": "f-tech", "name": "Tech & Maison", "icon": "🎧", "parentId": null }
+    {
+      "id": "f-beaute",
+      "name": "Beauté & Ongles",
+      "icon": "💅",
+      "parentId": null
+    },
+    {
+      "id": "f-ongle24",
+      "name": "Ongle24",
+      "icon": "✨",
+      "parentId": "f-beaute"
+    },
+    {
+      "id": "f-gels",
+      "name": "Gels UV & Couleurs",
+      "icon": "🎨",
+      "parentId": "f-ongle24"
+    },
+    {
+      "id": "f-tech",
+      "name": "Tech & Maison",
+      "icon": "🎧",
+      "parentId": null
+    }
   ],
   "items": [
     {
@@ -27,7 +50,7 @@
       "id": "item-2",
       "folderId": "f-tech",
       "title": "Casque sans fil à réduction de bruit",
-      "price": 129.00,
+      "price": 129,
       "store": "Amazon",
       "url": "https://www.amazon.fr/",
       "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80",
