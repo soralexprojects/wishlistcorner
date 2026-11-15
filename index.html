@@ -822,10 +822,6 @@
     }
     dialog::backdrop { background: rgba(38, 26, 34, 0.55); backdrop-filter: blur(3px); }
     .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
-    .folder-row { display: flex; gap: 6px; align-items: center; }
-    @media (max-width: 520px) {
-      .folder-row { flex-direction: column; align-items: stretch; }
-    }
     .form-group label { font-size: 0.8rem; font-weight: 600; color: var(--text-soft); }
     .modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 18px; }
 
@@ -1036,7 +1032,7 @@
     </div>
   </dialog>
 
-  <!-- Modal Produit (sert aussi de Popup Express depuis le bookmarklet) -->
+  <!-- Modal Produit -->
   <dialog id="item-modal">
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
       <h3 class="serif" id="item-modal-title" style="font-size:1.5rem;">Ajouter un produit</h3>
@@ -1057,14 +1053,13 @@
 
       <div class="form-group">
         <label>Dossier de destination (classé A–Z)</label>
-        <div class="folder-row">
+        <div style="display:flex; gap:6px; align-items:center;">
           <input type="text" id="item-folder-search" placeholder="🔎 Filtrer (ex: crystal, sacs...)" oninput="filterItemFolderSelect()" style="margin-bottom:0; padding:7px 12px; font-size:0.8rem; flex:1;" />
           <button type="button" class="btn" style="padding:7px 12px; white-space:nowrap;" onclick="openFolderModalFromItem()" title="Créer un nouveau dossier sur le pouce">+ Dossier</button>
         </div>
         <select id="item-folder" required style="margin-top:4px;"></select>
       </div>
-        <select id="item-folder" required style="margin-top:4px;"></select>
-      </div>
+
       <div class="form-group">
         <label>Nom du produit</label>
         <input type="text" id="item-title" required placeholder="Ex: Gel UV Milky Pink" oninput="updateLivePreview(); checkDuplicateItem();" />
@@ -1105,7 +1100,7 @@
     </form>
   </dialog>
 
-  <!-- Modal Dossier (utilisé aussi depuis la popup produit) -->
+  <!-- Modal Dossier -->
   <dialog id="folder-modal">
     <h3 class="serif" id="folder-modal-title" style="font-size:1.5rem; margin-bottom:14px;">Dossier / Sous-dossier</h3>
     <form onsubmit="saveFolder(event)">
@@ -1232,7 +1227,7 @@
     let quickFilter = 'all';
     let isAdmin = false;
     let isPopupMode = false;
-    let folderModalSource = 'main'; // 'main' ou 'item-modal'
+    let folderModalSource = 'main';
     let expandedFolders = new Set();
     let multiSelectedFolders = new Set();
     let draggedFolderIds = [];
@@ -1957,7 +1952,6 @@
       document.getElementById('folder-modal').showModal();
     }
 
-    /* Ouvre la création de dossier directement depuis la popup produit */
     function openFolderModalFromItem() {
       folderModalSource = 'item-modal';
       document.getElementById('folder-modal-title').textContent = 'Créer un dossier sur le pouce';
@@ -2014,7 +2008,6 @@
       await pushToGithub();
       closeFolderModal();
 
-      // Si on venait de la popup produit, on met à jour la liste des dossiers et on sélectionne le nouveau créé
       if (folderModalSource === 'item-modal') {
         const itemFolderSelect = document.getElementById('item-folder');
         populateFolderSelect(itemFolderSelect, false);
