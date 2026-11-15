@@ -10,6 +10,36 @@
   },
   "folders": [
     {
+      "id": "f-1794780181994-18",
+      "name": "Aimants Cat-Eyes.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-8"
+    },
+    {
+      "id": "f-1794780181994-0",
+      "name": "Bases.",
+      "icon": "✶",
+      "parentId": "f-beaute"
+    },
+    {
+      "id": "f-1794780181994-11",
+      "name": "Batônnets.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-8"
+    },
+    {
+      "id": "f-1794780181994-10",
+      "name": "Bols de Dépose.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-8"
+    },
+    {
+      "id": "f-1794780181994-16",
+      "name": "Buffs/Pollisoirs.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-8"
+    },
+    {
       "id": "f-1794777765750-7",
       "name": "Cat-Eyes | Argentés.",
       "icon": "◈",
@@ -70,6 +100,12 @@
       "parentId": "f-1794776236845"
     },
     {
+      "id": "f-1794780181994-21",
+      "name": "Construction/Poses.",
+      "icon": "✶",
+      "parentId": "f-beaute"
+    },
+    {
       "id": "f-1794777404011-7",
       "name": "Crystal | Argentés.",
       "icon": "◈",
@@ -128,6 +164,48 @@
       "name": "Crystal | Violets.",
       "icon": "◈",
       "parentId": "f-1794776214272"
+    },
+    {
+      "id": "f-1794780181994-1",
+      "name": "Déshydratants.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-0"
+    },
+    {
+      "id": "f-1794780181994-14",
+      "name": "Embouts Emeri.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-8"
+    },
+    {
+      "id": "f-1794780181994-17",
+      "name": "Flacons.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-8"
+    },
+    {
+      "id": "f-1794780181994-13",
+      "name": "Fraises à Ponce.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-8"
+    },
+    {
+      "id": "f-1794780181994-24",
+      "name": "Gel X | Bare Gel X (naturels).",
+      "icon": "◈",
+      "parentId": "f-1794780181994-21"
+    },
+    {
+      "id": "f-1794780181994-23",
+      "name": "Gel X | Forme Amande (shorts).",
+      "icon": "◈",
+      "parentId": "f-1794780181994-21"
+    },
+    {
+      "id": "f-1794780181994-22",
+      "name": "Gel X | Forme Coffin (shorts).",
+      "icon": "◈",
+      "parentId": "f-1794780181994-21"
     },
     {
       "id": "f-ongle24",
@@ -202,6 +280,18 @@
       "parentId": "f-1794779281035-0"
     },
     {
+      "id": "f-1794780181994-3",
+      "name": "Gummy Bases.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-0"
+    },
+    {
+      "id": "f-1794780181994-29",
+      "name": "Huiles à Cuticules.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-28"
+    },
+    {
       "id": "f-1794777695514-7",
       "name": "Jelly | Argentés.",
       "icon": "◈",
@@ -262,16 +352,112 @@
       "parentId": "f-1794776226453"
     },
     {
+      "id": "f-1794780181994-12",
+      "name": "Limes.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-8"
+    },
+    {
+      "id": "f-1794780181994-8",
+      "name": "Matériel.",
+      "icon": "✶",
+      "parentId": "f-beaute"
+    },
+    {
+      "id": "f-1794780181994-4",
+      "name": "Normal Bases.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-0"
+    },
+    {
       "id": "f-beaute",
       "name": "Onglerie.",
       "icon": "✦",
       "parentId": null
     },
     {
+      "id": "f-1794780181994-20",
+      "name": "Pinceaux Chrome.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-8"
+    },
+    {
+      "id": "f-1794780181994-19",
+      "name": "Pinceaux Nail Art.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-8"
+    },
+    {
+      "id": "f-1794780181994-27",
+      "name": "Polyacrygel.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-21"
+    },
+    {
+      "id": "f-1794780181994-9",
+      "name": "Ponceuses électriques.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-8"
+    },
+    {
+      "id": "f-1794780181994-2",
+      "name": "Primers.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-0"
+    },
+    {
+      "id": "f-1794780181994-26",
+      "name": "Sandwich Popits | Forme Amande.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-21"
+    },
+    {
+      "id": "f-1794780181994-25",
+      "name": "Sandwich Popits | Forme Coffin.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-21"
+    },
+    {
+      "id": "f-1794780181994-15",
+      "name": "Scraper.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-8"
+    },
+    {
+      "id": "f-1794780181994-30",
+      "name": "Soak Off Remover.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-28"
+    },
+    {
+      "id": "f-1794780181994-28",
+      "name": "Soins.",
+      "icon": "✶",
+      "parentId": "f-beaute"
+    },
+    {
       "id": "f-tech",
       "name": "Tech.",
       "icon": "✦",
       "parentId": null
+    },
+    {
+      "id": "f-1794780181994-7",
+      "name": "Top Coats Pailletés.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-5"
+    },
+    {
+      "id": "f-1794780181994-6",
+      "name": "Top Coats Transparents.",
+      "icon": "◈",
+      "parentId": "f-1794780181994-5"
+    },
+    {
+      "id": "f-1794780181994-5",
+      "name": "Top Coats.",
+      "icon": "✶",
+      "parentId": "f-beaute"
     },
     {
       "id": "f-1794776028110",
