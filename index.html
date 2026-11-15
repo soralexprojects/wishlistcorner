@@ -822,6 +822,10 @@
     }
     dialog::backdrop { background: rgba(38, 26, 34, 0.55); backdrop-filter: blur(3px); }
     .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+    .folder-row { display: flex; gap: 6px; align-items: center; }
+    @media (max-width: 520px) {
+      .folder-row { flex-direction: column; align-items: stretch; }
+    }
     .form-group label { font-size: 0.8rem; font-weight: 600; color: var(--text-soft); }
     .modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 18px; }
 
@@ -1053,10 +1057,12 @@
 
       <div class="form-group">
         <label>Dossier de destination (classé A–Z)</label>
-        <div style="display:flex; gap:6px; align-items:center;">
+        <div class="folder-row">
           <input type="text" id="item-folder-search" placeholder="🔎 Filtrer (ex: crystal, sacs...)" oninput="filterItemFolderSelect()" style="margin-bottom:0; padding:7px 12px; font-size:0.8rem; flex:1;" />
           <button type="button" class="btn" style="padding:7px 12px; white-space:nowrap;" onclick="openFolderModalFromItem()" title="Créer un nouveau dossier sur le pouce">+ Dossier</button>
         </div>
+        <select id="item-folder" required style="margin-top:4px;"></select>
+      </div>
         <select id="item-folder" required style="margin-top:4px;"></select>
       </div>
       <div class="form-group">
