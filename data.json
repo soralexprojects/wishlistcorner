@@ -28,17 +28,5 @@
       "parentId": null
     }
   ],
-  "items": [
-    {
-      "id": "item-1",
-      "folderId": "f-gels",
-      "title": "Gel de construction Milky Pink - 15ml",
-      "price": 8.95,
-      "store": "Ongle24",
-      "url": "https://www.ongle24.com/",
-      "image": "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80",
-      "note": "Teinte n°04 - Idéal pour babyboomer",
-      "priority": "coup-de-coeur"
-    }
-  ]
+  "items": []
 }
