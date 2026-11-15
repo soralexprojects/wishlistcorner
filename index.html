@@ -825,6 +825,26 @@
     .form-group label { font-size: 0.8rem; font-weight: 600; color: var(--text-soft); }
     .modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 18px; }
 
+    /* Alerte Doublon */
+    .duplicate-alert {
+      display: none;
+      background: #F4E1E4;
+      border: 1.5px solid #9E4759;
+      color: #5C1D2B;
+      padding: 10px 14px;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+    [data-palette="sakura-dark"] .duplicate-alert,
+    [data-palette="amethyst-dark"] .duplicate-alert {
+      background: rgba(185, 74, 96, 0.22);
+      border-color: #E07A8E;
+      color: #F8D7DE;
+    }
+    .duplicate-alert.visible { display: block; }
+
     .item-preview-strip {
       display: flex;
       align-items: center;
@@ -1021,6 +1041,9 @@
     <form id="item-form" onsubmit="saveItem(event)">
       <input type="hidden" id="item-id" />
 
+      <!-- Alerte automatique en cas de doublon détecté -->
+      <div class="duplicate-alert" id="duplicate-alert"></div>
+
       <div class="item-preview-strip" id="item-preview-strip" style="display:none;">
         <img id="item-preview-img" src="" alt="" />
         <div style="min-width:0; flex:1;">
@@ -1036,7 +1059,7 @@
       </div>
       <div class="form-group">
         <label>Nom du produit</label>
-        <input type="text" id="item-title" required placeholder="Ex: Gel UV Milky Pink" oninput="updateLivePreview()" />
+        <input type="text" id="item-title" required placeholder="Ex: Gel UV Milky Pink" oninput="updateLivePreview(); checkDuplicateItem();" />
       </div>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
         <div class="form-group">
@@ -1061,7 +1084,7 @@
       </div>
       <div class="form-group">
         <label>Lien du produit (URL)</label>
-        <input type="url" id="item-url" required placeholder="https://..." />
+        <input type="url" id="item-url" required placeholder="https://..." oninput="checkDuplicateItem()" />
       </div>
       <div class="form-group">
         <label>URL de l'image</label>
@@ -1204,11 +1227,61 @@
     let expandedFolders = new Set();
     let multiSelectedFolders = new Set();
     let draggedFolderIds = [];
+    let currentDuplicateItem = null;
 
     function sortFoldersAlpha(list) {
       return [...list].sort((a, b) =>
         (a.name || '').localeCompare(b.name || '', 'fr', { sensitivity: 'base', numeric: true })
       );
+    }
+
+    /* Normalise une URL pour repérer les doublons même avec des paramètres tracking ou liens Amazon */
+    function normalizeProductUrl(rawUrl) {
+      if (!rawUrl) return '';
+      try {
+        const u = new URL(rawUrl.trim());
+        // Détection spécifique des codes produits Amazon (ASIN /dp/B0...)
+        const asinMatch = u.pathname.match(/\/(?:dp|gp\/product)\/([A-Z0-9]{10})/i);
+        if (u.hostname.includes('amazon.') && asinMatch) {
+          return 'amazon:' + asinMatch[1].toUpperCase();
+        }
+        // Sinon retire le protocole, www, les paramètres ?utm/ref et le slash final
+        return (u.hostname.replace(/^www\./, '') + u.pathname.replace(/\/+$/, '')).toLowerCase();
+      } catch {
+        return rawUrl.trim().toLowerCase();
+      }
+    }
+
+    function findDuplicateItem(url, title, excludeId = null) {
+      const normUrl = normalizeProductUrl(url);
+      const normTitle = (title || '').trim().toLowerCase();
+
+      return appData.items.find(item => {
+        if (excludeId && item.id === excludeId) return false;
+        if (normUrl && normalizeProductUrl(item.url) === normUrl) return true;
+        if (normTitle && normTitle.length > 6 && (item.title || '').trim().toLowerCase() === normTitle) return true;
+        return false;
+      }) || null;
+    }
+
+    function checkDuplicateItem() {
+      const alertBox = document.getElementById('duplicate-alert');
+      const currentId = document.getElementById('item-id').value;
+      const urlVal = document.getElementById('item-url').value;
+      const titleVal = document.getElementById('item-title').value;
+
+      const dup = findDuplicateItem(urlVal, titleVal, currentId);
+      currentDuplicateItem = dup;
+
+      if (dup) {
+        const folderPath = getFolderBreadcrumb(dup.folderId);
+        alertBox.innerHTML = `⚠️ <strong>Doublon détecté !</strong> Cet article figure déjà dans ta wishlist :<br>
+          <em>« ${dup.title} »</em> — rangé dans <strong>${folderPath}</strong>.`;
+        alertBox.classList.add('visible');
+      } else {
+        alertBox.classList.remove('visible');
+        alertBox.innerHTML = '';
+      }
     }
 
     async function init() {
@@ -1782,6 +1855,7 @@
       document.getElementById('item-note').value = prefill?.note || '';
       document.getElementById('item-priority').value = prefill?.priority || 'normal';
       updateLivePreview();
+      checkDuplicateItem();
       document.getElementById('item-modal').showModal();
     }
 
@@ -1800,18 +1874,34 @@
 
     async function saveItem(e) {
       e.preventDefault();
+      const id = document.getElementById('item-id').value;
+      const urlVal = document.getElementById('item-url').value;
+      const titleVal = document.getElementById('item-title').value;
+
+      // Demande confirmation si un doublon existe (hors édition du même produit)
+      const dup = findDuplicateItem(urlVal, titleVal, id);
+      if (dup) {
+        const folderPath = getFolderBreadcrumb(dup.folderId);
+        const proceed = confirm(
+          `⚠️ Cet article semble déjà présent dans ta wishlist :\n\n` +
+          `« ${dup.title} »\n` +
+          `Dossier : ${folderPath}\n\n` +
+          `Veux-tu quand même l'ajouter en double ?`
+        );
+        if (!proceed) return;
+      }
+
       const saveBtn = document.getElementById('save-item-btn');
       saveBtn.disabled = true;
       saveBtn.textContent = 'Enregistrement...';
 
-      const id = document.getElementById('item-id').value;
       const obj = {
         id: id || 'item-' + Date.now(),
         folderId: document.getElementById('item-folder').value,
-        title: document.getElementById('item-title').value,
+        title: titleVal,
         price: parseFloat(document.getElementById('item-price').value) || null,
         store: document.getElementById('item-store').value,
-        url: document.getElementById('item-url').value,
+        url: urlVal,
         image: document.getElementById('item-image').value,
         note: document.getElementById('item-note').value,
         priority: document.getElementById('item-priority').value
