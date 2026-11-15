@@ -26,6 +26,12 @@
       "name": "Tech & Maison",
       "icon": "🎧",
       "parentId": null
+    },
+    {
+      "id": "f-1794775957366",
+      "name": "VSP | Rouges & Bordeaux.",
+      "icon": "✦",
+      "parentId": "f-ongle24"
     }
   ],
   "items": []
