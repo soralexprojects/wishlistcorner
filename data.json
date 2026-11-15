@@ -894,6 +894,17 @@
   ],
   "items": [
     {
+      "id": "item-1794782595834",
+      "folderId": "f-1794781758018",
+      "title": "The Corporate Vampire Tote.",
+      "price": 82.95,
+      "store": "Mercerdistrict",
+      "url": "https://mercerdistrict.com/products/mercer-district%C2%AE-the-batwing-tote?srsltid=AYCX9vJ5XkrC1rd9ClIEn23Rdt7odtZPMasMGYyK9DvuSGCRJ7iwy0Li",
+      "image": "http://mercerdistrict.com/cdn/shop/files/CodexImageAug23_2026_03_24_05PM.png?v=1787513105",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1794782418082",
       "folderId": "f-1794775957366",
       "title": "Gel Polish VSP Red Glitter Star",
