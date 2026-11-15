@@ -1,381 +1,434 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
+<html lang="fr" data-palette="sakura-dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WishlistCorner</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root, [data-theme="dark"] {
-      --accent: #fb7185;
-      --accent-strong: #f43f5e;
-      --accent-soft: rgba(251, 113, 133, 0.14);
-      --bg: #111013;
-      --surface: #19181d;
-      --card-bg: #201e25;
-      --card-hover: #27242d;
-      --pill-bg: #26242c;
-      --text: #f4f2f7;
-      --muted: #9b96a6;
-      --border: rgba(255, 255, 255, 0.08);
-      --shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.55);
-      --radius-xl: 24px;
-      --radius-lg: 18px;
-      --radius-md: 12px;
+    /* Palette 1 : Sakura Nocturne (Back in Black + Mountain Heather + Decanting + Funkie Friday) */
+    :root, [data-palette="sakura-dark"] {
+      --bg: #16131F;
+      --surface: #221D2D;
+      --surface-alt: #2C2538;
+      --card-bg: #241F30;
+      --card-hover: #2E273D;
+      --pill-bg: #362E45;
+      --accent: #C1A0AC;        /* Decanting */
+      --accent-light: #F0D9E4;  /* Mountain Heather */
+      --accent-muted: #806C79;  /* Moonscape */
+      --text: #F0D9E4;
+      --text-soft: #C1A0AC;
+      --border: rgba(240, 217, 228, 0.14);
+      --border-strong: rgba(240, 217, 228, 0.28);
     }
 
-    [data-theme="light"] {
-      --accent: #e11d48;
-      --accent-strong: #be123c;
-      --accent-soft: #ffe4e6;
-      --bg: #f6f3f0;
-      --surface: #ffffff;
-      --card-bg: #ffffff;
-      --card-hover: #fff9fa;
-      --pill-bg: #ede8e3;
-      --text: #1c1917;
-      --muted: #78716c;
-      --border: rgba(28, 25, 23, 0.08);
-      --shadow: 0 12px 30px -10px rgba(28, 25, 23, 0.08);
+    /* Palette 2 : Améthyste Velours (Imperial Violet + Dusted Lavender + Orchid Smoke) */
+    [data-palette="amethyst-dark"] {
+      --bg: #1B0E28;
+      --surface: #2A123F;       /* Imperial Violet */
+      --surface-alt: #371A52;
+      --card-bg: #2A123F;
+      --card-hover: #381B54;
+      --pill-bg: #4B1F6F;       /* Amethyst Noir */
+      --accent: #C686DD;        /* Orchid Smoke */
+      --accent-light: #F1EDF7;  /* Moon Pearl */
+      --accent-muted: #9C86B9;  /* Dusted Lavender */
+      --text: #F1EDF7;
+      --text-soft: #C686DD;
+      --border: rgba(241, 237, 247, 0.15);
+      --border-strong: rgba(241, 237, 247, 0.3);
+    }
+
+    /* Palette 3 : Carnet Poudré (Version claire inspirée de Khaula & Smartech) */
+    [data-palette="paper-light"] {
+      --bg: #F3EDE8;
+      --surface: #FAF7F4;
+      --surface-alt: #EBE3DC;
+      --card-bg: #FAF7F4;
+      --card-hover: #FFFFFF;
+      --pill-bg: #E6DCD5;
+      --accent: #806C79;        /* Moonscape */
+      --accent-light: #2A123F;
+      --accent-muted: #9C86B9;
+      --text: #261F27;
+      --text-soft: #6E5D69;
+      --border: rgba(38, 31, 39, 0.12);
+      --border-strong: rgba(38, 31, 39, 0.25);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background: var(--bg);
+      background-color: var(--bg);
+      /* Texture grain papier mat subtil (sans halo) */
+      background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+      background-size: 22px 22px;
       color: var(--text);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      transition: background 0.25s ease, color 0.25s ease;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    h1, h2, .serif {
+      font-family: 'Cormorant Garamond', Georgia, serif;
     }
 
     /* Barre Admin */
     #admin-bar {
       display: none;
-      background: linear-gradient(90deg, #27151c, #1c1924);
-      border-bottom: 1px solid rgba(251, 113, 133, 0.3);
-      color: #fff;
+      background: var(--surface-alt);
+      border-bottom: 1px solid var(--border-strong);
+      color: var(--text);
       padding: 10px 24px;
       gap: 10px;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      font-size: 0.84rem;
+      font-size: 0.83rem;
     }
     #admin-bar.active { display: flex; }
     .admin-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-    #sync-status { font-weight: 600; color: #fda4af; }
+    #sync-status { font-weight: 600; color: var(--accent-light); }
 
-    /* Header Bento Flottant */
-    .top-wrap {
-      max-width: 1480px;
+    /* Conteneur Global Éditorial */
+    .shell {
+      max-width: 1420px;
       width: 100%;
-      margin: 16px auto 0;
-      padding: 0 20px;
+      margin: 22px auto;
+      padding: 0 20px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
     }
+
+    /* En-tête Éditorial Mat (façon Hellenaw & Khaula) */
     header {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 14px 22px;
-      box-shadow: var(--shadow);
+      border-radius: 22px;
+      padding: 18px 26px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 18px;
       flex-wrap: wrap;
     }
-    .brand { display: flex; align-items: center; gap: 12px; cursor: pointer; user-select: none; }
-    .brand-badge {
-      width: 40px; height: 40px; border-radius: 14px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-      color: #fff;
-      display: grid; place-items: center; font-weight: 800; font-size: 18px;
-      box-shadow: 0 6px 16px rgba(244, 63, 94, 0.35);
+    .brand { display: flex; align-items: center; gap: 14px; cursor: pointer; user-select: none; }
+    .brand-emblem {
+      width: 44px; height: 44px; border-radius: 14px;
+      background: var(--pill-bg);
+      border: 1px solid var(--border-strong);
+      color: var(--accent-light);
+      display: grid; place-items: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700; font-size: 22px;
     }
-    .brand h1 { font-size: 1.22rem; font-weight: 800; letter-spacing: -0.02em; }
-    .brand p { font-size: 0.8rem; color: var(--muted); }
+    .brand h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--accent-light);
+    }
+    .brand p {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-top: 2px;
+      letter-spacing: 0.02em;
+    }
 
     .controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
     input[type="search"], select, input[type="text"], input[type="number"], input[type="url"], input[type="password"] {
-      padding: 10px 15px;
+      padding: 9px 15px;
       border: 1px solid var(--border);
       border-radius: 99px;
       font-family: inherit;
-      font-size: 0.86rem;
-      background: var(--pill-bg);
+      font-size: 0.84rem;
+      background: var(--bg);
       color: var(--text);
       outline: none;
-      transition: 0.18s;
+      transition: 0.15s;
     }
     dialog input[type="text"], dialog input[type="number"], dialog input[type="url"], dialog input[type="password"], dialog select {
-      border-radius: var(--radius-md);
+      border-radius: 12px;
       width: 100%;
     }
-    input:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+    input:focus, select:focus { border-color: var(--accent); }
 
     .btn {
-      padding: 9px 15px;
+      padding: 8px 15px;
       border-radius: 99px;
       border: 1px solid var(--border);
       background: var(--pill-bg);
       color: var(--text);
       font-family: inherit;
       font-weight: 600;
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       cursor: pointer;
-      transition: 0.18s;
+      transition: 0.15s;
       display: inline-flex; align-items: center; gap: 6px;
     }
-    .btn:hover { filter: brightness(1.12); transform: translateY(-1px); }
+    .btn:hover { border-color: var(--accent); background: var(--surface-alt); }
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-      color: #fff;
-      border: none;
-      box-shadow: 0 4px 14px rgba(244, 63, 94, 0.3);
+      background: var(--accent);
+      color: #16131F;
+      border-color: var(--accent);
+      font-weight: 700;
     }
-    .icon-toggle {
-      width: 38px; height: 38px; padding: 0; justify-content: center; border-radius: 50%;
-    }
+    .btn-primary:hover { background: var(--accent-light); border-color: var(--accent-light); }
 
-    /* Layout Bento */
+    /* Grille Bento Principale (façon Smartech) */
     .layout {
       display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 20px;
-      flex: 1;
-      max-width: 1480px;
-      width: 100%;
-      margin: 20px auto;
-      padding: 0 20px 30px;
+      grid-template-columns: 275px 1fr;
+      gap: 18px;
       align-items: start;
     }
 
-    /* Sidebar Bento Flottante */
+    /* Sidebar Collections */
     aside {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 18px 14px;
-      box-shadow: var(--shadow);
+      border-radius: 22px;
+      padding: 20px 14px;
       position: sticky;
       top: 18px;
     }
-    .sidebar-title {
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 12px 12px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .sidebar-header span {
       font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
       font-weight: 700;
-      margin-bottom: 10px;
-      padding: 0 12px;
     }
+
     .tree-item {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 9px 12px;
-      border-radius: 99px;
+      border-radius: 12px;
       cursor: pointer;
-      font-size: 0.88rem;
+      font-size: 0.87rem;
       font-weight: 500;
       color: var(--text);
-      transition: 0.15s;
+      transition: 0.12s;
       margin-bottom: 3px;
+      border: 1px solid transparent;
     }
-    .tree-item:hover { background: var(--pill-bg); }
+    .tree-item:hover { background: var(--surface-alt); }
     .tree-item.active {
-      background: var(--accent-soft);
-      color: var(--accent);
+      background: var(--pill-bg);
+      border-color: var(--border-strong);
+      color: var(--accent-light);
       font-weight: 700;
     }
     .tree-left { display: flex; align-items: center; gap: 9px; overflow: hidden; }
     .tree-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .count-pill {
-      font-size: 0.74rem;
-      background: var(--pill-bg);
-      color: var(--muted);
+      font-size: 0.72rem;
+      background: var(--bg);
+      color: var(--text-soft);
+      border: 1px solid var(--border);
       padding: 2px 8px;
       border-radius: 99px;
       font-weight: 600;
     }
-    .tree-item.active .count-pill { background: var(--accent); color: #fff; }
+    .tree-item.active .count-pill {
+      background: var(--accent);
+      color: #16131F;
+      border-color: var(--accent);
+    }
     .tree-children {
-      margin-left: 16px;
-      border-left: 1px dashed var(--border);
+      margin-left: 15px;
+      border-left: 1px solid var(--border);
       padding-left: 8px;
       margin-bottom: 4px;
     }
     .folder-admin-btns { display: none; gap: 2px; }
     body.is-admin .tree-item:hover .folder-admin-btns { display: flex; }
     .mini-icon-btn {
-      background: none; border: none; cursor: pointer; font-size: 0.78rem; padding: 3px 5px; border-radius: 6px; color: var(--text);
+      background: none; border: none; cursor: pointer; font-size: 0.78rem; padding: 2px 5px; border-radius: 6px; color: var(--text);
     }
-    .mini-icon-btn:hover { background: rgba(255,255,255,0.12); }
+    .mini-icon-btn:hover { background: var(--bg); }
 
-    /* Zone Principale */
-    main { display: flex; flex-direction: column; gap: 16px; }
-
-    /* Puces de filtres rapides (façon Bento V2) */
-    .quick-pills {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    .filter-pill {
-      padding: 7px 14px;
-      border-radius: 99px;
+    /* Panneau Droit Bento */
+    .main-panel {
       background: var(--surface);
       border: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.82rem;
+      border-radius: 22px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    /* Filtres rapides */
+    .toolbar-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .quick-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-pill {
+      padding: 6px 14px;
+      border-radius: 99px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-soft);
+      font-size: 0.8rem;
       font-weight: 600;
       cursor: pointer;
       transition: 0.15s;
     }
-    .filter-pill:hover { color: var(--text); border-color: var(--accent); }
+    .filter-pill:hover { border-color: var(--accent); color: var(--text); }
     .filter-pill.active {
       background: var(--accent);
-      color: #fff;
+      color: #16131F;
       border-color: var(--accent);
-    }
-
-    /* Tuiles Sous-dossiers visuels */
-    .subfolders-bar {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .sub-tile {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 10px 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      font-size: 0.86rem;
-      font-weight: 600;
-      transition: 0.15s;
-    }
-    .sub-tile:hover {
-      border-color: var(--accent);
-      background: var(--card-hover);
-      transform: translateY(-2px);
+      font-weight: 700;
     }
 
     .breadcrumb {
       display: flex;
-      align-items: center;
+      align-items: baseline;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 10px;
-      padding: 2px 4px;
     }
-    .breadcrumb strong { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.01em; }
-    #items-counter { font-size: 0.84rem; color: var(--muted); font-weight: 600; }
+    .breadcrumb h2 {
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--accent-light);
+    }
+    #items-counter { font-size: 0.82rem; color: var(--text-soft); font-weight: 500; }
 
-    /* Grille Bento / Cartes */
+    /* Tuiles Sous-dossiers */
+    .subfolders-bar { display: flex; gap: 10px; flex-wrap: wrap; }
+    .sub-tile {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 9px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 0.84rem;
+      font-weight: 600;
+      transition: 0.15s;
+    }
+    .sub-tile:hover { border-color: var(--accent); background: var(--surface-alt); }
+
+    /* Cartes Produits (Look Catalogue Éditorial Mat) */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
       gap: 18px;
     }
     .card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
+      border-radius: 18px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
       cursor: pointer;
     }
     .card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-3px);
+      border-color: var(--accent);
       background: var(--card-hover);
-      border-color: rgba(251, 113, 133, 0.35);
-      box-shadow: var(--shadow);
     }
     .card-img-wrap {
       position: relative;
       width: 100%;
-      aspect-ratio: 1 / 1;
-      background: #16151a;
-      overflow: hidden;
+      aspect-ratio: 4 / 4.2;
+      background: var(--bg);
       padding: 10px 10px 0 10px;
     }
     .card-img-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: var(--radius-lg);
-      transition: transform 0.35s ease;
+      border-radius: 12px;
+      border: 1px solid var(--border);
     }
-    .card:hover .card-img-wrap img { transform: scale(1.03); }
-
     .price-pill {
       position: absolute;
-      bottom: 12px;
-      left: 20px;
-      background: rgba(17, 16, 19, 0.85);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: #fff;
+      bottom: 10px;
+      left: 18px;
+      background: var(--bg);
+      border: 1px solid var(--border-strong);
+      color: var(--accent-light);
       font-weight: 700;
-      font-size: 0.82rem;
-      padding: 5px 11px;
+      font-size: 0.8rem;
+      padding: 4px 10px;
       border-radius: 99px;
     }
     .fav-pill {
       position: absolute;
       top: 18px;
       right: 18px;
-      background: rgba(17, 16, 19, 0.82);
-      backdrop-filter: blur(8px);
-      color: #fb7185;
-      width: 32px;
-      height: 32px;
+      background: var(--bg);
+      border: 1px solid var(--border-strong);
+      color: var(--accent-light);
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       display: grid;
       place-items: center;
-      font-size: 0.9rem;
-      border: 1px solid rgba(251, 113, 133, 0.3);
+      font-size: 0.82rem;
     }
 
     .card-body {
-      padding: 14px 16px 16px;
+      padding: 14px 15px 15px;
       display: flex;
       flex-direction: column;
       flex: 1;
       gap: 6px;
     }
     .store-tag {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--accent);
+      letter-spacing: 0.1em;
+      color: var(--text-soft);
       font-weight: 700;
     }
     .card-title {
-      font-size: 0.95rem;
-      font-weight: 700;
+      font-size: 0.94rem;
+      font-weight: 600;
       line-height: 1.35;
+      color: var(--text);
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
     .card-note {
-      font-size: 0.79rem;
-      color: var(--muted);
-      background: var(--pill-bg);
-      padding: 6px 10px;
-      border-radius: var(--radius-md);
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 6px 9px;
+      border-radius: 10px;
       margin-top: 2px;
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -386,7 +439,7 @@
       margin-top: auto;
       padding-top: 10px;
       display: flex;
-      gap: 8px;
+      gap: 6px;
       align-items: center;
     }
     .visit-btn {
@@ -394,14 +447,19 @@
       text-align: center;
       text-decoration: none;
       background: var(--pill-bg);
-      color: var(--text);
+      border: 1px solid var(--border);
+      color: var(--accent-light);
       font-weight: 600;
-      font-size: 0.82rem;
-      padding: 9px 12px;
+      font-size: 0.8rem;
+      padding: 8px 12px;
       border-radius: 99px;
       transition: 0.15s;
     }
-    .visit-btn:hover { background: var(--accent); color: #fff; }
+    .visit-btn:hover {
+      background: var(--accent);
+      color: #16131F;
+      border-color: var(--accent);
+    }
     .card-admin-actions { display: none; gap: 4px; }
     body.is-admin .card-admin-actions { display: flex; }
 
@@ -409,27 +467,26 @@
     dialog {
       background: var(--surface);
       color: var(--text);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-strong);
+      border-radius: 22px;
       padding: 24px;
-      max-width: 500px;
+      max-width: 490px;
       width: 92%;
       margin: auto;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.65);
     }
-    dialog::backdrop { background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(5px); }
+    dialog::backdrop { background: rgba(12, 10, 16, 0.78); }
     .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
-    .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--muted); }
+    .form-group label { font-size: 0.8rem; font-weight: 600; color: var(--text-soft); }
     .modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 18px; }
 
-    /* Quick View Modal */
     .qv-img {
       width: 100%;
-      max-height: 300px;
+      max-height: 310px;
       object-fit: cover;
-      border-radius: var(--radius-lg);
+      border-radius: 14px;
+      border: 1px solid var(--border);
       margin-bottom: 14px;
-      background: #16151a;
+      background: var(--bg);
     }
 
     @media (max-width: 840px) {
@@ -441,19 +498,19 @@
 <body>
 
   <div id="admin-bar">
-    <div>🛠️ <strong>Mode Gestion</strong> — <span id="sync-status">Prêt</span></div>
+    <div>✦ <strong>Mode Gestion</strong> — <span id="sync-status">Prêt</span></div>
     <div class="admin-actions">
       <button class="btn btn-primary" onclick="openItemModal()">+ Ajouter un produit</button>
       <button class="btn" onclick="openFolderModal(null)">+ Nouveau dossier</button>
-      <button class="btn" onclick="openThemeModal()">🎨 Personnaliser</button>
+      <button class="btn" onclick="openThemeModal()">🎨 Ambiance & Texte</button>
       <button class="btn" onclick="openGithubModal()">🔑 Connexion GitHub</button>
     </div>
   </div>
 
-  <div class="top-wrap">
+  <div class="shell">
     <header>
       <div class="brand" id="brand-logo" title="Triple-clique pour activer le mode gestion">
-        <div class="brand-badge">W</div>
+        <div class="brand-emblem">W</div>
         <div>
           <h1 id="site-title">WishlistCorner</h1>
           <p id="site-subtitle">Mes envies, idées cadeaux et coups de cœur</p>
@@ -461,64 +518,68 @@
       </div>
 
       <div class="controls">
-        <input type="search" id="search-input" placeholder="Rechercher un article, une marque..." oninput="renderItems()" />
+        <input type="search" id="search-input" placeholder="Rechercher un article..." oninput="renderItems()" />
         <select id="sort-select" onchange="renderItems()">
           <option value="default">Tri : Par défaut</option>
           <option value="fav">Coups de cœur d'abord</option>
           <option value="price-asc">Prix croissant</option>
           <option value="price-desc">Prix décroissant</option>
         </select>
-        <button class="btn icon-toggle" id="theme-toggle-btn" onclick="toggleLightDark()" title="Changer le mode clair/sombre">☀️</button>
+        <select id="palette-switcher" onchange="switchPalette(this.value)" title="Changer la palette">
+          <option value="sakura-dark">🌙 Sakura Nocturne</option>
+          <option value="amethyst-dark">🔮 Améthyste Velours</option>
+          <option value="paper-light">📜 Carnet Poudré</option>
+        </select>
       </div>
     </header>
+
+    <div class="layout">
+      <aside>
+        <div class="sidebar-header">
+          <span>Collections</span>
+        </div>
+        <div id="folder-tree"></div>
+      </aside>
+
+      <div class="main-panel">
+        <div class="toolbar-row">
+          <div class="quick-pills">
+            <button class="filter-pill active" onclick="setQuickFilter('all', this)">✦ Tout</button>
+            <button class="filter-pill" onclick="setQuickFilter('fav', this)">♡ Coups de cœur</button>
+            <button class="filter-pill" onclick="setQuickFilter('under20', this)">Moins de 20 €</button>
+            <button class="filter-pill" onclick="setQuickFilter('under50', this)">Moins de 50 €</button>
+          </div>
+          <div id="items-counter"></div>
+        </div>
+
+        <div class="breadcrumb">
+          <h2 id="current-path">Tous les articles</h2>
+        </div>
+
+        <div class="subfolders-bar" id="subfolders-bar"></div>
+        <div class="grid" id="items-grid"></div>
+      </div>
+    </div>
   </div>
 
-  <div class="layout">
-    <aside>
-      <div class="sidebar-title"><span>Collections</span></div>
-      <div id="folder-tree"></div>
-    </aside>
-
-    <main>
-      <!-- Filtres rapides façon Bento -->
-      <div class="quick-pills" id="quick-pills">
-        <button class="filter-pill active" data-filter="all" onclick="setQuickFilter('all', this)">✨ Tout</button>
-        <button class="filter-pill" data-filter="fav" onclick="setQuickFilter('fav', this)">💖 Coups de cœur</button>
-        <button class="filter-pill" data-filter="under20" onclick="setQuickFilter('under20', this)">💸 Moins de 20 €</button>
-        <button class="filter-pill" data-filter="under50" onclick="setQuickFilter('under50', this)">🎁 Moins de 50 €</button>
-      </div>
-
-      <div class="breadcrumb">
-        <div id="current-path"><strong>Tous les articles</strong></div>
-        <div id="items-counter"></div>
-      </div>
-
-      <!-- Tuiles des sous-dossiers directs -->
-      <div class="subfolders-bar" id="subfolders-bar"></div>
-
-      <!-- Grille produits -->
-      <div class="grid" id="items-grid"></div>
-    </main>
-  </div>
-
-  <!-- Modal Aperçu Rapide (Quick View pour les visiteurs) -->
+  <!-- Aperçu Rapide -->
   <dialog id="quickview-modal">
     <img id="qv-image" class="qv-img" src="" alt="" />
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
       <span class="store-tag" id="qv-store"></span>
-      <span id="qv-price" style="font-weight:800; font-size:1.1rem; color:var(--accent);"></span>
+      <span id="qv-price" style="font-weight:700; font-size:1.1rem; color:var(--accent-light);"></span>
     </div>
-    <h3 id="qv-title" style="font-size:1.15rem; margin-bottom:10px; line-height:1.35;"></h3>
-    <p id="qv-note" class="card-note" style="font-size:0.88rem; margin-bottom:16px;"></p>
+    <h3 class="serif" id="qv-title" style="font-size:1.45rem; margin-bottom:10px; line-height:1.25;"></h3>
+    <p id="qv-note" class="card-note" style="font-size:0.86rem; margin-bottom:16px;"></p>
     <div class="modal-actions">
       <button type="button" class="btn" onclick="document.getElementById('quickview-modal').close()">Fermer</button>
       <a id="qv-link" href="#" target="_blank" rel="noopener" class="btn btn-primary" style="text-decoration:none;">Voir sur la boutique ↗</a>
     </div>
   </dialog>
 
-  <!-- Modal Produit (Admin) -->
+  <!-- Modal Produit -->
   <dialog id="item-modal">
-    <h3 id="item-modal-title" style="margin-bottom:14px;">Ajouter un produit</h3>
+    <h3 class="serif" id="item-modal-title" style="font-size:1.5rem; margin-bottom:14px;">Ajouter un produit</h3>
     <form id="item-form" onsubmit="saveItem(event)">
       <input type="hidden" id="item-id" />
       <div class="form-group">
@@ -555,7 +616,7 @@
         <label>Priorité</label>
         <select id="item-priority">
           <option value="normal">Standard</option>
-          <option value="coup-de-coeur">💖 Coup de cœur</option>
+          <option value="coup-de-coeur">♡ Coup de cœur</option>
         </select>
       </div>
       <div class="modal-actions">
@@ -567,7 +628,7 @@
 
   <!-- Modal Dossier -->
   <dialog id="folder-modal">
-    <h3 style="margin-bottom:14px;">Dossier / Sous-dossier</h3>
+    <h3 class="serif" style="font-size:1.5rem; margin-bottom:14px;">Dossier / Sous-dossier</h3>
     <form onsubmit="saveFolder(event)">
       <div class="form-group">
         <label>Dossier parent</label>
@@ -575,8 +636,8 @@
       </div>
       <div style="display:grid; grid-template-columns:80px 1fr; gap:10px;">
         <div class="form-group">
-          <label>Icône</label>
-          <input type="text" id="folder-icon" value="📁" maxlength="4" />
+          <label>Symbole</label>
+          <input type="text" id="folder-icon" value="✦" maxlength="4" />
         </div>
         <div class="form-group">
           <label>Nom du dossier</label>
@@ -592,7 +653,7 @@
 
   <!-- Modal Thème -->
   <dialog id="theme-modal">
-    <h3 style="margin-bottom:14px;">Personnaliser WishlistCorner</h3>
+    <h3 class="serif" style="font-size:1.5rem; margin-bottom:14px;">Personnaliser WishlistCorner</h3>
     <form onsubmit="saveTheme(event)">
       <div class="form-group">
         <label>Titre de la page</label>
@@ -603,8 +664,12 @@
         <input type="text" id="cfg-subtitle" />
       </div>
       <div class="form-group">
-        <label>Couleur d'accentuation</label>
-        <input type="color" id="cfg-accent" style="height:42px; padding:2px; width:100%;" />
+        <label>Palette par défaut pour tes visiteurs</label>
+        <select id="cfg-palette">
+          <option value="sakura-dark">Sakura Nocturne (Prune profond & Rose bruyère)</option>
+          <option value="amethyst-dark">Améthyste Velours (Violet impérial & Lilas)</option>
+          <option value="paper-light">Carnet Poudré (Crème & Mauve sourd)</option>
+        </select>
       </div>
       <div class="modal-actions">
         <button type="button" class="btn" onclick="document.getElementById('theme-modal').close()">Annuler</button>
@@ -615,8 +680,8 @@
 
   <!-- Modal Connexion GitHub -->
   <dialog id="github-modal">
-    <h3 style="margin-bottom:8px;">Publication automatique sur GitHub</h3>
-    <p style="font-size:0.82rem; color:var(--muted); margin-bottom:14px;">
+    <h3 class="serif" style="font-size:1.5rem; margin-bottom:8px;">Publication automatique sur GitHub</h3>
+    <p style="font-size:0.82rem; color:var(--text-soft); margin-bottom:14px;">
       Renseigne ces infos une seule fois pour publier automatiquement tes ajouts en ligne.
     </p>
     <form onsubmit="saveGithubConfig(event)">
@@ -680,11 +745,9 @@
       }
     }
 
-    function toggleLightDark() {
-      const html = document.documentElement;
-      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      document.getElementById('theme-toggle-btn').textContent = next === 'dark' ? '☀️' : '🌙';
+    function switchPalette(val) {
+      document.documentElement.setAttribute('data-palette', val);
+      document.getElementById('palette-switcher').value = val;
     }
 
     function enableAdmin() {
@@ -701,7 +764,7 @@
       const el = document.getElementById('sync-status');
       if (msg) { el.textContent = msg; return; }
       const cfg = getGhConfig();
-      el.textContent = cfg && cfg.token ? '🟢 Connecté à GitHub (publication auto)' : '🟠 Clique sur "Connexion GitHub" pour activer la sauvegarde auto';
+      el.textContent = cfg && cfg.token ? 'Connecté à GitHub (publication auto)' : 'Clique sur "Connexion GitHub" pour activer la sauvegarde auto';
     }
 
     async function pushToGithub() {
@@ -712,7 +775,7 @@
         return;
       }
 
-      updateSyncBadge('⏳ Publication en cours sur GitHub...');
+      updateSyncBadge('Publication en cours sur GitHub...');
       const apiUrl = `https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/data.json`;
       const headers = {
         'Authorization': `Bearer ${cfg.token}`,
@@ -722,7 +785,7 @@
 
       try {
         const getRes = await fetch(apiUrl, { headers });
-        if (!getRes.ok) throw new Error('Impossible de lire data.json sur GitHub (vérifie le pseudo/dépôt/token)');
+        if (!getRes.ok) throw new Error('Impossible de lire data.json sur GitHub');
         const fileInfo = await getRes.json();
 
         const jsonStr = JSON.stringify(appData, null, 2);
@@ -739,10 +802,10 @@
         });
 
         if (!putRes.ok) throw new Error('Erreur lors de l’écriture sur GitHub');
-        updateSyncBadge('✅ Publié en ligne ! (visible sous 30 sec)');
+        updateSyncBadge('Publié en ligne ! (visible sous 30 sec)');
       } catch (err) {
         console.error(err);
-        updateSyncBadge('❌ Erreur : ' + err.message);
+        updateSyncBadge('Erreur : ' + err.message);
         alert('Erreur de publication : ' + err.message);
       }
     }
@@ -752,11 +815,8 @@
       document.getElementById('site-title').textContent = c.title || 'WishlistCorner';
       document.title = c.title || 'WishlistCorner';
       document.getElementById('site-subtitle').textContent = c.subtitle || '';
-      if (c.accentColor) {
-        document.documentElement.style.setProperty('--accent', c.accentColor);
-        document.documentElement.style.setProperty('--accent-strong', c.accentColor);
-        document.documentElement.style.setProperty('--accent-soft', c.accentColor + '24');
-      }
+      const pal = c.palette || 'sakura-dark';
+      switchPalette(pal);
     }
 
     function setQuickFilter(filter, btnEl) {
@@ -786,7 +846,7 @@
 
       const allEl = document.createElement('div');
       allEl.className = 'tree-item' + (selectedFolderId === 'all' ? ' active' : '');
-      allEl.innerHTML = `<div class="tree-left"><span>✨</span><span class="tree-name">Tout voir</span></div><span class="count-pill">${appData.items.length}</span>`;
+      allEl.innerHTML = `<div class="tree-left"><span>✦</span><span class="tree-name">Tout voir</span></div><span class="count-pill">${appData.items.length}</span>`;
       allEl.onclick = () => selectFolder('all');
       container.appendChild(allEl);
 
@@ -799,13 +859,13 @@
           itemEl.className = 'tree-item' + (selectedFolderId === folder.id ? ' active' : '');
           itemEl.innerHTML = `
             <div class="tree-left">
-              <span>${folder.icon || '📁'}</span>
+              <span>${folder.icon || '✦'}</span>
               <span class="tree-name">${folder.name}</span>
             </div>
             <div style="display:flex; align-items:center; gap:4px;">
               <div class="folder-admin-btns">
-                <button class="mini-icon-btn" title="Ajouter un sous-dossier" onclick="event.stopPropagation(); openFolderModal('${folder.id}')">➕</button>
-                <button class="mini-icon-btn" title="Supprimer" onclick="event.stopPropagation(); deleteFolder('${folder.id}')">🗑️</button>
+                <button class="mini-icon-btn" title="Ajouter un sous-dossier" onclick="event.stopPropagation(); openFolderModal('${folder.id}')">+</button>
+                <button class="mini-icon-btn" title="Supprimer" onclick="event.stopPropagation(); deleteFolder('${folder.id}')">×</button>
               </div>
               <span class="count-pill">${count}</span>
             </div>
@@ -838,7 +898,7 @@
       }
       children.forEach(f => {
         const count = appData.items.filter(i => getDescendantFolderIds(f.id).includes(i.folderId)).length;
-        html += `<div class="sub-tile" onclick="selectFolder('${f.id}')"><span>${f.icon || '📁'}</span><span>${f.name}</span><span class="count-pill">${count}</span></div>`;
+        html += `<div class="sub-tile" onclick="selectFolder('${f.id}')"><span>${f.icon || '✦'}</span><span>${f.name}</span><span class="count-pill">${count}</span></div>`;
       });
       bar.innerHTML = html;
     }
@@ -848,10 +908,10 @@
       const path = [];
       let curr = appData.folders.find(f => f.id === folderId);
       while (curr) {
-        path.unshift(`${curr.icon || ''} ${curr.name}`);
+        path.unshift(`${curr.name}`);
         curr = appData.folders.find(f => f.id === curr.parentId);
       }
-      return path.join(' › ');
+      return path.join('  /  ');
     }
 
     function openQuickView(id) {
@@ -863,7 +923,7 @@
       document.getElementById('qv-title').textContent = item.title;
       const noteEl = document.getElementById('qv-note');
       if (item.note) {
-        noteEl.textContent = '📝 ' + item.note;
+        noteEl.textContent = item.note;
         noteEl.style.display = 'block';
       } else {
         noteEl.style.display = 'none';
@@ -899,7 +959,7 @@
       if (sort === 'price-desc') list.sort((a, b) => (b.price || 0) - (a.price || 0));
       if (sort === 'fav') list.sort((a, b) => (b.priority === 'coup-de-coeur') - (a.priority === 'coup-de-coeur'));
 
-      document.getElementById('current-path').innerHTML = `<strong>${getFolderBreadcrumb(selectedFolderId)}</strong>`;
+      document.getElementById('current-path').textContent = getFolderBreadcrumb(selectedFolderId);
       document.getElementById('items-counter').textContent = `${list.length} article${list.length > 1 ? 's' : ''}`;
 
       grid.innerHTML = list.map(item => `
@@ -907,17 +967,17 @@
           <div class="card-img-wrap">
             <img src="${item.image || 'https://placehold.co/400x400?text=Produit'}" alt="${item.title}" loading="lazy" />
             ${item.price ? `<span class="price-pill">${Number(item.price).toFixed(2).replace('.', ',')} €</span>` : ''}
-            ${item.priority === 'coup-de-coeur' ? `<span class="fav-pill" title="Coup de cœur">💖</span>` : ''}
+            ${item.priority === 'coup-de-coeur' ? `<span class="fav-pill" title="Coup de cœur">♡</span>` : ''}
           </div>
           <div class="card-body">
             <div class="store-tag">${item.store || 'Boutique'}</div>
-            <h2 class="card-title" title="${item.title}">${item.title}</h2>
+            <h3 class="card-title" title="${item.title}">${item.title}</h3>
             ${item.note ? `<div class="card-note">${item.note}</div>` : ''}
             <div class="card-footer" onclick="event.stopPropagation()">
               <a href="${item.url}" target="_blank" rel="noopener" class="visit-btn">Voir l'article ↗</a>
               <div class="card-admin-actions">
-                <button class="btn" style="padding:7px 10px;" onclick='editItem("${item.id}")'>✏️</button>
-                <button class="btn" style="padding:7px 10px;" onclick='deleteItem("${item.id}")'>🗑️</button>
+                <button class="btn" style="padding:6px 10px;" onclick='editItem("${item.id}")'>✎</button>
+                <button class="btn" style="padding:6px 10px;" onclick='deleteItem("${item.id}")'>×</button>
               </div>
             </div>
           </div>
@@ -931,7 +991,7 @@
         appData.folders.filter(f => f.parentId === parentId).forEach(f => {
           const opt = document.createElement('option');
           opt.value = f.id;
-          opt.textContent = `${prefix}${f.icon || '📁'} ${f.name}`;
+          opt.textContent = `${prefix}${f.icon || '✦'} ${f.name}`;
           selectEl.appendChild(opt);
           addOptions(f.id, prefix + '— ');
         });
@@ -1008,7 +1068,7 @@
       appData.folders.push({
         id: 'f-' + Date.now(),
         name: document.getElementById('folder-name').value,
-        icon: document.getElementById('folder-icon').value || '📁',
+        icon: document.getElementById('folder-icon').value || '✦',
         parentId
       });
       renderFolders();
@@ -1030,7 +1090,7 @@
     function openThemeModal() {
       document.getElementById('cfg-title').value = appData.config.title || 'WishlistCorner';
       document.getElementById('cfg-subtitle').value = appData.config.subtitle || '';
-      document.getElementById('cfg-accent').value = appData.config.accentColor || '#fb7185';
+      document.getElementById('cfg-palette').value = appData.config.palette || 'sakura-dark';
       document.getElementById('theme-modal').showModal();
     }
 
@@ -1038,7 +1098,7 @@
       e.preventDefault();
       appData.config.title = document.getElementById('cfg-title').value;
       appData.config.subtitle = document.getElementById('cfg-subtitle').value;
-      appData.config.accentColor = document.getElementById('cfg-accent').value;
+      appData.config.palette = document.getElementById('cfg-palette').value;
       applyTheme();
       document.getElementById('theme-modal').close();
       await pushToGithub();
