@@ -894,13 +894,24 @@
   ],
   "items": [
     {
-      "id": "item-1794783085153",
-      "folderId": "f-1794776101457",
-      "title": "Gel Polish VSP Silver Glam",
+      "id": "item-1794783102671",
+      "folderId": "f-1794776062981",
+      "title": "Gel Polish VSP Frosted Moonlight",
       "price": 7.99,
       "store": "Ongle24",
-      "url": "https://ongle24.com/products/gel-polish-vsp-silver-glam",
-      "image": "http://ongle24.com/cdn/shop/files/6911_GelPolish-Silver-Glam-RGB_1_d620cbd8-0c90-48b3-97b4-63d592fb9fea.jpg?v=1760338422&width=2048",
+      "url": "https://ongle24.com/products/gel-polish-vsp-frosted-moonlight",
+      "image": "http://ongle24.com/cdn/shop/files/6908_GelPolish-Frosted-Moonlight-RGB_1_d7222e3c-7a4c-4208-9ebd-a7a78f1e000a.jpg?v=1760338423&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
+      "id": "item-1794783043545",
+      "folderId": "f-1794777765750-0",
+      "title": "Gel Polish VSP Flashing Cat Eye Merlot",
+      "price": 8.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-vsp-cat-eye-merlot",
+      "image": "http://ongle24.com/cdn/shop/files/6820_GelPolish_Flashing_CatEye_Merlot_1.jpg?v=1770891110&width=2048",
       "note": "",
       "priority": "normal"
     },
