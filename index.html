@@ -1041,7 +1041,6 @@
     <form id="item-form" onsubmit="saveItem(event)">
       <input type="hidden" id="item-id" />
 
-      <!-- Alerte automatique en cas de doublon détecté -->
       <div class="duplicate-alert" id="duplicate-alert"></div>
 
       <div class="item-preview-strip" id="item-preview-strip" style="display:none;">
@@ -1054,8 +1053,11 @@
 
       <div class="form-group">
         <label>Dossier de destination (classé A–Z)</label>
-        <input type="text" id="item-folder-search" placeholder="🔎 Filtrer (ex: crystal rou, grit 180, kindle...)" oninput="filterItemFolderSelect()" style="margin-bottom:4px; padding:7px 12px; font-size:0.8rem;" />
-        <select id="item-folder" required></select>
+        <div style="display:flex; gap:6px; align-items:center;">
+          <input type="text" id="item-folder-search" placeholder="🔎 Filtrer (ex: crystal, sacs...)" oninput="filterItemFolderSelect()" style="margin-bottom:0; padding:7px 12px; font-size:0.8rem; flex:1;" />
+          <button type="button" class="btn" style="padding:7px 12px; white-space:nowrap;" onclick="openFolderModalFromItem()" title="Créer un nouveau dossier sur le pouce">+ Dossier</button>
+        </div>
+        <select id="item-folder" required style="margin-top:4px;"></select>
       </div>
       <div class="form-group">
         <label>Nom du produit</label>
@@ -1097,7 +1099,7 @@
     </form>
   </dialog>
 
-  <!-- Modal Dossier -->
+  <!-- Modal Dossier (utilisé aussi depuis la popup produit) -->
   <dialog id="folder-modal">
     <h3 class="serif" id="folder-modal-title" style="font-size:1.5rem; margin-bottom:14px;">Dossier / Sous-dossier</h3>
     <form onsubmit="saveFolder(event)">
@@ -1121,7 +1123,7 @@
         <div class="symbol-picker" id="symbol-picker"></div>
       </div>
       <div class="modal-actions">
-        <button type="button" class="btn" onclick="document.getElementById('folder-modal').close()">Annuler</button>
+        <button type="button" class="btn" onclick="closeFolderModal()">Annuler</button>
         <button type="submit" class="btn btn-primary">Enregistrer & Publier</button>
       </div>
     </form>
@@ -1224,6 +1226,7 @@
     let quickFilter = 'all';
     let isAdmin = false;
     let isPopupMode = false;
+    let folderModalSource = 'main'; // 'main' ou 'item-modal'
     let expandedFolders = new Set();
     let multiSelectedFolders = new Set();
     let draggedFolderIds = [];
@@ -1235,17 +1238,14 @@
       );
     }
 
-    /* Normalise une URL pour repérer les doublons même avec des paramètres tracking ou liens Amazon */
     function normalizeProductUrl(rawUrl) {
       if (!rawUrl) return '';
       try {
         const u = new URL(rawUrl.trim());
-        // Détection spécifique des codes produits Amazon (ASIN /dp/B0...)
         const asinMatch = u.pathname.match(/\/(?:dp|gp\/product)\/([A-Z0-9]{10})/i);
         if (u.hostname.includes('amazon.') && asinMatch) {
           return 'amazon:' + asinMatch[1].toUpperCase();
         }
-        // Sinon retire le protocole, www, les paramètres ?utm/ref et le slash final
         return (u.hostname.replace(/^www\./, '') + u.pathname.replace(/\/+$/, '')).toLowerCase();
       } catch {
         return rawUrl.trim().toLowerCase();
@@ -1570,6 +1570,7 @@
     function renderFolders() {
       const container = document.getElementById('folder-tree');
       const filterText = (document.getElementById('folder-filter-input')?.value || '').trim().toLowerCase();
+      if (!container) return;
       container.innerHTML = '';
 
       const allEl = document.createElement('div');
@@ -1669,6 +1670,7 @@
       const grid = document.getElementById('boards-grid');
       const backBtn = document.getElementById('back-folder-btn');
       const heading = document.getElementById('boards-heading');
+      if (!section || !grid) return;
 
       const parentTarget = selectedFolderId === 'all' ? null : selectedFolderId;
       let children = sortFoldersAlpha(appData.folders.filter(f => f.parentId === parentTarget));
@@ -1746,6 +1748,7 @@
     function renderItems() {
       renderVisualBoards();
       const grid = document.getElementById('items-grid');
+      if (!grid) return;
       const query = document.getElementById('search-input').value.toLowerCase();
       const sort = document.getElementById('sort-select').value;
 
@@ -1878,7 +1881,6 @@
       const urlVal = document.getElementById('item-url').value;
       const titleVal = document.getElementById('item-title').value;
 
-      // Demande confirmation si un doublon existe (hors édition du même produit)
       const dup = findDuplicateItem(urlVal, titleVal, id);
       if (dup) {
         const folderPath = getFolderBreadcrumb(dup.folderId);
@@ -1938,6 +1940,7 @@
     }
 
     function openFolderModal(parentId) {
+      folderModalSource = 'main';
       document.getElementById('folder-modal-title').textContent = 'Nouveau dossier / sous-dossier';
       document.getElementById('folder-id').value = '';
       const sel = document.getElementById('folder-parent-select');
@@ -1948,7 +1951,24 @@
       document.getElementById('folder-modal').showModal();
     }
 
+    /* Ouvre la création de dossier directement depuis la popup produit */
+    function openFolderModalFromItem() {
+      folderModalSource = 'item-modal';
+      document.getElementById('folder-modal-title').textContent = 'Créer un dossier sur le pouce';
+      document.getElementById('folder-id').value = '';
+      const sel = document.getElementById('folder-parent-select');
+      populateFolderSelect(sel, true);
+      document.getElementById('folder-icon').value = '✦';
+      document.getElementById('folder-name').value = '';
+      document.getElementById('folder-modal').showModal();
+    }
+
+    function closeFolderModal() {
+      document.getElementById('folder-modal').close();
+    }
+
     function editFolder(id) {
+      folderModalSource = 'main';
       const folder = appData.folders.find(f => f.id === id);
       if (!folder) return;
       document.getElementById('folder-modal-title').textContent = 'Modifier le dossier';
@@ -1972,20 +1992,31 @@
       const name = document.getElementById('folder-name').value;
       const icon = document.getElementById('folder-icon').value || '✦';
 
+      let newFolderId = 'f-' + Date.now();
       if (id) {
         const folder = appData.folders.find(f => f.id === id);
         if (folder) {
           folder.name = name;
           folder.icon = icon;
           folder.parentId = parentId;
+          newFolderId = folder.id;
         }
       } else {
-        appData.folders.push({ id: 'f-' + Date.now(), name, icon, parentId });
+        appData.folders.push({ id: newFolderId, name, icon, parentId });
       }
+
+      await pushToGithub();
+      closeFolderModal();
+
+      // Si on venait de la popup produit, on met à jour la liste des dossiers et on sélectionne le nouveau créé
+      if (folderModalSource === 'item-modal') {
+        const itemFolderSelect = document.getElementById('item-folder');
+        populateFolderSelect(itemFolderSelect, false);
+        itemFolderSelect.value = newFolderId;
+      }
+
       renderFolders();
       renderItems();
-      document.getElementById('folder-modal').close();
-      await pushToGithub();
     }
 
     function openBulkFolderModal() {
