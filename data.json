@@ -930,6 +930,17 @@
   ],
   "items": [
     {
+      "id": "item-1795283916081-s69l",
+      "folderId": "f-1794780789852-7",
+      "title": "Dune - Tome 4",
+      "price": 23.9,
+      "store": "Amazon",
+      "url": "https://www.amazon.fr/Dune-LEmpereur-Dieu-%C3%89dition-collector/dp/2221263170?tag=rationaldress-20",
+      "image": "https://m.media-amazon.com/images/I/61xWJ0KfrxL._SY522_.jpg",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795283893683-svq6",
       "folderId": "f-1794780789852-7",
       "title": "Dune - Tome 5",
