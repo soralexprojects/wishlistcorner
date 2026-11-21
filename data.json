@@ -960,6 +960,17 @@
   ],
   "items": [
     {
+      "id": "item-1795298607206-3lsr",
+      "folderId": "f-1794780902108-1",
+      "title": "Baldur's Gate 3 on Steam",
+      "price": 59.99,
+      "store": "Store",
+      "url": "https://store.steampowered.com/app/1086940/Baldurs_Gate_3/",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/59827b3d0abf2f29adacfe72fdfd11059d6974e2/capsule_616x353.jpg?t=1777363040",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795298486988-onp5",
       "folderId": "f-1794780894097-5",
       "title": "SOMA",
