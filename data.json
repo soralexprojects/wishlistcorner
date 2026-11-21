@@ -954,6 +954,17 @@
   ],
   "items": [
     {
+      "id": "item-1795294998932-eatk",
+      "folderId": "f-1794779281035-1",
+      "title": "Color Gel Prag Shiny Dark Berry",
+      "price": 4.49,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/colorgel-prag-shiny-dark-berry",
+      "image": "http://ongle24.com/cdn/shop/files/5658-5_Color-Gel-Prag-Shiny-Dark-Berry_1_1eed8486-babe-4c8e-8c67-e6e393af3b2e.png?v=1722601489&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795294978971-pkjk",
       "folderId": "f-1794779281035-1",
       "title": "Supreme Color Gel Carmine",
