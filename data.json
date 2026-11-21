@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280991090-giop",
+      "folderId": "f-1794776044962",
+      "title": "Gel Polish VSP Buttercup",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-buttercup",
+      "image": "http://ongle24.com/cdn/shop/files/6297_GelPolish-Buttercup_01.jpg?v=1784815358&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795280969682-ym0t",
       "folderId": "f-1794776028110",
       "title": "Gel Polish VSP Organic",
