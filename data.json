@@ -930,6 +930,17 @@
   ],
   "items": [
     {
+      "id": "item-1795283975587-gvxq",
+      "folderId": "f-1794780789852-8",
+      "title": "La Maison Des Feuilles - Mark Z. Danielewski",
+      "price": 29.5,
+      "store": "Amazon",
+      "url": "https://www.amazon.fr/maison-feuilles-Mark-Z-Danielewski/dp/2381960643?tag=rationaldress-20",
+      "image": "https://m.media-amazon.com/images/I/713fTfI3ZiL._SY522_.jpg",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795283934063-66x7",
       "folderId": "f-1794780789852-7",
       "title": "Dune - Tome 3",
