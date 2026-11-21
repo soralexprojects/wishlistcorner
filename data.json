@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795281481150-f79o",
+      "folderId": "f-1794776028110",
+      "title": "Gel Polish VSP 3in1 No Wipe Minty Business",
+      "price": 9.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-vsp-3in1-no-wipe-minty-business",
+      "image": "http://ongle24.com/cdn/shop/files/7191_GelPolish-3-in-1-Minty-Business_01.jpg?v=1786001309&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795281468493-vyy0",
       "folderId": "f-1794775957366",
       "title": "Gel Polish VSP Deep Burgundy",
