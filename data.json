@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795283459430-rakw",
+      "folderId": "f-1794780789852-1",
+      "title": "Pop! Beetlejuice (Patchwork)",
+      "price": 16,
+      "store": "Funko",
+      "url": "https://funko.com/fr/pop-beetlejuice-patchwork/93233.html?utm_source=awin&utm_medium=affiliate&utm_id=78888&sv_campaign_id=78888&sv_tax1=affiliate&sv_tax2=598416&sv_tax3=Skimlinks&sv_tax4=chestr.com&sv_affiliate_id=78888&awc=30617_1795282231_bb4d8bd64e6d95c9041ec05932a5fd0b",
+      "image": "https://funko.com/on/demandware.static/-/Sites-funko-master-catalog/default/dwb70f655b/images/funko/upload/1/93233a_Patchwork_Beetlejuice_POP_Renders_V2_frontview_glam-WEB.png",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795283446142-snou",
       "folderId": "f-1794780789852-1",
       "title": "Pop! Emily (Patchwork)",
