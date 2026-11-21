@@ -954,6 +954,17 @@
   ],
   "items": [
     {
+      "id": "item-1795295015343-myjm",
+      "folderId": "f-1794779281035-1",
+      "title": "Color Gel Antalya Dark Red Glimmer",
+      "price": 4.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/colorgel-antalya-dark-red-glimmer",
+      "image": "http://ongle24.com/cdn/shop/files/5661-5_Color-Gel-Antalya-Dark-Red-Glimmer_1_058a5927-50f9-4955-b054-eda28b8d5a78.png?v=1722601496&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795294998932-eatk",
       "folderId": "f-1794779281035-1",
       "title": "Color Gel Prag Shiny Dark Berry",
