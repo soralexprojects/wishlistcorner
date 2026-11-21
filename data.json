@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280715737-v54w",
+      "folderId": "f-1794776121944",
+      "title": "Gel Polish VSP Purple Blue Glitter",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-purple-blue-glitter",
+      "image": "http://ongle24.com/cdn/shop/files/5446_GelPolish-Purple-Blue-Glitter_01.jpg?v=1784804607&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795280698513-xvqw",
       "folderId": "f-1794776006056",
       "title": "Gel Polish VSP Pearl Blue",
