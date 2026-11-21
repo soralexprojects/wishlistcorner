@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280316457-riaf",
+      "folderId": "f-1794777765750-8",
+      "title": "Gel Polish VSP Cat Eye Fairytopia",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-cat-eye-fairytopia",
+      "image": "http://ongle24.com/cdn/shop/files/6509_GelPolish-Cat-Eye-Fairytopia-F_1.jpg?v=1764161717&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795280299723-90lx",
       "folderId": "f-1794776006056",
       "title": "Gel Polish VSP Blue Horizon",
