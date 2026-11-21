@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795282364037-3mf9",
+      "folderId": "f-1794780789852-1",
+      "title": "Shigaraki Tomura (Funko Pop).",
+      "price": 19.05,
+      "store": "Amazon",
+      "url": "https://www.amazon.fr/Funko/dp/B083MCT12J?tag=rationaldress-20&th=1",
+      "image": "https://m.media-amazon.com/images/I/71hRLWkjkUL._AC_SX679_.jpg",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795282321956-gtn2",
       "folderId": "f-1794780789852-1",
       "title": "Pop! Devil Ghost Face",
