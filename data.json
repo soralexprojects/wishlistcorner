@@ -954,6 +954,17 @@
   ],
   "items": [
     {
+      "id": "item-1795294719458-uf8p",
+      "folderId": "f-1794779281035-1",
+      "title": "Supreme Color Gel Chianti",
+      "price": 4.49,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/supreme-colorgel-chianti",
+      "image": "http://ongle24.com/cdn/shop/files/3716_Supreme-Color-Gel-Chianti_1_40e4c7df-7eeb-45d0-bdd6-4c4ca9bf7f8a.png?v=1722601154&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795294704055-cygg",
       "folderId": "f-1794779281035-1",
       "title": "Color Gel Lima Red Brown",
