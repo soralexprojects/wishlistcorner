@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280729671-ihkc",
+      "folderId": "f-1794776121944",
+      "title": "Gel Polish VSP Glitter Grape",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-glitter-grape",
+      "image": "http://ongle24.com/cdn/shop/files/6383_GelPolish-Glitter-Grape_01_36d88700-ab07-4451-8123-9896a1e37267.jpg?v=1778244287&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795280715737-v54w",
       "folderId": "f-1794776121944",
       "title": "Gel Polish VSP Purple Blue Glitter",
