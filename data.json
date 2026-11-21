@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795283333755-3k9o",
+      "folderId": "f-1794780789852-1",
+      "title": "Pop! Astarion (Bloody)",
+      "price": 18,
+      "store": "Funko",
+      "url": "https://funko.com/fr/pop-astarion-bloody/91829.html?utm_source=awin&utm_medium=affiliate&utm_id=78888&sv_campaign_id=78888&sv_tax1=affiliate&sv_tax2=598416&sv_tax3=Skimlinks&sv_tax4=chestr.com&sv_affiliate_id=78888&awc=30617_1795282207_8e0c501fa9a04462192b1f839289acdb",
+      "image": "https://funko.com/on/demandware.static/-/Sites-funko-master-catalog/default/dw1f66791f/images/funko/upload/1/91829_BG3_S3_Astarion_POP_EDIT_T7_GLAM_Frontview-WEB.png",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795283317775-e2zc",
       "folderId": "f-1794780789852-1",
       "title": "Pop! Leon Kennedy",
