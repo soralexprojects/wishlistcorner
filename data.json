@@ -954,6 +954,17 @@
   ],
   "items": [
     {
+      "id": "item-1795294791087-jjli",
+      "folderId": "f-1794779281035-1",
+      "title": "Color Gel Metallic Indian Summer",
+      "price": 4.49,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/colorgel-metallic-indian-summer",
+      "image": "http://ongle24.com/cdn/shop/files/3837-5_Color-Gel-Metallic-Indian-Summer_1_bebc2044-0554-43e6-adff-a0a45f6a0920.png?v=1722601255&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795294777215-8kae",
       "folderId": "f-1794779281035-1",
       "title": "Glitter Gel Bordeaux Star",
