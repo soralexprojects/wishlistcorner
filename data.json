@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795283159996-tml8",
+      "folderId": "f-1794780789852-1",
+      "title": "Pop! Sung Jinwoo (Glow)",
+      "price": 18,
+      "store": "Funko",
+      "url": "https://funko.com/fr/pop-sung-jinwoo-glow/94834.html?utm_source=awin&utm_medium=affiliate&utm_id=78888&sv_campaign_id=78888&sv_tax1=affiliate&sv_tax2=598416&sv_tax3=Skimlinks&sv_tax4=chestr.com&sv_affiliate_id=78888&awc=30617_1795282169_a810d671f6b934533c01e5bfcbd20272",
+      "image": "https://funko.com/on/demandware.static/-/Sites-funko-master-catalog/default/dwa8228d82/images/funko/upload/1/94834_SoloLeveling_S3_SungJinwooSwordGW_POP_glam-WEB.png",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795283138822-4zmo",
       "folderId": "f-1794780789852-1",
       "title": "Pop! Classic Ghostface",
