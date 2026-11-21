@@ -954,6 +954,17 @@
   ],
   "items": [
     {
+      "id": "item-1795295453697-b7hq",
+      "folderId": "f-1794779281035-9",
+      "title": "Color Gel Metallic Purple",
+      "price": 4.49,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/colorgel-metallic-purple",
+      "image": "http://ongle24.com/cdn/shop/files/3845-5_Color-Gel-Metallic-Purple_1_dce0f0df-b94d-4b84-85a0-8fa372e50fff.png?v=1722601261&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795295439436-3o5k",
       "folderId": "f-1794779281035-9",
       "title": "Color Gel Winter Purple",
