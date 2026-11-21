@@ -960,6 +960,17 @@
   ],
   "items": [
     {
+      "id": "item-1795295889690-6hnd",
+      "folderId": "f-1794779281035-2",
+      "title": "Color Gel Deep Teal",
+      "price": 4.49,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/color-gel-teal",
+      "image": "http://ongle24.com/cdn/shop/files/6934_ColorGel-Deep-Teal_1.jpg?v=1764680155&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795295876769-70ew",
       "folderId": "f-1794779281035-7",
       "title": "Glitter Gel Copper Star",
