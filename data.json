@@ -930,6 +930,17 @@
   ],
   "items": [
     {
+      "id": "item-1795284303379-se0g",
+      "folderId": "f-1794780789852-11",
+      "title": "Kayali | EDEN JUICY APPLE | 01",
+      "price": null,
+      "store": "Kayali",
+      "url": "https://kayali.com/en-fr/products/eden-juicy-apple-01",
+      "image": "http://kayali.com/cdn/shop/files/Eden_Juicy_Apple_01_100_e9e30d3f-9836-465e-a565-118b54e31f08.png?v=1789041855&width=1024",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795284276910-2ltz",
       "folderId": "f-1794780789852-11",
       "title": "Kayali | FLEUR MAJESTY ROSE ROYALE | 31",
