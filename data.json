@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795282874165-za03",
+      "folderId": "f-1794780789852-1",
+      "title": "Pop! Rika",
+      "price": 8.5,
+      "store": "Amazon",
+      "url": "https://www.amazon.fr/Funko-Jujutsu-Kaisen-n%C2%B02320-Indiff%C3%A9rent/dp/B08HH5KBQB?tag=rationaldress-20&th=1",
+      "image": "https://m.media-amazon.com/images/I/71RJj0i4PvL._AC_SX522_.jpg",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795282851154-9xns",
       "folderId": "f-1794780789852-1",
       "title": "Pop! Long Hair Eren Yaeger",
