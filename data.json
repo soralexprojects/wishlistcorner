@@ -954,6 +954,17 @@
   ],
   "items": [
     {
+      "id": "item-1795294871786-jm8a",
+      "folderId": "f-1794779281035-1",
+      "title": "Supreme Color Gel Bordeaux",
+      "price": 4.49,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/supreme-colorgel-bordeaux",
+      "image": "http://ongle24.com/cdn/shop/files/3737_Supreme-Color-Gel-Bordeaux_1_952bd6db-bc82-45c8-91f9-ddfb7f3c5881.png?v=1722601182&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795294855956-4vrq",
       "folderId": "f-1794779281035-1",
       "title": "Color Gel Dark Red",
