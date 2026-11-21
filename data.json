@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795281108239-i08n",
+      "folderId": "f-1794775957366",
+      "title": "Gel Polish VSP Passion Red",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-passion-red",
+      "image": "http://ongle24.com/cdn/shop/files/4106_GelPolish-Passion-Red_01_c87c9b98-6505-4e0c-9c76-bab08bf6c1e6.jpg?v=1794819320&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795281094964-pupg",
       "folderId": "f-1794775957366",
       "title": "Gel Polish VSP Bourgogne",
