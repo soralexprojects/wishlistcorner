@@ -906,15 +906,26 @@
   ],
   "items": [
     {
-      "id": "item-1795273433278",
+      "id": "item-1795273455697",
       "folderId": "f-1794776006056",
-      "title": "Gel Polish VSP Sapphire Glitter",
+      "title": "Gel Polish VSP Midnight Navy",
       "price": 7.99,
       "store": "Ongle24",
-      "url": "https://ongle24.com/products/gelpolish-vsp-sapphire-glitter",
-      "image": "http://ongle24.com/cdn/shop/files/5723_GelPolish-Sapphire-Glitter_01.jpg?v=1784807421&width=2048",
+      "url": "https://ongle24.com/products/gel-polish-vsp-midnight-navy",
+      "image": "http://ongle24.com/cdn/shop/files/7169_GelPolish-Midnight-Navy_01.jpg?v=1781863535&width=2048",
       "note": "",
-      "priority": "coup-de-coeur"
+      "priority": "normal"
+    },
+    {
+      "id": "item-1795273391878",
+      "folderId": "f-1794776006056",
+      "title": "Gel Polish VSP Mirage",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-mirage",
+      "image": "http://ongle24.com/cdn/shop/files/3065_GelPolishMirage_1_747d727c-dde1-434c-b62d-1d0c30b8ff89.png?v=1716563860&width=2048",
+      "note": "",
+      "priority": "normal"
     },
     {
       "id": "item-1795273316421",
