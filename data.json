@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795281355661-4apd",
+      "folderId": "f-1794775957366",
+      "title": "Gel Polish VSP Cherry Bomb",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-vsp-cherry-bomb",
+      "image": "http://ongle24.com/cdn/shop/files/6772_GelPolish-Cherry-Bomb_1_4c2616ba-fbf9-476c-8313-417b51ec8147.jpg?v=1753267770&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795281342957-iy2y",
       "folderId": "f-1794775957366",
       "title": "Gel Polish VSP Raspberry",
