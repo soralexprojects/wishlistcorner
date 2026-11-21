@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795282921206-yffb",
+      "folderId": "f-1794780789852-1",
+      "title": "Pop! Okkotsu Yuta",
+      "price": 16,
+      "store": "Amazon",
+      "url": "https://www.amazon.fr/Funko-Jujutsu-Kaisen-Okkotsu-Indiff%C3%A9rent/dp/B08HH63H6Y?tag=rationaldress-20&th=1",
+      "image": "https://m.media-amazon.com/images/I/611eidgjf6L._AC_SX522_.jpg",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795282894581-8r02",
       "folderId": "f-1794780789852-1",
       "title": "Pop! Choso",
