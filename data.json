@@ -936,6 +936,17 @@
   ],
   "items": [
     {
+      "id": "item-1795293712907-cmps",
+      "folderId": "f-1794780181994-27",
+      "title": "Polyacryl Gel Clear 50ml",
+      "price": 19.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/polyacryl-gel-clear-50ml",
+      "image": "http://ongle24.com/cdn/shop/files/2006_Polyacryl-Gel_Clear_1_ad909560-1b4f-48da-9f0e-8f7c72b6ff6a.jpg?v=1789726205&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795293680830-51ie",
       "folderId": "f-1794780181994-20",
       "title": "Chrome Silicone Tool",
