@@ -918,6 +918,17 @@
   ],
   "items": [
     {
+      "id": "item-1795278768156-ihhf",
+      "folderId": "f-1794777765750-7",
+      "title": "Gel Polish VSP Cat Eye Mystic",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-vsp-cat-eye-mystic",
+      "image": "http://ongle24.com/cdn/shop/files/6420_GelPolish-Cat-Eye-Mystic-F_1.jpg?v=1764161591&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795278751645-f9cp",
       "folderId": "f-1794777404011-4",
       "title": "Gel Polish VSP Crystal Secret",
