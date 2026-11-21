@@ -906,17 +906,6 @@
   ],
   "items": [
     {
-      "id": "item-1795275970375-8-x1v",
-      "folderId": "f-1794780789852-1",
-      "title": "https://m.media-amazon.com/images/I/51ikdQPf0bL.jpg",
-      "price": null,
-      "store": "",
-      "url": "https://soralexprojects.github.io/wishlistcorner/?admin=1",
-      "image": "https://m.media-amazon.com/images/I/51ikdQPf0bL.jpg",
-      "note": "",
-      "priority": "normal"
-    },
-    {
       "id": "item-1795275970375-7-4d1",
       "folderId": "f-1794780789852-1",
       "title": "Upload Image",
