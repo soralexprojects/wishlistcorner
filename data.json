@@ -954,6 +954,17 @@
   ],
   "items": [
     {
+      "id": "item-1795295301645-5gbg",
+      "folderId": "f-1794779281035-2",
+      "title": "Color Gel Petrol",
+      "price": 4.49,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/colorgel-petrol",
+      "image": "http://ongle24.com/cdn/shop/files/3825-5_Color-Gel-Petrol_1_1db656c0-d36e-45f9-87e2-328d8f464fdd.png?v=1722601244&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795295285748-5t8b",
       "folderId": "f-1794779281035-2",
       "title": "Color Gel Mystic Fusion",
