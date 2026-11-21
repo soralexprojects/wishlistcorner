@@ -954,6 +954,17 @@
   ],
   "items": [
     {
+      "id": "item-1795295509460-ffb3",
+      "folderId": "f-1794779281035-9",
+      "title": "Supreme Color Gel Dark Lila",
+      "price": 4.49,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/supreme-colorgel-dark-lila",
+      "image": "http://ongle24.com/cdn/shop/files/3730_Supreme-Color-Gel-Dark-Lila_1_f50c36b6-2365-4564-ac74-41fb575e9fc9.png?v=1722601174&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795295495620-7z8o",
       "folderId": "f-1794779281035-9",
       "title": "Supreme Color Gel Dark Violet",
