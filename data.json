@@ -954,6 +954,17 @@
   ],
   "items": [
     {
+      "id": "item-1795294855956-4vrq",
+      "folderId": "f-1794779281035-1",
+      "title": "Color Gel Dark Red",
+      "price": 4.49,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/colorgel-dark-red",
+      "image": "http://ongle24.com/cdn/shop/files/3814-5_Color-Gel-Dark-Red_1_8fd0bb97-2241-47d3-b945-310523af5ccd.png?v=1722601230&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795294834904-8zid",
       "folderId": "f-1794779281035-1",
       "title": "Supreme Color Gel Dark Raspberry",
