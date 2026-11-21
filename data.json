@@ -930,6 +930,17 @@
   ],
   "items": [
     {
+      "id": "item-1795284249140-xx8b",
+      "folderId": "f-1794780789852-11",
+      "title": "Kayali | BURNING CHERRY | 48",
+      "price": null,
+      "store": "Kayali",
+      "url": "https://kayali.com/en-fr/products/lovefest-burning-cherry-48",
+      "image": "http://kayali.com/cdn/shop/files/Lovefest_Burning_Cherry_48_100_8090fa66-3e60-40c9-9959-d06e15028da5.png?v=1789041844&width=1024",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795284208959-hauk",
       "folderId": "f-1794780789852-11",
       "title": "Not Sorry Adopt 30 ML",
