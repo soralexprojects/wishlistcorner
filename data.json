@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795283575859-e57m",
+      "folderId": "f-1794780789852-1",
+      "title": "Pop! Deluxe Katsuki Bakugo",
+      "price": 30,
+      "store": "Funko",
+      "url": "https://funko.com/fr/pop-deluxe-katsuki-bakugo/93888.html?utm_source=awin&utm_medium=affiliate&utm_id=78888&sv_campaign_id=78888&sv_tax1=affiliate&sv_tax2=598416&sv_tax3=Skimlinks&sv_tax4=chestr.com&sv_affiliate_id=78888&awc=30617_1795282260_55373c1e14b3abf783f63dceca75cf02",
+      "image": "https://funko.com/on/demandware.static/-/Sites-funko-master-catalog/default/dw85da4050/images/funko/upload/1/93888_POPDLX_MHA_Bakugo_wCH_Render_rev071426-Glam-WEB.png",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795283561353-6sbz",
       "folderId": "f-1794780789852-1",
       "title": "Pop! Shoto Aizawa",
