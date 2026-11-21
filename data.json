@@ -918,6 +918,17 @@
   ],
   "items": [
     {
+      "id": "item-1795278435690-tp3k",
+      "folderId": "f-1794776088390",
+      "title": "Gel Polish VSP Mystique",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-mystique",
+      "image": "http://ongle24.com/cdn/shop/files/4366_GelPolishMystique_1_a94a1ae2-c3bf-4dff-bc71-1636e9fb42b9.png?v=1716563869&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795278420278-v8pd",
       "folderId": "f-1795278416140-ho1q",
       "title": "Gel Polish VSP Pearl Drop",
