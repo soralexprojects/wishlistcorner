@@ -954,6 +954,17 @@
   ],
   "items": [
     {
+      "id": "item-1795294777215-8kae",
+      "folderId": "f-1794779281035-1",
+      "title": "Glitter Gel Bordeaux Star",
+      "price": 4.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/glittergel-bordeaux-star",
+      "image": "http://ongle24.com/cdn/shop/files/3645_Glitter-Gel-Bordeaux-Star_1_2c90e744-51e3-4f7e-aacb-75f775e18300.png?v=1722601103&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795294764659-f3qt",
       "folderId": "f-1794779281035-1",
       "title": "Supreme Color Gel Red Brown",
