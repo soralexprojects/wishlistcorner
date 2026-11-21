@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280666435-7xya",
+      "folderId": "f-1794776006056",
+      "title": "Gel Polish VSP Cherry Blue",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-cherry-blue",
+      "image": "http://ongle24.com/cdn/shop/files/6294_GelPolish-Cherry-Blue_01.jpg?v=1778071099&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795280652121-f3rj",
       "folderId": "f-1794776006056",
       "title": "Gel Polish VSP Petrol Sparkle",
