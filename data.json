@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280823208-xsdc",
+      "folderId": "f-1794776071537",
+      "title": "Gel Polish VSP Forest Night",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-forest-night",
+      "image": "http://ongle24.com/cdn/shop/files/6459_GelPolishForestNight_01.jpg?v=1730204187&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795280809604-nnqt",
       "folderId": "f-1794776028110",
       "title": "Gel Polish VSP Witchwood",
