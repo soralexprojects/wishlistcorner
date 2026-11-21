@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280794938-nbwk",
+      "folderId": "f-1794776028110",
+      "title": "Gel Polish VSP Shadow Pine",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-vsp-shadow-pine",
+      "image": "http://ongle24.com/cdn/shop/files/6845_GelPolish_ShadowPine_1.jpg?v=1757416821&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795280783693-1x4i",
       "folderId": "f-1794776028110",
       "title": "Gel Polish VSP Turquoise Bay",
