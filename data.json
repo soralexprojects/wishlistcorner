@@ -942,6 +942,17 @@
   ],
   "items": [
     {
+      "id": "item-1795293899868-n5pc",
+      "folderId": "f-1794780181994-29",
+      "title": "Cuticle Oil Cookie Dough",
+      "price": 2.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/cuticle-oil-cookie-dough",
+      "image": "http://ongle24.com/cdn/shop/files/6923_CuticleOil_CookieDough_1.jpg?v=1759998110&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795293889915-sp2y",
       "folderId": "f-1794780181994-29",
       "title": "Cuticle Oil Peach",
