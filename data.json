@@ -918,6 +918,17 @@
   ],
   "items": [
     {
+      "id": "item-1795279656704-775o",
+      "folderId": "f-1794777404011-8",
+      "title": "Gel Polish VSP Crystal Cat Eye Violet",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-vsp-crystal-cat-eye-violet",
+      "image": "http://ongle24.com/cdn/shop/files/6556_GelPolish-Crystal-Cat-Eye-Violet-F_1.jpg?v=1767089525&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795279634832-aiif",
       "folderId": "f-1794776062981",
       "title": "Gel Polish VSP Glitter Smoke",
