@@ -912,6 +912,17 @@
   ],
   "items": [
     {
+      "id": "item-1795272605749",
+      "folderId": "f-1795272599466",
+      "title": "Gel Polish VSP Flashing Cat Eye Romance",
+      "price": 8.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-vsp-flashing-cat-eye-romance",
+      "image": "http://ongle24.com/cdn/shop/files/6822_GelPolish_Flashing_CatEye_Romance_1.jpg?v=1770891339&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795272472938",
       "folderId": "f-1795272467051",
       "title": "Gel Polish VSP Crystal Cat Eye Pink",
