@@ -960,6 +960,17 @@
   ],
   "items": [
     {
+      "id": "item-1795298621390-t3na",
+      "folderId": "f-1794780902108-0",
+      "title": "Small Spaces on Steam",
+      "price": 12.79,
+      "store": "Store",
+      "url": "https://store.steampowered.com/app/3151380/Small_Spaces/",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3151380/ac7fa706fd363cf4f9ddceff6fabbb3bad2280cf/capsule_616x353.jpg?t=1795214218",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795298607206-3lsr",
       "folderId": "f-1794780902108-1",
       "title": "Baldur's Gate 3 on Steam",
