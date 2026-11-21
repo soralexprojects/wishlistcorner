@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795281387270-o4ut",
+      "folderId": "f-1794784255945",
+      "title": "Gel Polish VSP Pink Alert",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-pink-alert",
+      "image": "http://ongle24.com/cdn/shop/files/4107_GelPolish-Pink-Alert_01.jpg?v=1784796928&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795281373765-8iry",
       "folderId": "f-1794776121944",
       "title": "Gel Polish VSP Bordeaux Vieux Rose",
