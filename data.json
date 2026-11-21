@@ -954,6 +954,17 @@
   ],
   "items": [
     {
+      "id": "item-1795295426306-ys98",
+      "folderId": "f-1794779281035-8",
+      "title": "Paint Art Gel Metallic Silver",
+      "price": 5.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/paint-art-gel-metallic-silver",
+      "image": "http://ongle24.com/cdn/shop/files/4316-5_Paint-Art-Gel-Metallic-Silver_1_f962d5e1-cc56-4328-8c32-ce4d7a453b67.png?v=1722601387&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795295411775-ibvm",
       "folderId": "f-1794779281035-8",
       "title": "Color Gel Amsterdam Shiny Silver",
