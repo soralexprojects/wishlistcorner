@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795283302117-wpwy",
+      "folderId": "f-1794780789852-1",
+      "title": "Pop! Pyramid Head",
+      "price": 18,
+      "store": "Funko",
+      "url": "https://funko.com/fr/pop-pyramid-head/90710.html?utm_source=awin&utm_medium=affiliate&utm_id=78888&sv_campaign_id=78888&sv_tax1=affiliate&sv_tax2=598416&sv_tax3=Skimlinks&sv_tax4=chestr.com&sv_affiliate_id=78888&awc=30617_1795282200_7c8ee3f75b8830cbda5961b5033a4851",
+      "image": "https://funko.com/on/demandware.static/-/Sites-funko-master-catalog/default/dwa16031d9/images/funko/upload/1/90710_POP-PREMIUM_SH2_S1_Pyramid-Head_GLAM-WEB.png",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795283287611-xqnj",
       "folderId": "f-1794780789852-1",
       "title": "Pop! Yelena Belova (Doomsday)",
