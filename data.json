@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795281064774-kjmp",
+      "folderId": "f-1794784255945",
+      "title": "Gel Polish VSP Flashing Hibiscus",
+      "price": 8.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-flashing-hibiscus",
+      "image": "http://ongle24.com/cdn/shop/files/6212_Gelpolish-Flashing-Hibiscus_01.jpg?v=1784814584&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795281051215-cgit",
       "folderId": "f-1794775957366",
       "title": "Gel Polish VSP Glitter Diva",
