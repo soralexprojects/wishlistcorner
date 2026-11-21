@@ -960,6 +960,17 @@
   ],
   "items": [
     {
+      "id": "item-1795297682350-q5y6",
+      "folderId": "f-1794780894097-0",
+      "title": "Strange Antiquities",
+      "price": 17.99,
+      "store": "Nintendo",
+      "url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-a-telecharger-sur-Nintendo-Switch/Strange-Antiquities-2888529.html?nsuid=70010000096149",
+      "image": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/strangeantiquities/16x9_StrangeAntiquities_image1280w.jpg",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795297490746-c5ul",
       "folderId": "f-1794780894097-0",
       "title": "Moonlight Peaks – Nintendo Switch™ 2 Edition",
