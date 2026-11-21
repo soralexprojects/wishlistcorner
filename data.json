@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795283524781-16lu",
+      "folderId": "f-1794780789852-1",
+      "title": "Pop! Sidney Prescott",
+      "price": 16,
+      "store": "Funko",
+      "url": "https://funko.com/fr/pop-sidney-prescott/90354.html?utm_source=awin&utm_medium=affiliate&utm_id=78888&sv_campaign_id=78888&sv_tax1=affiliate&sv_tax2=598416&sv_tax3=Skimlinks&sv_tax4=chestr.com&sv_affiliate_id=78888&awc=30617_1795282248_184d4d67a3992eed9c42b96c9e05b089",
+      "image": "https://funko.com/on/demandware.static/-/Sites-funko-master-catalog/default/dw8c45a26b/images/funko/upload/1/90354PKG_Scream_SidneyPrescott_POP_GLAM-WEB.png",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795283511739-79xo",
       "folderId": "f-1794780789852-1",
       "title": "Pop! Mini Moment Glinda & Elephaba",
