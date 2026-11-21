@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280969682-ym0t",
+      "folderId": "f-1794776028110",
+      "title": "Gel Polish VSP Organic",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-organic",
+      "image": "http://ongle24.com/cdn/shop/files/4186_GelPolishOrganic_1_8ff86799-b7d6-4a43-8c10-e1aa325484ec.png?v=1716563941&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795280954744-dmwj",
       "folderId": "f-1794776028110",
       "title": "Gel Polish VSP Sea Green",
