@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795282490945-8i7b",
+      "folderId": "f-1794780789852-1",
+      "title": "Pop! Vigilante Midoriya Izuku",
+      "price": 25,
+      "store": "Amazon",
+      "url": "https://www.amazon.fr/Funko-Academia-Izuku-Midoriya-Unisexe/dp/B0D98TNFSY?tag=rationaldress-20&th=1",
+      "image": "https://m.media-amazon.com/images/I/71FM3kHgQML._AC_SX522_.jpg",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795282445297-t4y7",
       "folderId": "f-1794780789852-1",
       "title": "Pop! White Hair Shigaraki Tomura",
