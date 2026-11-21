@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795283239230-hpdn",
+      "folderId": "f-1794780789852-1",
+      "title": "Pop! Max Mayfield",
+      "price": 16,
+      "store": "Funko",
+      "url": "https://funko.com/fr/pop-max-mayfield/90288.html?utm_source=awin&utm_medium=affiliate&utm_id=78888&sv_campaign_id=78888&sv_tax1=affiliate&sv_tax2=598416&sv_tax3=Skimlinks&sv_tax4=chestr.com&sv_affiliate_id=78888&awc=30617_1795282184_67861d62c6f94e5b6aef0fd8265542e7",
+      "image": "https://funko.com/on/demandware.static/-/Sites-funko-master-catalog/default/dwd149b76c/images/funko/upload/1/90288_POP_ST_S5_S2_POP-1_GLAM-WEB.png",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795283225748-2ur8",
       "folderId": "f-1794780789852-1",
       "title": "Pop! Steve Harrington",
