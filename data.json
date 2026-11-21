@@ -960,6 +960,17 @@
   ],
   "items": [
     {
+      "id": "item-1795295876769-70ew",
+      "folderId": "f-1794779281035-7",
+      "title": "Glitter Gel Copper Star",
+      "price": 4.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/glittergel-copper-star",
+      "image": "http://ongle24.com/cdn/shop/files/3641_Glitter-Gel-Copper-Star_1_3cf19bc5-db0a-42d5-86bb-d718e846d0db.png?v=1722601097&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795295863572-zgsg",
       "folderId": "f-1794779281035-1",
       "title": "Color Gel Bordeaux Noir",
