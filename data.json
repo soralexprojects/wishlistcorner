@@ -918,6 +918,17 @@
   ],
   "items": [
     {
+      "id": "item-1795279461431-3qip",
+      "folderId": "f-1794784255945",
+      "title": "Gel Polish VSP Pink Polar Lights",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-pink-polar-lights",
+      "image": "http://ongle24.com/cdn/shop/files/6454_GelPolish-Pink-Polar-Lights_01.jpg?v=1784815990&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795279449023-yjkq",
       "folderId": "f-1794777765750-6",
       "title": "Gel Polish VSP Cat Eye New Year",
