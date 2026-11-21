@@ -960,6 +960,17 @@
   ],
   "items": [
     {
+      "id": "item-1795295863572-zgsg",
+      "folderId": "f-1794779281035-1",
+      "title": "Color Gel Bordeaux Noir",
+      "price": 4.49,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/colorgel-bordeaux-noir",
+      "image": "http://ongle24.com/cdn/shop/files/4236-5_Color-Gel-Bordeaux-Noir_1_c0c116f4-85de-4681-be54-a64d5984ef8e.png?v=1723641818&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795295848635-1ejv",
       "folderId": "f-1794779281035-1",
       "title": "Color Gel Rouge Noir",
