@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795282520146-gdyu",
+      "folderId": "f-1794780789852-1",
+      "title": "Pop! Kirishima Eijirou",
+      "price": 34.99,
+      "store": "Amazon",
+      "url": "https://www.amazon.fr/Funko-Pop-Animation-Academia-Kirishima/dp/B07NRRXXGX?tag=rationaldress-20&th=1",
+      "image": "https://m.media-amazon.com/images/I/71QkiwvyGlL._AC_SX679_.jpg",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795282490945-8i7b",
       "folderId": "f-1794780789852-1",
       "title": "Pop! Vigilante Midoriya Izuku",
