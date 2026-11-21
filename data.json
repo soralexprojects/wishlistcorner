@@ -948,6 +948,17 @@
   ],
   "items": [
     {
+      "id": "item-1795294630258-n4u7",
+      "folderId": "f-1795294625661-pi5k",
+      "title": "Paint Art Gel White",
+      "price": 5.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/paint-art-gel-white",
+      "image": "http://ongle24.com/cdn/shop/files/4301-5_Paint-Art-Gel-White_1_966d8cb2-b27b-4a2a-a67a-aa7273de7a80.png?v=1722601368&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795294187622-cb50",
       "folderId": "f-1794780181994-3",
       "title": "Gel Polish VSP Gummy Base Keratin",
