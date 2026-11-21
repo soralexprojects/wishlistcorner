@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280261985-gys1",
+      "folderId": "f-1794776006056",
+      "title": "Gel Polish VSP Seashell Hortensia",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-vsp-seashell-hortensia",
+      "image": "http://ongle24.com/cdn/shop/files/6562_Seashell_Hortensia_1.jpg?v=1738685872&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795280248481-f21r",
       "folderId": "f-1794776121944",
       "title": "Gel Polish VSP Universe Fairy",
