@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795283225748-2ur8",
+      "folderId": "f-1794780789852-1",
+      "title": "Pop! Steve Harrington",
+      "price": 16,
+      "store": "Funko",
+      "url": "https://funko.com/fr/pop-steve-harrington/75749.html?utm_source=awin&utm_medium=affiliate&utm_id=78888&sv_campaign_id=78888&sv_tax1=affiliate&sv_tax2=598416&sv_tax3=Skimlinks&sv_tax4=chestr.com&sv_affiliate_id=78888&awc=30617_1795282181_615fbac2c130656a7ce1946016352680",
+      "image": "https://funko.com/on/demandware.static/-/Sites-funko-master-catalog/default/dw89844dc5/images/funko/upload/1/75749_POP_ST_S5_POP-2_GLAM-WEB.png",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795283209328-nzo0",
       "folderId": "f-1794780789852-1",
       "title": "Pop! Vecna 2.0",
