@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280235913-zzhl",
+      "folderId": "f-1794776006056",
+      "title": "Gel Polish VSP Elaine",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-elaine",
+      "image": "http://ongle24.com/cdn/shop/files/5462_GelPolishElaine_1_ad291903-2b78-4021-966a-31545aedce3a.png?v=1716563740&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795280205703-d95l",
       "folderId": "f-1794776006056",
       "title": "Gel Polish VSP Sparkling Blue",
