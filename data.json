@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280954744-dmwj",
+      "folderId": "f-1794776028110",
+      "title": "Gel Polish VSP Sea Green",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-sea-green",
+      "image": "http://ongle24.com/cdn/shop/files/6292_GelPolishSeaGreen_1_94962ca7-2f43-4d54-97e5-e38af3c13993.png?v=1718623152&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795280940923-7thz",
       "folderId": "f-1794776028110",
       "title": "Gel Polish VSP Jade",
