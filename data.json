@@ -954,6 +954,17 @@
   ],
   "items": [
     {
+      "id": "item-1795295234320-8foa",
+      "folderId": "f-1794779281035-2",
+      "title": "Supreme Color Gel Jeans",
+      "price": 4.49,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/supreme-colorgel-jeans",
+      "image": "http://ongle24.com/cdn/shop/files/3717_Supreme-Color-Gel-Jeans_1_e7ee265f-256d-4a97-8326-6aea9cdbdbfa.png?v=1722601154&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795295219375-icqv",
       "folderId": "f-1794779281035-2",
       "title": "Supreme Color Gel Petrol",
