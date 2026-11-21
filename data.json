@@ -954,6 +954,17 @@
   ],
   "items": [
     {
+      "id": "item-1795295649767-3xsh",
+      "folderId": "f-1794779281035-6",
+      "title": "Color Gel Metallic Anthracite",
+      "price": 4.49,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/colorgel-metallic-anthracite",
+      "image": "http://ongle24.com/cdn/shop/files/3849-5_Color-Gel-Metallic-Anthracite_1_3d118292-4905-46d9-bbac-93d13a137639.png?v=1722601262&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795295638473-af44",
       "folderId": "f-1794779281035-6",
       "title": "Supreme Color Gel Black",
