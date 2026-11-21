@@ -906,17 +906,6 @@
   ],
   "items": [
     {
-      "id": "item-1795276093689-24-ham",
-      "folderId": "f-1794780789852-1",
-      "title": "https://m.media-amazon.com/images/I/81ZprkSW6VL._AC_SY741_.jpg",
-      "price": null,
-      "store": "",
-      "url": "https://soralexprojects.github.io/wishlistcorner/?admin=1",
-      "image": "https://m.media-amazon.com/images/I/81ZprkSW6VL._AC_SY741_.jpg",
-      "note": "",
-      "priority": "normal"
-    },
-    {
       "id": "item-1795276093689-23-qxd",
       "folderId": "f-1794780789852-1",
       "title": "https://m.media-amazon.com/images/I/713fTfI3ZiL._AC_AIweblab1392912,T3_SF756,1044_PQ60_.jpg?aicid=detailPage-mediaBlock",
