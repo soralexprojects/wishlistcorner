@@ -918,6 +918,17 @@
   ],
   "items": [
     {
+      "id": "item-1795278628394-177b",
+      "folderId": "f-1794775957366",
+      "title": "Gelpolish VSP Flashing Aubergine",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-flashing-aubergine",
+      "image": "http://ongle24.com/cdn/shop/files/5957_GelPolishFlashingAubergine_1_1_d377d6f3-d012-42c0-aa5f-797d12f401a1.jpg?v=1770128210&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795278611340-7bu2",
       "folderId": "f-1794784255945",
       "title": "Gel Polish VSP Flashing Pink",
