@@ -960,6 +960,17 @@
   ],
   "items": [
     {
+      "id": "item-1795298211128-9x6f",
+      "folderId": "f-1794780894097-4",
+      "title": "South Park™: L’Annale du Destin™",
+      "price": 29.99,
+      "store": "Nintendo",
+      "url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch/South-Park-L-Annale-du-Destin--1347905.html?nsuid=70010000001327",
+      "image": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SouthParkTheFracturedButWhole_frFR_image1280w.jpg",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795298185244-l6ky",
       "folderId": "f-1794780894097-5",
       "title": "Alien: Isolation",
