@@ -900,6 +900,17 @@
   ],
   "items": [
     {
+      "id": "item-1795272372747",
+      "folderId": "f-1794784255945",
+      "title": "Gel Polish VSP Big Rose Gold Glitter",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-massive-rose-gold-glitter",
+      "image": "http://ongle24.com/cdn/shop/files/4161_GelPolishBigRoseGoldGlitter_1.jpg?v=1733487239&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1794783174361",
       "folderId": "f-1794776101457",
       "title": "Gel Polish VSP Flashing Silver",
