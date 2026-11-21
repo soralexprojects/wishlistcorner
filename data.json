@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280940923-7thz",
+      "folderId": "f-1794776028110",
+      "title": "Gel Polish VSP Jade",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-jade",
+      "image": "http://ongle24.com/cdn/shop/files/3073_GelPolishJade_1_327f4ee1-2f95-42d2-becd-503d82ca3c67.png?v=1724668190&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795280921791-uqq0",
       "folderId": "f-1794776028110",
       "title": "Gel Polish VSP Summer Field",
