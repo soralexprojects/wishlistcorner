@@ -918,6 +918,17 @@
   ],
   "items": [
     {
+      "id": "item-1795278818650-1ix0",
+      "folderId": "f-1794776044962",
+      "title": "Gel Polish VSP Sun Fairy",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-vsp-sun-fairy",
+      "image": "http://ongle24.com/cdn/shop/files/6533_GelPolishSunFairy_1_e790c5e5-39fd-4301-bbaa-b1406df9acac.jpg?v=1738154187&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795278803712-v5zt",
       "folderId": "f-1794776101457",
       "title": "Gel Polish VSP Silver Glitter Star",
