@@ -918,6 +918,17 @@
   ],
   "items": [
     {
+      "id": "item-1795278670160-zmcz",
+      "folderId": "f-1794775957366",
+      "title": "Gel Polish VSP Pearl Marsala",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-pearl-marsala",
+      "image": "http://ongle24.com/cdn/shop/files/6007_GelPolish-Pearl-Marsala_01_6e1565ab-2018-4c38-b732-69633501b875.jpg?v=1784813323&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795278656765-zl6p",
       "folderId": "f-1794777695514-5",
       "title": "Gel Polish VSP Translucent Black",
