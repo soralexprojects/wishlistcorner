@@ -954,6 +954,17 @@
   ],
   "items": [
     {
+      "id": "item-1795295204186-8yeg",
+      "folderId": "f-1794779281035-2",
+      "title": "Color Gel Riverside",
+      "price": 4.49,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/colorgel-riverside",
+      "image": "http://ongle24.com/cdn/shop/files/3828-5_Color-Gel-Riverside_1_d986657c-995b-40c5-9d9b-013db5268307.png?v=1722601247&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795295188160-lo5i",
       "folderId": "f-1794779281035-2",
       "title": "Color Gel Pearl Peppermint",
