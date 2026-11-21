@@ -960,6 +960,17 @@
   ],
   "items": [
     {
+      "id": "item-1795297950225-wllu",
+      "folderId": "f-1794780894097-3",
+      "title": "The Legend of Zelda: Ocarina of Time",
+      "price": 59.99,
+      "store": "Nintendo",
+      "url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/The-Legend-of-Zelda-Ocarina-of-Time-3115664.html",
+      "image": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/thelegendofzeldaocarinaoftime/banners/16x9_PDP_NSwitch2_TloZOcarinaOfTime_AnniLogo_image1280w.jpg",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795297911566-gg0l",
       "folderId": "f-1794780894097-3",
       "title": "The Legend of Zelda: Breath of the Wild",
