@@ -130,12 +130,6 @@
       "parentId": "f-1794776236845"
     },
     {
-      "id": "f-1795272979066",
-      "name": "Cat-Eyes | Roses.",
-      "icon": "◈",
-      "parentId": "f-1794776236845"
-    },
-    {
       "id": "f-1794777765750-0",
       "name": "Cat-Eyes | Rouges.",
       "icon": "◈",
@@ -912,13 +906,24 @@
   ],
   "items": [
     {
-      "id": "item-1795272985366",
-      "folderId": "f-1795272979066",
-      "title": "Gel Polish VSP Flashing Cat Eye Romance",
-      "price": 8.99,
+      "id": "item-1795273003320",
+      "folderId": "f-1795272467051",
+      "title": "Gel Polish VSP Crystal Cat Eye Rose",
+      "price": 7.99,
       "store": "Ongle24",
-      "url": "https://ongle24.com/products/gel-polish-vsp-flashing-cat-eye-romance",
-      "image": "http://ongle24.com/cdn/shop/files/6822_GelPolish_Flashing_CatEye_Romance_1.jpg?v=1770891339&width=2048",
+      "url": "https://ongle24.com/products/gel-polish-vsp-crystal-cat-eye-rose",
+      "image": "http://ongle24.com/cdn/shop/files/6551_GelPolish-Crystal-Cat-Eye-Rose_1_d7039aed-8180-4ab8-8d5e-d21361bd1934.jpg?v=1770025415&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
+      "id": "item-1795272913074",
+      "folderId": "f-1794784255945",
+      "title": "Gel Polish VSP Big Rose Gold Glitter",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-massive-rose-gold-glitter",
+      "image": "http://ongle24.com/cdn/shop/files/4161_GelPolishBigRoseGoldGlitter_1.jpg?v=1733487239&width=2048",
       "note": "",
       "priority": "normal"
     },
