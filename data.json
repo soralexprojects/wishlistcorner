@@ -954,6 +954,17 @@
   ],
   "items": [
     {
+      "id": "item-1795294931933-oduv",
+      "folderId": "f-1794779281035-1",
+      "title": "Supreme Color Gel Wine",
+      "price": 4.49,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/supreme-colorgel-wine",
+      "image": "http://ongle24.com/cdn/shop/files/3709_Supreme-Color-Gel-Wine_1_76c6aec2-22b7-4ef7-ac31-953bb1e6efa0.png?v=1722601146&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795294915061-l7yg",
       "folderId": "f-1794779281035-1",
       "title": "Color Gel Dubai Berry Glitter",
