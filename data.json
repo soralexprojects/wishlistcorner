@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795281451339-7lkr",
+      "folderId": "f-1795278416140-ho1q",
+      "title": "Gel Polish VSP White",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-white",
+      "image": "http://ongle24.com/cdn/shop/files/3070_GelPolishWhite_1_80fbf5af-ca1d-48bf-99a9-d0165518cd2a.png?v=1716564092&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795281433323-5qgn",
       "folderId": "f-1794784255945",
       "title": "Gel Polish VSP Candy Fairy",
