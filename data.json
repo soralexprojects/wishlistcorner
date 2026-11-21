@@ -954,6 +954,17 @@
   ],
   "items": [
     {
+      "id": "item-1795295611614-fb8a",
+      "folderId": "f-1794779281035-9",
+      "title": "Glitter Gel Galaxy Star",
+      "price": 4.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/glittergel-galaxy-star",
+      "image": "http://ongle24.com/cdn/shop/files/3653_Glitter-Gel-Galaxy-Star_1_31e6443c-c0ef-40fe-8be9-c8bc628f2557.png?v=1722601110&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795295590784-vgyj",
       "folderId": "f-1794779281035-2",
       "title": "Color Gel Winter Ocean",
