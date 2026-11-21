@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280192869-x1d1",
+      "folderId": "f-1794776006056",
+      "title": "Gel Polish VSP Water Fairy",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-vsp-water-fairy",
+      "image": "http://ongle24.com/cdn/shop/files/6537_GelPolishWaterFairy_1_1d01916a-b5c3-47e9-b4cc-046de6eeb1c2.jpg?v=1738154187&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795280175433-slav",
       "folderId": "f-1794776006056",
       "title": "Gel Polish VSP Azur Mist",
