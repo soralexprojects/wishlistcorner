@@ -906,6 +906,17 @@
   ],
   "items": [
     {
+      "id": "item-1795272795698",
+      "folderId": "f-1794777765750-2",
+      "title": "Gel Polish VSP Cat Eye Green Secret",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-cat-eye-green-secret",
+      "image": "http://ongle24.com/cdn/shop/files/6508_GelPolish-Cat-Eye-Green-Secret-F_1.jpg?v=1764161690&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795272734361",
       "folderId": "f-1794776028110",
       "title": "Gel Polish VSP Ivy Green",
