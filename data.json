@@ -906,6 +906,17 @@
   ],
   "items": [
     {
+      "id": "item-1795278308108-wr2h",
+      "folderId": "f-1794776071537",
+      "title": "Gel Polish VSP Carbon",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-carbon",
+      "image": "http://ongle24.com/cdn/shop/files/4150_GelPolish-Carbon_01.jpg?v=1778069816&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795278294165-s4n6",
       "folderId": "f-1794776071537",
       "title": "Gel Polish VSP Sylvester",
