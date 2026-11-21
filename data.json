@@ -960,6 +960,17 @@
   ],
   "items": [
     {
+      "id": "item-1795298054075-2360",
+      "folderId": "f-1794780894097-5",
+      "title": "Outlast: Bundle of Terror",
+      "price": 16.99,
+      "store": "Nintendo",
+      "url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-a-telecharger-sur-Nintendo-Switch/Outlast-Bundle-of-Terror-1343538.html?nsuid=70010000003641#Vue_d_ensemble",
+      "image": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_OutlastBundleOfTerror_image1280w.jpg",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795297970120-fy68",
       "folderId": "f-1794780894097-4",
       "title": "Hidden Folks",
