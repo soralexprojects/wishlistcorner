@@ -918,6 +918,17 @@
   ],
   "items": [
     {
+      "id": "item-1795278511747-ir7i",
+      "folderId": "f-1794775957366",
+      "title": "Gel Polish VSP Adèle",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-adele",
+      "image": "http://ongle24.com/cdn/shop/files/5447_GelPolish-Adele_01.jpg?v=1784804654&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795278473501-e454",
       "folderId": "f-1794776121944",
       "title": "Gel Polish VSP New York Nights",
