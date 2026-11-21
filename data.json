@@ -960,6 +960,17 @@
   ],
   "items": [
     {
+      "id": "item-1795298100004-kp4a",
+      "folderId": "f-1794780894097-5",
+      "title": "Outlast (2)",
+      "price": 16.99,
+      "store": "Nintendo",
+      "url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-a-telecharger-sur-Nintendo-Switch/Outlast-2-1346493.html",
+      "image": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_Outlast2_image1280w.jpg",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795298054075-2360",
       "folderId": "f-1794780894097-5",
       "title": "Outlast: Bundle of Terror (1 & 1.5)",
