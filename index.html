@@ -1053,11 +1053,11 @@
 
       <div class="form-group">
         <label>Dossier de destination (classé A–Z)</label>
-        <div style="display:flex; gap:6px; align-items:center;">
+        <div style="display:flex; gap:6px; align-items:center; margin-bottom:4px;">
           <input type="text" id="item-folder-search" placeholder="🔎 Filtrer (ex: crystal, sacs...)" oninput="filterItemFolderSelect()" style="margin-bottom:0; padding:7px 12px; font-size:0.8rem; flex:1;" />
           <button type="button" class="btn" style="padding:7px 12px; white-space:nowrap;" onclick="openFolderModalFromItem()" title="Créer un nouveau dossier sur le pouce">+ Dossier</button>
         </div>
-        <select id="item-folder" required style="margin-top:4px;"></select>
+        <select id="item-folder" required></select>
       </div>
 
       <div class="form-group">
@@ -1125,7 +1125,7 @@
       </div>
       <div class="modal-actions">
         <button type="button" class="btn" onclick="closeFolderModal()">Annuler</button>
-        <button type="submit" class="btn btn-primary">Enregistrer & Publier</button>
+        <button type="submit" id="save-folder-btn" class="btn btn-primary">Enregistrer & Publier</button>
       </div>
     </form>
   </dialog>
@@ -1152,7 +1152,7 @@
       </div>
       <div class="modal-actions">
         <button type="button" class="btn" onclick="document.getElementById('bulk-folder-modal').close()">Annuler</button>
-        <button type="submit" class="btn btn-primary">Générer tout & Publier</button>
+        <button type="submit" id="save-bulk-btn" class="btn btn-primary">Générer tout & Publier</button>
       </div>
     </form>
   </dialog>
@@ -1239,6 +1239,15 @@
       );
     }
 
+    function decodeBase64Utf8(b64) {
+      const clean = b64.replace(/\s/g, '');
+      return decodeURIComponent(escape(atob(clean)));
+    }
+
+    function encodeBase64Utf8(str) {
+      return btoa(unescape(encodeURIComponent(str)));
+    }
+
     function normalizeProductUrl(rawUrl) {
       if (!rawUrl) return '';
       try {
@@ -1285,6 +1294,37 @@
       }
     }
 
+    /* Charge les données en temps réel depuis l'API GitHub (contourne le cache GitHub Pages) */
+    async function loadAppData() {
+      const cfg = getGhConfig();
+      if ((isAdmin || isPopupMode) && cfg && cfg.token) {
+        try {
+          const apiUrl = `https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/data.json?ref=main&t=${Date.now()}`;
+          const res = await fetch(apiUrl, {
+            cache: 'no-store',
+            headers: {
+              'Authorization': `Bearer ${cfg.token}`,
+              'Accept': 'application/vnd.github+json'
+            }
+          });
+          if (res.ok) {
+            const fileInfo = await res.json();
+            appData = JSON.parse(decodeBase64Utf8(fileInfo.content));
+            return;
+          }
+        } catch (err) {
+          console.warn('Lecture API directe indisponible, repli sur data.json local', err);
+        }
+      }
+
+      try {
+        const res = await fetch('data.json?t=' + Date.now(), { cache: 'no-store' });
+        appData = await res.json();
+      } catch (e) {
+        console.error('Erreur chargement data.json', e);
+      }
+    }
+
     async function init() {
       const params = new URLSearchParams(window.location.search);
       if (params.get('popup') === '1') {
@@ -1310,12 +1350,7 @@
         picker.appendChild(btn);
       });
 
-      try {
-        const res = await fetch('data.json?t=' + Date.now());
-        appData = await res.json();
-      } catch (e) {
-        console.error('Erreur chargement data.json', e);
-      }
+      await loadAppData();
 
       applyTheme();
       renderFolders();
@@ -1366,7 +1401,9 @@
       if (popBadge) popBadge.textContent = cfg && cfg.token ? '✦ Synchro GitHub prête' : '⚠️ Token GitHub manquant';
     }
 
-    async function pushToGithub() {
+    /* Sauvegarde atomique : relit la dernière version sur GitHub juste avant d'écrire,
+       applique la modification dessus, et réessaie en cas de conflit (409) */
+    async function commitMutationToGithub(mutateFn = null) {
       const cfg = getGhConfig();
       if (!cfg || !cfg.token) {
         alert('Configure d’abord ta connexion GitHub en cliquant sur "🔑 Connexion GitHub" dans la barre du haut.');
@@ -1374,7 +1411,7 @@
         return false;
       }
 
-      updateSyncBadge('Publication en cours...');
+      updateSyncBadge('Synchronisation en cours...');
       const apiUrl = `https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/data.json`;
       const headers = {
         'Authorization': `Bearer ${cfg.token}`,
@@ -1382,35 +1419,62 @@
         'Content-Type': 'application/json'
       };
 
-      try {
-        const getRes = await fetch(apiUrl, { headers });
-        if (!getRes.ok) throw new Error('Impossible de lire data.json sur GitHub');
-        const fileInfo = await getRes.json();
+      for (let attempt = 1; attempt <= 3; attempt++) {
+        try {
+          const getRes = await fetch(apiUrl + '?t=' + Date.now(), { cache: 'no-store', headers });
+          if (!getRes.ok) throw new Error('Impossible de lire data.json sur GitHub');
+          const fileInfo = await getRes.json();
 
-        appData.folders = sortFoldersAlpha(appData.folders);
+          // On repart toujours de l'état le plus récent présent sur GitHub
+          const latestData = JSON.parse(decodeBase64Utf8(fileInfo.content));
+          if (!latestData.config) latestData.config = {};
+          if (!Array.isArray(latestData.folders)) latestData.folders = [];
+          if (!Array.isArray(latestData.items)) latestData.items = [];
 
-        const jsonStr = JSON.stringify(appData, null, 2);
-        const contentBase64 = btoa(unescape(encodeURIComponent(jsonStr)));
+          if (typeof mutateFn === 'function') {
+            mutateFn(latestData);
+          } else {
+            latestData.config = appData.config;
+            latestData.folders = appData.folders;
+            latestData.items = appData.items;
+          }
 
-        const putRes = await fetch(apiUrl, {
-          method: 'PUT',
-          headers,
-          body: JSON.stringify({
-            message: 'Mise à jour WishlistCorner',
-            content: contentBase64,
-            sha: fileInfo.sha
-          })
-        });
+          latestData.folders = sortFoldersAlpha(latestData.folders);
+          appData = latestData;
 
-        if (!putRes.ok) throw new Error('Erreur lors de l’écriture sur GitHub');
-        updateSyncBadge('Publié en ligne !');
-        return true;
-      } catch (err) {
-        console.error(err);
-        updateSyncBadge('Erreur : ' + err.message);
-        alert('Erreur de publication : ' + err.message);
-        return false;
+          const jsonStr = JSON.stringify(appData, null, 2);
+          const contentBase64 = encodeBase64Utf8(jsonStr);
+
+          const putRes = await fetch(apiUrl, {
+            method: 'PUT',
+            headers,
+            body: JSON.stringify({
+              message: 'Mise à jour WishlistCorner',
+              content: contentBase64,
+              sha: fileInfo.sha
+            })
+          });
+
+          if (putRes.status === 409 && attempt < 3) {
+            // Conflit d'écriture simultanée : on attend 300ms et on fusionne à nouveau
+            await new Promise(r => setTimeout(r, 300 * attempt));
+            continue;
+          }
+
+          if (!putRes.ok) throw new Error('Erreur lors de l’écriture sur GitHub');
+          updateSyncBadge('Publié en ligne !');
+          return true;
+        } catch (err) {
+          if (attempt === 3) {
+            console.error(err);
+            updateSyncBadge('Erreur : ' + err.message);
+            alert('Erreur de publication : ' + err.message);
+            return false;
+          }
+          await new Promise(r => setTimeout(r, 300 * attempt));
+        }
       }
+      return false;
     }
 
     function applyTheme() {
@@ -1532,22 +1596,24 @@
 
     async function moveFoldersTo(targetParentId) {
       if (!canDropInto(targetParentId)) return;
-      let movedCount = 0;
-      draggedFolderIds.forEach(id => {
-        const folder = appData.folders.find(f => f.id === id);
-        if (folder && folder.parentId !== targetParentId) {
-          folder.parentId = targetParentId;
-          movedCount++;
-        }
-      });
+      const idsToMove = [...draggedFolderIds];
       draggedFolderIds = [];
-      if (movedCount > 0) {
+
+      const ok = await commitMutationToGithub((data) => {
+        idsToMove.forEach(id => {
+          const folder = data.folders.find(f => f.id === id);
+          if (folder && folder.parentId !== targetParentId) {
+            folder.parentId = targetParentId;
+          }
+        });
+      });
+
+      if (ok) {
         if (targetParentId) expandedFolders.add(targetParentId);
         multiSelectedFolders.clear();
         updateMultiSelectBanner();
         renderFolders();
         renderItems();
-        await pushToGithub();
       }
     }
 
@@ -1899,7 +1965,7 @@
       saveBtn.textContent = 'Enregistrement...';
 
       const obj = {
-        id: id || 'item-' + Date.now(),
+        id: id || 'item-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6),
         folderId: document.getElementById('item-folder').value,
         title: titleVal,
         price: parseFloat(document.getElementById('item-price').value) || null,
@@ -1909,20 +1975,23 @@
         note: document.getElementById('item-note').value,
         priority: document.getElementById('item-priority').value
       };
-      if (id) {
-        const idx = appData.items.findIndex(i => i.id === id);
-        appData.items[idx] = obj;
-      } else {
-        appData.items.unshift(obj);
-      }
 
-      const ok = await pushToGithub();
+      const ok = await commitMutationToGithub((data) => {
+        if (id) {
+          const idx = data.items.findIndex(i => i.id === id);
+          if (idx !== -1) data.items[idx] = obj;
+          else data.items.unshift(obj);
+        } else {
+          data.items.unshift(obj);
+        }
+      });
+
       saveBtn.disabled = false;
       saveBtn.textContent = 'Enregistrer & Publier';
 
       if (isPopupMode && ok) {
         saveBtn.textContent = '✦ Ajouté ! Fermeture...';
-        setTimeout(() => window.close(), 450);
+        setTimeout(() => window.close(), 350);
         return;
       }
 
@@ -1933,10 +2002,13 @@
 
     async function deleteItem(id) {
       if (confirm('Supprimer cet article ?')) {
-        appData.items = appData.items.filter(i => i.id !== id);
-        renderFolders();
-        renderItems();
-        await pushToGithub();
+        const ok = await commitMutationToGithub((data) => {
+          data.items = data.items.filter(i => i.id !== id);
+        });
+        if (ok) {
+          renderFolders();
+          renderItems();
+        }
       }
     }
 
@@ -1987,35 +2059,42 @@
 
     async function saveFolder(e) {
       e.preventDefault();
+      const saveBtn = document.getElementById('save-folder-btn');
+      saveBtn.disabled = true;
+      saveBtn.textContent = 'Enregistrement...';
+
       const id = document.getElementById('folder-id').value;
       const parentId = document.getElementById('folder-parent-select').value || null;
       const name = document.getElementById('folder-name').value;
       const icon = document.getElementById('folder-icon').value || '✦';
+      const newFolderId = id || ('f-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6));
 
-      let newFolderId = 'f-' + Date.now();
-      if (id) {
-        const folder = appData.folders.find(f => f.id === id);
-        if (folder) {
-          folder.name = name;
-          folder.icon = icon;
-          folder.parentId = parentId;
-          newFolderId = folder.id;
+      const ok = await commitMutationToGithub((data) => {
+        if (id) {
+          const folder = data.folders.find(f => f.id === id);
+          if (folder) {
+            folder.name = name;
+            folder.icon = icon;
+            folder.parentId = parentId;
+          }
+        } else {
+          data.folders.push({ id: newFolderId, name, icon, parentId });
         }
-      } else {
-        appData.folders.push({ id: newFolderId, name, icon, parentId });
+      });
+
+      saveBtn.disabled = false;
+      saveBtn.textContent = 'Enregistrer & Publier';
+
+      if (ok) {
+        closeFolderModal();
+        if (folderModalSource === 'item-modal') {
+          const itemFolderSelect = document.getElementById('item-folder');
+          populateFolderSelect(itemFolderSelect, false);
+          itemFolderSelect.value = newFolderId;
+        }
+        renderFolders();
+        renderItems();
       }
-
-      await pushToGithub();
-      closeFolderModal();
-
-      if (folderModalSource === 'item-modal') {
-        const itemFolderSelect = document.getElementById('item-folder');
-        populateFolderSelect(itemFolderSelect, false);
-        itemFolderSelect.value = newFolderId;
-      }
-
-      renderFolders();
-      renderItems();
     }
 
     function openBulkFolderModal() {
@@ -2028,10 +2107,14 @@
 
     async function saveBulkFolders(e) {
       e.preventDefault();
+      const saveBtn = document.getElementById('save-bulk-btn');
+      saveBtn.disabled = true;
+      saveBtn.textContent = 'Génération...';
+
       const rootParentId = document.getElementById('bulk-parent-select').value || null;
       const rawLines = document.getElementById('bulk-folders-text').value.split('\n');
       const stack = [{ indent: -1, id: rootParentId }];
-      let createdCount = 0;
+      const newFolders = [];
 
       rawLines.forEach((line, idx) => {
         if (!line.trim()) return;
@@ -2057,30 +2140,39 @@
           name = emojiMatch[2];
         }
 
-        const newId = 'f-' + Date.now() + '-' + idx;
-        appData.folders.push({ id: newId, name, icon, parentId });
+        const newId = 'f-' + Date.now() + '-' + idx + '-' + Math.random().toString(36).slice(2, 5);
+        newFolders.push({ id: newId, name, icon, parentId });
         stack.push({ indent: depth, id: newId });
-        createdCount++;
       });
 
-      if (createdCount > 0) {
-        renderFolders();
-        renderItems();
-        document.getElementById('bulk-folder-modal').close();
-        await pushToGithub();
+      if (newFolders.length > 0) {
+        const ok = await commitMutationToGithub((data) => {
+          data.folders.push(...newFolders);
+        });
+        if (ok) {
+          renderFolders();
+          renderItems();
+          document.getElementById('bulk-folder-modal').close();
+        }
       }
+
+      saveBtn.disabled = false;
+      saveBtn.textContent = 'Générer tout & Publier';
     }
 
     async function deleteFolder(id) {
       if (confirm('Supprimer ce dossier ?')) {
         const toDelete = getDescendantFolderIds(id);
-        appData.folders = appData.folders.filter(f => !toDelete.includes(f.id));
-        multiSelectedFolders.delete(id);
-        updateMultiSelectBanner();
-        if (toDelete.includes(selectedFolderId)) selectedFolderId = 'all';
-        renderFolders();
-        renderItems();
-        await pushToGithub();
+        const ok = await commitMutationToGithub((data) => {
+          data.folders = data.folders.filter(f => !toDelete.includes(f.id));
+        });
+        if (ok) {
+          multiSelectedFolders.delete(id);
+          updateMultiSelectBanner();
+          if (toDelete.includes(selectedFolderId)) selectedFolderId = 'all';
+          renderFolders();
+          renderItems();
+        }
       }
     }
 
@@ -2095,14 +2187,24 @@
 
     async function saveTheme(e) {
       e.preventDefault();
-      appData.config.title = document.getElementById('cfg-title').value;
-      appData.config.subtitle = document.getElementById('cfg-subtitle').value;
-      appData.config.quote = document.getElementById('cfg-quote').value;
-      appData.config.bannerUrl = document.getElementById('cfg-banner').value.trim();
-      appData.config.palette = document.getElementById('cfg-palette').value;
-      applyTheme();
-      document.getElementById('theme-modal').close();
-      await pushToGithub();
+      const title = document.getElementById('cfg-title').value;
+      const subtitle = document.getElementById('cfg-subtitle').value;
+      const quote = document.getElementById('cfg-quote').value;
+      const bannerUrl = document.getElementById('cfg-banner').value.trim();
+      const palette = document.getElementById('cfg-palette').value;
+
+      const ok = await commitMutationToGithub((data) => {
+        data.config.title = title;
+        data.config.subtitle = subtitle;
+        data.config.quote = quote;
+        data.config.bannerUrl = bannerUrl;
+        data.config.palette = palette;
+      });
+
+      if (ok) {
+        applyTheme();
+        document.getElementById('theme-modal').close();
+      }
     }
 
     function openGithubModal() {
