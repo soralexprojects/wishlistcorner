@@ -960,6 +960,17 @@
   ],
   "items": [
     {
+      "id": "item-1795297799129-zmzc",
+      "folderId": "f-1794780894097-0",
+      "title": "Wytchwood",
+      "price": 17.49,
+      "store": "Nintendo",
+      "url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-a-telecharger-sur-Nintendo-Switch/Wytchwood-2095504.html?nsuid=70010000042327",
+      "image": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_Wytchwood_image1280w.jpg",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795297770610-rd0l",
       "folderId": "f-1794780894097-2",
       "title": "PARANORMASIGHT: The Mermaid's Curse",
