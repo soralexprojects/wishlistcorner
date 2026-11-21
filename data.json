@@ -906,6 +906,17 @@
   ],
   "items": [
     {
+      "id": "item-1795273191649",
+      "folderId": "f-1794784255945",
+      "title": "Gel Polish VSP Shimmer Milky Way",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-shimmer-milky-way",
+      "image": "http://ongle24.com/cdn/shop/files/6209_Gelpolish_Shimmer-Milky-Way_01.jpg?v=1784814417&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795273003320",
       "folderId": "f-1795272467051",
       "title": "Gel Polish VSP Crystal Cat Eye Rose",
