@@ -954,6 +954,17 @@
   ],
   "items": [
     {
+      "id": "item-1795295370063-m01l",
+      "folderId": "f-1794779281035-6",
+      "title": "Big Glitter Gel Panther",
+      "price": 4.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/big-glittergel-panther",
+      "image": "http://ongle24.com/cdn/shop/files/4345-5_Big-Glitter-Gel-Panther_1_b2c0e1ea-abab-4edc-a830-2d422cf99b0b.png?v=1723641830&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795295349320-ws8f",
       "folderId": "f-1794779281035-2",
       "title": "Supreme Color Gel Lila Blue",
