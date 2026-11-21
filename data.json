@@ -954,6 +954,17 @@
   ],
   "items": [
     {
+      "id": "item-1795294834904-8zid",
+      "folderId": "f-1794779281035-1",
+      "title": "Supreme Color Gel Dark Raspberry",
+      "price": 4.49,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/supreme-colorgel-dark-raspberry",
+      "image": "http://ongle24.com/cdn/shop/files/3714_Supreme-Color-Gel-Dark-Raspberry_1_2263f036-3975-45c7-8118-b203c1fdc8ac.png?v=1722601151&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795294810878-wfbn",
       "folderId": "f-1794779281035-1",
       "title": "Glitter Gel Red Star",
