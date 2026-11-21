@@ -960,6 +960,17 @@
   ],
   "items": [
     {
+      "id": "item-1795297878876-ns9h",
+      "folderId": "f-1794780894097-4",
+      "title": "Cities: Skylines - Nintendo Switch™ Edition",
+      "price": 39.99,
+      "store": "Nintendo",
+      "url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-a-telecharger-sur-Nintendo-Switch/Cities-Skylines-Nintendo-Switch-Edition-1438748.html?nsuid=70010000011964",
+      "image": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_CitySkylinesNintendoSwitchEdition_image1280w.jpg",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795297856958-bfxj",
       "folderId": "f-1794780894097-4",
       "title": "Death and Taxes",
