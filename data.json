@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280159706-7qir",
+      "folderId": "f-1794776062981",
+      "title": "Gel Polish VSP Smoked Ice",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-vsp-smoked-ice",
+      "image": "http://ongle24.com/cdn/shop/files/6767_GelPolish-Smoked-Ice_1_c4511aea-b603-4237-97fd-206eef828807.jpg?v=1753267579&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795280147028-1f1x",
       "folderId": "f-1794776121944",
       "title": "Gel Polish VSP Shimmer Rhapsody",
