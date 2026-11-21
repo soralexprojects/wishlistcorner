@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795282611771-msi0",
+      "folderId": "f-1794780789852-1",
+      "title": "Pop! Infinite Deku With Eri",
+      "price": 26.99,
+      "store": "Amazon",
+      "url": "https://www.amazon.fr/Funko/dp/B08T5M7W6M?tag=rationaldress-20&th=1",
+      "image": "https://m.media-amazon.com/images/I/71ezG2jaHQL._AC_SX522_.jpg",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795282556021-gls0",
       "folderId": "f-1794780789852-1",
       "title": "Pop! Nomu Shigaraki Tomura",
