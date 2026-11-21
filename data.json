@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280756114-dwbo",
+      "folderId": "f-1794776006056",
+      "title": "Gel Polish VSP Blue Denim",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-lichen-blue",
+      "image": "http://ongle24.com/cdn/shop/files/6114_GelPolishBlueDenim_1_f6209c83-2a12-464c-bad8-d36bfcc3f53b.png?v=1724668158&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795280743719-1ide",
       "folderId": "f-1794776028110",
       "title": "Gel Polish VSP Petrol Blue",
