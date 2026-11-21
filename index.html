@@ -547,10 +547,13 @@
       flex-direction: column;
       gap: 12px;
     }
+    .boards-section.collapsed .boards-grid {
+      display: none;
+    }
     .section-heading {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
     .section-heading h3 {
       font-family: 'Cormorant Garamond', serif;
@@ -1005,6 +1008,7 @@
         <div class="boards-section" id="boards-section">
           <div class="section-heading">
             <h3 id="boards-heading">Mes Collections ✦</h3>
+            <button type="button" class="btn" id="toggle-boards-btn" style="padding:4px 11px; font-size:0.75rem;" onclick="toggleBoardsSection()">▾ Masquer</button>
             <div class="section-line"></div>
             <button class="btn" id="back-folder-btn" style="display:none; padding:5px 12px;" onclick="goBackFolder()">← Retour</button>
           </div>
@@ -1243,6 +1247,7 @@
     let multiSelectedFolders = new Set();
     let draggedFolderIds = [];
     let draggedItemId = null;
+    let boardsCollapsed = localStorage.getItem('wc_boards_collapsed') === '1';
 
     function sortFoldersAlpha(list) {
       return [...list].sort((a, b) =>
@@ -1346,6 +1351,25 @@
       }
     }
 
+    function applyBoardsCollapseState() {
+      const section = document.getElementById('boards-section');
+      const btn = document.getElementById('toggle-boards-btn');
+      if (!section || !btn) return;
+      if (boardsCollapsed) {
+        section.classList.add('collapsed');
+        btn.textContent = '▸ Afficher';
+      } else {
+        section.classList.remove('collapsed');
+        btn.textContent = '▾ Masquer';
+      }
+    }
+
+    function toggleBoardsSection() {
+      boardsCollapsed = !boardsCollapsed;
+      localStorage.setItem('wc_boards_collapsed', boardsCollapsed ? '1' : '0');
+      applyBoardsCollapseState();
+    }
+
     async function init() {
       const params = new URLSearchParams(window.location.search);
       if (params.get('popup') === '1') {
@@ -1374,6 +1398,7 @@
       await loadAppData();
 
       applyTheme();
+      applyBoardsCollapseState();
       renderFolders();
       renderItems();
       updateSyncBadge();
