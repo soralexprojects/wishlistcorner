@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280248481-f21r",
+      "folderId": "f-1794776121944",
+      "title": "Gel Polish VSP Universe Fairy",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-vsp-universe-fairy",
+      "image": "http://ongle24.com/cdn/shop/files/6535_GelPolishUniversteFairy_1_f50c548f-b3bd-46b9-8a35-2353ae959367.jpg?v=1738154187&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795280235913-zzhl",
       "folderId": "f-1794776006056",
       "title": "Gel Polish VSP Elaine",
