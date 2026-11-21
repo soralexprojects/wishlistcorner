@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280783693-1x4i",
+      "folderId": "f-1794776028110",
+      "title": "Gel Polish VSP Turquoise Bay",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-vsp-turquoise-bay",
+      "image": "http://ongle24.com/cdn/shop/files/6570_Turquoise-Bay_01.jpg?v=1777985830&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795280769670-ogrs",
       "folderId": "f-1794776028110",
       "title": "Gel Polish VSP Chromatic Aqua",
