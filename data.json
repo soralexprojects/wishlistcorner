@@ -942,6 +942,17 @@
   ],
   "items": [
     {
+      "id": "item-1795294187622-cb50",
+      "folderId": "f-1794780181994-3",
+      "title": "Gel Polish VSP Gummy Base Keratin",
+      "price": 12.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-vsp-gummy-base-keratin",
+      "image": "http://ongle24.com/cdn/shop/files/6322_GummyBaseKeratin_1.png?v=1721829517&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795294106062-ixrv",
       "folderId": "f-1794780181994-6",
       "title": "Gel Polish VSP Ultra Brilliant Finish",
