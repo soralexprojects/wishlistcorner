@@ -918,6 +918,17 @@
   ],
   "items": [
     {
+      "id": "item-1795278592418-ju30",
+      "folderId": "f-1794784255945",
+      "title": "Gel Polish VSP Louanne",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-louanne",
+      "image": "http://ongle24.com/cdn/shop/files/5478_GelPolish-Louanne_01.jpg?v=1784805472&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795278558809-xwao",
       "folderId": "f-1794776062981",
       "title": "Gel Polish VSP Léonie",
