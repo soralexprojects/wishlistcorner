@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795282991377-m68d",
+      "folderId": "f-1794780789852-1",
+      "title": "Pop! Itadori Yuji",
+      "price": 11.9,
+      "store": "Amazon",
+      "url": "https://www.amazon.fr/Funko-Jujutsu-Kaisen-Iradori-Unisexe/dp/B0D98SZ6BQ?tag=rationaldress-20&th=1",
+      "image": "https://m.media-amazon.com/images/I/71VWEv-2JCL._AC_SX679_.jpg",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795282967460-exnj",
       "folderId": "f-1794780789852-1",
       "title": "Pop! Fire Arrow Ryomen Sukuna",
