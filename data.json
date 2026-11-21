@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280921791-uqq0",
+      "folderId": "f-1794776028110",
+      "title": "Gel Polish VSP Summer Field",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-vsp-summer-field",
+      "image": "http://ongle24.com/cdn/shop/files/6564_GelPolish-Summer-Field-RGB_01.jpg?v=1784191620&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795280909108-ddjl",
       "folderId": "f-1794776028110",
       "title": "Gel Polish VSP Eucalyptus",
