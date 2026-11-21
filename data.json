@@ -942,6 +942,17 @@
   ],
   "items": [
     {
+      "id": "item-1795293871789-5kk9",
+      "folderId": "f-1794780181994-29",
+      "title": "Cuticle Oil Pomegranate",
+      "price": 2.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/cuticle-oil-pomegranate",
+      "image": "http://ongle24.com/cdn/shop/files/6892_CuticleOil_Pomegranate_1.jpg?v=1759997992&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795293857441-vgsp",
       "folderId": "f-1794780181994-17",
       "title": "Flacon Pompe pour Soak Off (Acétone)",
