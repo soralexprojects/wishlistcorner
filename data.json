@@ -918,6 +918,17 @@
   ],
   "items": [
     {
+      "id": "item-1795279510201-8vfi",
+      "folderId": "f-1794776071537",
+      "title": "Gel Polish VSP Ocean Night",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-ocean-night",
+      "image": "http://ongle24.com/cdn/shop/files/6457_GelPolishOceanNight_01.jpg?v=1730203991&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795279495664-bgm0",
       "folderId": "f-1794776071537",
       "title": "Gel Polish VSP Moonshine Black",
