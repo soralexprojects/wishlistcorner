@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280005022-ly36",
+      "folderId": "f-1794775957366",
+      "title": "Gel Polish VSP Mystic Glam",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-vsp-mystic-glam",
+      "image": "http://ongle24.com/cdn/shop/files/6815_GelPolish_MysticGlam_1.jpg?v=1755860976&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795279990217-2rm1",
       "folderId": "f-1794776121944",
       "title": "Gel Polish VSP Blackberry Glimmer",
