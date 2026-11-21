@@ -930,6 +930,17 @@
   ],
   "items": [
     {
+      "id": "item-1795283934063-66x7",
+      "folderId": "f-1794780789852-7",
+      "title": "Dune - Tome 3",
+      "price": 23.9,
+      "store": "Amazon",
+      "url": "https://www.amazon.fr/Dune-Enfants-%C3%89dition-collector/dp/2221259939?tag=rationaldress-20",
+      "image": "https://m.media-amazon.com/images/I/61W2TCQn8kL._SY522_.jpg",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795283916081-s69l",
       "folderId": "f-1794780789852-7",
       "title": "Dune - Tome 4",
