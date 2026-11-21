@@ -906,6 +906,17 @@
   ],
   "items": [
     {
+      "id": "item-1795278294165-s4n6",
+      "folderId": "f-1794776071537",
+      "title": "Gel Polish VSP Sylvester",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-sylvester",
+      "image": "http://ongle24.com/cdn/shop/files/4097_GelPolish-Sylvester_01.jpg?v=1784796835&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795278277456-qbno",
       "folderId": "f-1794776071537",
       "title": "Gel Polish VSP Black",
