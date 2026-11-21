@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280769670-ogrs",
+      "folderId": "f-1794776028110",
+      "title": "Gel Polish VSP Chromatic Aqua",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-chromatic-aqua",
+      "image": "http://ongle24.com/cdn/shop/files/4024_GelPolishChromaticAqua_1_c134ae35-ed7a-4c01-92b3-ad6d23349640.png?v=1716563721&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795280756114-dwbo",
       "folderId": "f-1794776006056",
       "title": "Gel Polish VSP Blue Denim",
