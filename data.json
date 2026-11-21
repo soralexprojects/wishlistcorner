@@ -930,6 +930,17 @@
   ],
   "items": [
     {
+      "id": "item-1795284276910-2ltz",
+      "folderId": "f-1794780789852-11",
+      "title": "Kayali | FLEUR MAJESTY ROSE ROYALE | 31",
+      "price": null,
+      "store": "Kayali",
+      "url": "https://kayali.com/en-fr/products/fleur-majesty-rose-royale-31",
+      "image": "http://kayali.com/cdn/shop/files/Fleur_Majesty_Rose_Royale_31_100_3f2dba0b-d3a2-43cd-9771-ebef1637c667.png?v=1789041849&width=1024",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795284249140-xx8b",
       "folderId": "f-1794780789852-11",
       "title": "Kayali | BURNING CHERRY | 48",
