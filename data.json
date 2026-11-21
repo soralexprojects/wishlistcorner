@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795281373765-8iry",
+      "folderId": "f-1794776121944",
+      "title": "Gel Polish VSP Bordeaux Vieux Rose",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-bordeaux-vieux-rose",
+      "image": "http://ongle24.com/cdn/shop/files/5445_GelPolish-Bordeaux-Vieux-Rose_01.jpg?v=1784804574&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795281355661-4apd",
       "folderId": "f-1794775957366",
       "title": "Gel Polish VSP Cherry Bomb",
