@@ -954,6 +954,17 @@
   ],
   "items": [
     {
+      "id": "item-1795295059279-vh1s",
+      "folderId": "f-1794779281035-9",
+      "title": "Supreme Color Gel Prune",
+      "price": 4.49,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/supreme-colorgel-prune",
+      "image": "http://ongle24.com/cdn/shop/files/4940-5_Supreme-Color-Gel-Prune_1_bd63eb3e-9251-4594-9efc-dcba4e11d14e.png?v=1722601425&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795295015343-myjm",
       "folderId": "f-1794779281035-1",
       "title": "Color Gel Antalya Dark Red Glimmer",
