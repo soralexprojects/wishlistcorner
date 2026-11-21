@@ -954,6 +954,17 @@
   ],
   "items": [
     {
+      "id": "item-1795295521721-5pu0",
+      "folderId": "f-1795294657936-8uc3",
+      "title": "Glitter Gel Fuchsia Star",
+      "price": 4.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/glittergel-fuchsia-star",
+      "image": "http://ongle24.com/cdn/shop/files/3648_Glitter-Gel-Fuchsia-Star_1_83a7588b-413b-45dc-9045-f28988186b47.png?v=1722601104&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795295509460-ffb3",
       "folderId": "f-1794779281035-9",
       "title": "Supreme Color Gel Dark Lila",
