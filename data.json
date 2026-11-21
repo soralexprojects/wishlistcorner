@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795281884751-s1ux",
+      "folderId": "f-1794776028110",
+      "title": "Gel Polish VSP Sapphire Glitter",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-sapphire-glitter",
+      "image": "http://ongle24.com/cdn/shop/files/5723_GelPolish-Sapphire-Glitter_01.jpg?v=1784807421&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795281869307-tiq2",
       "folderId": "f-1794776006056",
       "title": "Gel Polish VSP Midnight Navy",
