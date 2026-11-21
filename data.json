@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280175433-slav",
+      "folderId": "f-1794776006056",
+      "title": "Gel Polish VSP Azur Mist",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-azur-mist",
+      "image": "http://ongle24.com/cdn/shop/files/6028_GelPolish-Azur-Mist_01.jpg?v=1784813444&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795280159706-7qir",
       "folderId": "f-1794776062981",
       "title": "Gel Polish VSP Smoked Ice",
