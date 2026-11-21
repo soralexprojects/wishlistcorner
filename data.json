@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280600494-82n8",
+      "folderId": "f-1794776028110",
+      "title": "Gel Polish VSP Frozen Green",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-frozen-green",
+      "image": "http://ongle24.com/cdn/shop/files/5992_GelPolish-Frozen-Green_01.jpg?v=1778070873&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795280335441-902u",
       "folderId": "f-1794777404011-2",
       "title": "Gel Polish VSP Crystal Eucalyptus",
