@@ -918,6 +918,17 @@
   ],
   "items": [
     {
+      "id": "item-1795279602597-lzcv",
+      "folderId": "f-1794776071537",
+      "title": "Gel Polish VSP Desert Night",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-desert-night",
+      "image": "http://ongle24.com/cdn/shop/files/6460_GelPolishDesertNight_01.jpg?v=1730204230&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795279532825-jryw",
       "folderId": "f-1794776071537",
       "title": "Gel Polish VSP Fire Night",
