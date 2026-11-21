@@ -984,6 +984,17 @@
   ],
   "items": [
     {
+      "id": "item-1795299497751-qq4b",
+      "folderId": "f-1795299184763-n22s",
+      "title": "Solo Leveling T11",
+      "price": 14.95,
+      "store": "Amazon",
+      "url": "https://www.amazon.fr/Solo-Leveling-DUBU-REDICE-STUDIO/dp/2382882522/ref=sr_1_6?crid=50WDMWZLQZ6&dib=eyJ2IjoiMSJ9._wm-fmBpMzHLqZ50BUgelLW005kIs5kGKYRlvGR0_zgcTZhX6eXUTvsXyUecTpsG6sJ0_UW3FBlnpyzSziUXccvMmrDmKr97jkicfrpC15v1m4EPk4c8uo_5yIo7r17-r_WbiCysGSUXPm9vxPZDSw_6kSqOuGRlx2Adeyy9WdvCkIasHDZiv96J__oDKgaPm9aMNehseU3qvcZWa2NGKu19QmFmQXTXXjEw1ryYv62pFkm7Yv8mQLtalGYOQdPYNuIsYnVGvdz6kzdXJCG0ng2nN_O3iFbMaaP0z4wZsTc.8NHgRoa-zcphyOUj1WNcU1ltYL6O0eLlbM0ckKxbAvY&dib_tag=se&keywords=solo+leveling&qid=1795299005&sprefix=solo%2Caps%2C128&sr=8-6",
+      "image": "https://m.media-amazon.com/images/I/71cDRGur-nL._SY522_.jpg",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795299474869-zeec",
       "folderId": "f-1795299184763-n22s",
       "title": "Solo Leveling T10",
