@@ -960,6 +960,17 @@
   ],
   "items": [
     {
+      "id": "item-1795295949153-936f",
+      "folderId": "f-1794779281035-6",
+      "title": "Color Gel 2in1 Black",
+      "price": 4.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/color-gel-2in1-black",
+      "image": "http://ongle24.com/cdn/shop/files/7142-5_Color-Gel-2in1-Black_1.jpg?v=1776675142&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795295925707-ohnh",
       "folderId": "f-1794779281035-2",
       "title": "Color Gel Atlantis Aura",
