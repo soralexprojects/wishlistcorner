@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795281950432-1epu",
+      "folderId": "f-1794776028110",
+      "title": "Gel Polish VSP Emerald Sky",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-emerald-sky",
+      "image": "http://ongle24.com/cdn/shop/files/6531_GelPolish-Emerald-Sky_01.jpg?v=1784816144&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795281907499-yfh6",
       "folderId": "f-1794776006056",
       "title": "Gel Polish VSP Yasmine",
