@@ -942,6 +942,17 @@
   ],
   "items": [
     {
+      "id": "item-1795293965359-oy9h",
+      "folderId": "f-1794780181994-6",
+      "title": "Vishine - Base, Top Coat, Top Coat Matte",
+      "price": 8.99,
+      "store": "Amazon",
+      "url": "https://www.amazon.fr/Vishine-Ensemble-Semi-permanent-Finition-Brillant/dp/B0DJH3Y4HN?tag=rationaldress-20&th=1",
+      "image": "https://m.media-amazon.com/images/I/71NyF+LQS1L._AC_SX522_PIbundle-3,TopRight,0,0_SH20_.jpg",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795293923540-qbvc",
       "folderId": "f-1794780181994-30",
       "title": "Easy Soak Off Gel Remover Monoi 500ml",
