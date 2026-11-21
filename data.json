@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280882604-45e7",
+      "folderId": "f-1794776028110",
+      "title": "Gel Polish VSP Pepper Green",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-pepper-green",
+      "image": "http://ongle24.com/cdn/shop/files/5705_GelPolish-Pepper-Green_01.jpg?v=1784806784&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795280870525-8cnw",
       "folderId": "f-1794776028110",
       "title": "Gel Polish VSP Frog Green",
