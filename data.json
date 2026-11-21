@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795281498978-3qui",
+      "folderId": "f-1794777404011-0",
+      "title": "Gel Polish VSP Crystal Blood",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-vsp-crystal-blood",
+      "image": "http://ongle24.com/cdn/shop/files/7184_GelPolish-Crystal-Blood_01.jpg?v=1785744120&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795281481150-f79o",
       "folderId": "f-1794776028110",
       "title": "Gel Polish VSP 3in1 No Wipe Minty Business",
