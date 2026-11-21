@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280679722-qrqx",
+      "folderId": "f-1794776006056",
+      "title": "Gel Polish VSP Blue Hortensia Shimmer",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-blue-hortensia-shimmer",
+      "image": "http://ongle24.com/cdn/shop/files/5993_GelPolish-Blue-Hortensia-Shimmer_01.jpg?v=1778663053&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795280666435-7xya",
       "folderId": "f-1794776006056",
       "title": "Gel Polish VSP Cherry Blue",
