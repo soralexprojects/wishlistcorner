@@ -942,6 +942,17 @@
   ],
   "items": [
     {
+      "id": "item-1795293794963-3w5l",
+      "folderId": "f-1795293761452-rpup",
+      "title": "Glue Gel",
+      "price": 3.49,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/glue-gel-15ml?variant=55236260135288",
+      "image": "http://ongle24.com/cdn/shop/files/6140_GlueGel_1.jpg?v=1717658553&width=2048",
+      "note": "Existe en plus grande taille pour plus de produit.",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795293712907-cmps",
       "folderId": "f-1794780181994-27",
       "title": "Polyacryl Gel Clear 50ml",
