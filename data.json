@@ -996,6 +996,17 @@
   ],
   "items": [
     {
+      "id": "item-1795301508076-2abz",
+      "folderId": "f-1795300992180-op4q",
+      "title": "Jujutsu Kaisen T20",
+      "price": 6.95,
+      "store": "Amazon",
+      "url": "https://www.amazon.fr/Jujutsu-Kaisen-T20-Gege-Akutami/dp/B0BWJBH8QT/ref=sr_1_27?crid=199DU0X334VED&dib=eyJ2IjoiMSJ9.dNYb4f5T9j7G9q8E9YVvFwQcfWf5dfPF13xJ3Arqc8YTRcZSGzibfWhunUTNwnS9Xm68qPdSNCIQGCq_DnHIUu7rlDhe9imR7XRz3DjSaIU1DnvLLrBpxKeqw09KcfbnRPEpOwyLJB71DMuI_0McxPM7zq-PTUEcvqDVWUnUqmEU7uyUdKLzdG9IPjfc5AmnX9S8IC-sJ0xBbBMEmMRmkm7y7Wg5n9OVrd6A1_voeWqu6Oi0vF20y_qFxGZyzQ-XnTCC4Qdz66tl045P_3aMaFlOHFXKTG8BUvy_2I4w_Cs.tsOUdNSofziBJph39zPOigz9ccmJ96Daf46qQ6vmkWY&dib_tag=se&keywords=jujutsu+kaisen+manga&qid=1795301011&sprefix=juju%2Caps%2C112&sr=8-27",
+      "image": "https://m.media-amazon.com/images/I/71SF5V4vFJL._SY522_.jpg",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795301497033-d4uo",
       "folderId": "f-1795300992180-op4q",
       "title": "Jujutsu Kaisen T19",
