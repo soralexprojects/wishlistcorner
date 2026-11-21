@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795282824249-m3z5",
+      "folderId": "f-1794780789852-1",
+      "title": "Pop! Wounded Levi Ackerman",
+      "price": 16.99,
+      "store": "Amazon",
+      "url": "https://www.amazon.fr/Funko-Attack-Unisex-Fan-Merch-TV-Serien/dp/B0DNRT7FBW?tag=rationaldress-20&th=1",
+      "image": "https://m.media-amazon.com/images/I/61gqYjYlBmL._AC_SX679_.jpg",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795282770264-8kuf",
       "folderId": "f-1794780789852-1",
       "title": "Pop! Formal Levi Ackerman",
