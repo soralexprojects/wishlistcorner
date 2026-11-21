@@ -424,7 +424,7 @@
       color: var(--accent-light);
       font-weight: 700;
     }
-    .tree-item.dragging { opacity: 0.42; }
+    .tree-item.dragging, .card.dragging { opacity: 0.42; }
     .tree-item.drag-over {
       background: var(--pill-bg) !important;
       border: 1.5px dashed var(--accent-light) !important;
@@ -972,7 +972,7 @@
           </div>
         </div>
         <input type="search" id="folder-filter-input" class="folder-search-box" placeholder="Filtrer les dossiers..." oninput="renderFolders()" />
-        <div class="admin-dnd-hint">💡 <strong>Ctrl + Clic</strong> pour multi-sélectionner, puis glisse-dépose vers un dossier cible.</div>
+        <div class="admin-dnd-hint">💡 Glisse un <strong>produit</strong> ou un <strong>dossier</strong> (<strong>Ctrl + Clic</strong> pour multi-sélectionner) vers un dossier cible.</div>
         <div id="multiselect-banner">
           <span id="multiselect-count">0 sélectionné(s)</span>
           <button type="button" class="tiny-pill-btn" onclick="clearMultiSelect()">Tout désélectionner</button>
@@ -1087,7 +1087,7 @@
       </div>
       <div class="form-group">
         <label>Lien du produit (URL)</label>
-        <input type="url" id="item-url" required placeholder="https://..." oninput="checkDuplicateItem()" />
+        <input type="url" id="item-url" placeholder="https://..." oninput="checkDuplicateItem()" />
       </div>
       <div class="form-group">
         <label>URL de l'image</label>
@@ -1231,7 +1231,7 @@
     let expandedFolders = new Set();
     let multiSelectedFolders = new Set();
     let draggedFolderIds = [];
-    let currentDuplicateItem = null;
+    let draggedItemId = null;
 
     function sortFoldersAlpha(list) {
       return [...list].sort((a, b) =>
@@ -1248,8 +1248,18 @@
       return btoa(unescape(encodeURIComponent(str)));
     }
 
+    /* Ignore les URLs internes à WishlistCorner ou les pages génériques Chestr */
+    function isGenericPlaceholderUrl(rawUrl) {
+      if (!rawUrl) return true;
+      const u = rawUrl.trim().toLowerCase();
+      if (!u.startsWith('http')) return true;
+      if (u.includes('soralexprojects.github.io/wishlistcorner')) return true;
+      if (u.includes('chestr.com/profile')) return true;
+      return false;
+    }
+
     function normalizeProductUrl(rawUrl) {
-      if (!rawUrl) return '';
+      if (isGenericPlaceholderUrl(rawUrl)) return '';
       try {
         const u = new URL(rawUrl.trim());
         const asinMatch = u.pathname.match(/\/(?:dp|gp\/product)\/([A-Z0-9]{10})/i);
@@ -1268,7 +1278,8 @@
 
       return appData.items.find(item => {
         if (excludeId && item.id === excludeId) return false;
-        if (normUrl && normalizeProductUrl(item.url) === normUrl) return true;
+        const itemNormUrl = normalizeProductUrl(item.url);
+        if (normUrl && itemNormUrl && itemNormUrl === normUrl) return true;
         if (normTitle && normTitle.length > 6 && (item.title || '').trim().toLowerCase() === normTitle) return true;
         return false;
       }) || null;
@@ -1281,7 +1292,6 @@
       const titleVal = document.getElementById('item-title').value;
 
       const dup = findDuplicateItem(urlVal, titleVal, currentId);
-      currentDuplicateItem = dup;
 
       if (dup) {
         const folderPath = getFolderBreadcrumb(dup.folderId);
@@ -1294,7 +1304,6 @@
       }
     }
 
-    /* Charge les données en temps réel depuis l'API GitHub (contourne le cache GitHub Pages) */
     async function loadAppData() {
       const cfg = getGhConfig();
       if ((isAdmin || isPopupMode) && cfg && cfg.token) {
@@ -1401,8 +1410,6 @@
       if (popBadge) popBadge.textContent = cfg && cfg.token ? '✦ Synchro GitHub prête' : '⚠️ Token GitHub manquant';
     }
 
-    /* Sauvegarde atomique : relit la dernière version sur GitHub juste avant d'écrire,
-       applique la modification dessus, et réessaie en cas de conflit (409) */
     async function commitMutationToGithub(mutateFn = null) {
       const cfg = getGhConfig();
       if (!cfg || !cfg.token) {
@@ -1425,7 +1432,6 @@
           if (!getRes.ok) throw new Error('Impossible de lire data.json sur GitHub');
           const fileInfo = await getRes.json();
 
-          // On repart toujours de l'état le plus récent présent sur GitHub
           const latestData = JSON.parse(decodeBase64Utf8(fileInfo.content));
           if (!latestData.config) latestData.config = {};
           if (!Array.isArray(latestData.folders)) latestData.folders = [];
@@ -1456,7 +1462,6 @@
           });
 
           if (putRes.status === 409 && attempt < 3) {
-            // Conflit d'écriture simultanée : on attend 300ms et on fusionne à nouveau
             await new Promise(r => setTimeout(r, 300 * attempt));
             continue;
           }
@@ -1584,6 +1589,9 @@
     }
 
     function canDropInto(targetFolderId) {
+      if (draggedItemId) {
+        return targetFolderId !== null;
+      }
       if (draggedFolderIds.length === 0) return false;
       if (targetFolderId === null) return true;
       if (draggedFolderIds.includes(targetFolderId)) return false;
@@ -1592,6 +1600,22 @@
         if (descendants.includes(targetFolderId)) return false;
       }
       return true;
+    }
+
+    async function moveItemToFolder(itemId, targetFolderId) {
+      if (!itemId || !targetFolderId) return;
+      const item = appData.items.find(i => i.id === itemId);
+      if (!item || item.folderId === targetFolderId) return;
+
+      const ok = await commitMutationToGithub((data) => {
+        const targetItem = data.items.find(i => i.id === itemId);
+        if (targetItem) targetItem.folderId = targetFolderId;
+      });
+
+      if (ok) {
+        renderFolders();
+        renderItems();
+      }
     }
 
     async function moveFoldersTo(targetParentId) {
@@ -1630,6 +1654,13 @@
         e.stopPropagation();
         el.classList.remove('drag-over');
         if (!isAdmin) return;
+
+        if (draggedItemId) {
+          const itemId = draggedItemId;
+          draggedItemId = null;
+          await moveItemToFolder(itemId, targetParentId);
+          return;
+        }
         await moveFoldersTo(targetParentId);
       });
     }
@@ -1702,6 +1733,7 @@
             itemEl.draggable = true;
             itemEl.addEventListener('dragstart', (e) => {
               e.stopPropagation();
+              draggedItemId = null;
               draggedFolderIds = multiSelectedFolders.has(folder.id) ? Array.from(multiSelectedFolders) : [folder.id];
               e.dataTransfer.effectAllowed = 'move';
               e.dataTransfer.setData('text/plain', draggedFolderIds.join(','));
@@ -1808,8 +1840,31 @@
       } else {
         noteEl.style.display = 'none';
       }
-      document.getElementById('qv-link').href = item.url;
+      const linkBtn = document.getElementById('qv-link');
+      if (isGenericPlaceholderUrl(item.url)) {
+        linkBtn.href = `https://www.google.com/search?q=${encodeURIComponent((item.store ? item.store + ' ' : '') + item.title)}`;
+        linkBtn.textContent = 'Rechercher le produit ↗';
+      } else {
+        linkBtn.href = item.url;
+        linkBtn.textContent = 'Voir sur la boutique ↗';
+      }
       document.getElementById('quickview-modal').showModal();
+    }
+
+    function handleCardDragStart(e, itemId) {
+      if (!isAdmin) return;
+      e.stopPropagation();
+      draggedFolderIds = [];
+      draggedItemId = itemId;
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', itemId);
+      e.currentTarget.classList.add('dragging');
+    }
+
+    function handleCardDragEnd(e) {
+      draggedItemId = null;
+      e.currentTarget.classList.remove('dragging');
+      document.querySelectorAll('.tree-item').forEach(el => el.classList.remove('drag-over'));
     }
 
     function renderItems() {
@@ -1843,8 +1898,17 @@
       document.getElementById('current-path').textContent = getFolderBreadcrumb(selectedFolderId);
       document.getElementById('items-counter').textContent = `${list.length} article${list.length > 1 ? 's' : ''}`;
 
-      grid.innerHTML = list.map(item => `
-        <article class="card" onclick="openQuickView('${item.id}')">
+      grid.innerHTML = list.map(item => {
+        const hasRealUrl = !isGenericPlaceholderUrl(item.url);
+        const targetUrl = hasRealUrl
+          ? item.url
+          : `https://www.google.com/search?q=${encodeURIComponent((item.store ? item.store + ' ' : '') + item.title)}`;
+        const btnLabel = hasRealUrl ? "Voir l'article ↗" : "Chercher lien ↗";
+
+        return `
+        <article class="card"
+          ${isAdmin ? `draggable="true" ondragstart="handleCardDragStart(event, '${item.id}')" ondragend="handleCardDragEnd(event)"` : ''}
+          onclick="openQuickView('${item.id}')">
           <div class="card-img-wrap">
             <img src="${item.image || 'https://placehold.co/400x400?text=Produit'}" alt="${item.title}" loading="lazy" />
             ${item.price ? `<span class="price-pill">${Number(item.price).toFixed(2).replace('.', ',')} €</span>` : ''}
@@ -1855,7 +1919,7 @@
             <h3 class="card-title" title="${item.title}">${item.title}</h3>
             ${item.note ? `<div class="card-note" title="${item.note}">${item.note}</div>` : ''}
             <div class="card-footer" onclick="event.stopPropagation()">
-              <a href="${item.url}" target="_blank" rel="noopener" class="visit-btn">Voir l'article ↗</a>
+              <a href="${targetUrl}" target="_blank" rel="noopener" class="visit-btn">${btnLabel}</a>
               <div class="card-admin-actions">
                 <button class="btn" style="padding:6px 10px;" onclick='editItem("${item.id}")'>✎</button>
                 <button class="btn" style="padding:6px 10px;" onclick='deleteItem("${item.id}")'>×</button>
@@ -1863,7 +1927,7 @@
             </div>
           </div>
         </article>
-      `).join('');
+      `}).join('');
     }
 
     function populateFolderSelect(selectEl, includeRoot = false, filterQuery = '') {
@@ -1920,7 +1984,7 @@
       document.getElementById('item-title').value = prefill?.title || '';
       document.getElementById('item-price').value = prefill?.price || '';
       document.getElementById('item-store').value = prefill?.store || '';
-      document.getElementById('item-url').value = prefill?.url || '';
+      document.getElementById('item-url').value = isGenericPlaceholderUrl(prefill?.url) ? '' : (prefill?.url || '');
       document.getElementById('item-image').value = prefill?.image || '';
       document.getElementById('item-note').value = prefill?.note || '';
       document.getElementById('item-priority').value = prefill?.priority || 'normal';
@@ -1945,8 +2009,8 @@
     async function saveItem(e) {
       e.preventDefault();
       const id = document.getElementById('item-id').value;
-      const urlVal = document.getElementById('item-url').value;
-      const titleVal = document.getElementById('item-title').value;
+      const urlVal = document.getElementById('item-url').value.trim();
+      const titleVal = document.getElementById('item-title').value.trim();
 
       const dup = findDuplicateItem(urlVal, titleVal, id);
       if (dup) {
