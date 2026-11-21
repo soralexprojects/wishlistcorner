@@ -918,6 +918,17 @@
   ],
   "items": [
     {
+      "id": "item-1795279716832-98bn",
+      "folderId": "f-1794776121944",
+      "title": "Gel Polish VSP Hangover",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gelpolish-vsp-hangover",
+      "image": "http://ongle24.com/cdn/shop/files/4357_GelPolish-Hangover_01_048e7a59-6302-43cf-a6e3-57be9b06095a.jpg?v=1784799989&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795279702538-1hf2",
       "folderId": "f-1795272467051",
       "title": "Gel Polish VSP Crystal Blush",
