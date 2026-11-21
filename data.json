@@ -954,6 +954,17 @@
   ],
   "items": [
     {
+      "id": "item-1795294737275-480x",
+      "folderId": "f-1794779281035-1",
+      "title": "Color Gel Metallic Red",
+      "price": 4.49,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/colorgel-metallic-red",
+      "image": "http://ongle24.com/cdn/shop/files/3838-5_Color-Gel-Metallic-Red_1_0c888869-12d2-4f7a-835e-419947dedc0f.png?v=1722601257&width=2048",
+      "note": "",
+      "priority": "coup-de-coeur"
+    },
+    {
       "id": "item-1795294719458-uf8p",
       "folderId": "f-1794779281035-1",
       "title": "Supreme Color Gel Chianti",
