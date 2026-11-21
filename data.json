@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795280117621-df3d",
+      "folderId": "f-1794776121944",
+      "title": "Gel Polish VSP Seashell Tulip",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-vsp-seashell-tulip",
+      "image": "http://ongle24.com/cdn/shop/files/6559_Seashell_Tulip_1.jpg?v=1738685822&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795280104522-ncuq",
       "folderId": "f-1794776121944",
       "title": "Gel Polish VSP Parma",
