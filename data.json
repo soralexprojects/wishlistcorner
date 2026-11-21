@@ -924,6 +924,17 @@
   ],
   "items": [
     {
+      "id": "item-1795281121907-qiez",
+      "folderId": "f-1794776121944",
+      "title": "Gel Polish VSP Berry Vibe",
+      "price": 7.99,
+      "store": "Ongle24",
+      "url": "https://ongle24.com/products/gel-polish-vsp-berry-vibe",
+      "image": "http://ongle24.com/cdn/shop/files/6768_GelPolish-Berry-Vibe_1_c58a5927-6d57-44d7-98d6-d5f30b19edf4.jpg?v=1753267600&width=2048",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795281108239-i08n",
       "folderId": "f-1794775957366",
       "title": "Gel Polish VSP Passion Red",
