@@ -1140,6 +1140,17 @@
   ],
   "items": [
     {
+      "id": "item-1795306014182-4qid",
+      "folderId": "f-1795305918077-3gir",
+      "title": "FOREST SPIRITS",
+      "price": 27,
+      "store": "Weepyworld",
+      "url": "https://weepyworld.com/products/weepy-blind-box-forest-spirits-series",
+      "image": "https://weepyworld.com/cdn/shop/files/WeepyWorld-BlindBox-01.jpg?v=1778206444&width=1200",
+      "note": "",
+      "priority": "normal"
+    },
+    {
       "id": "item-1795305969548-whrp",
       "folderId": "f-1795305877429-mukd",
       "title": "WEEPY NIGHTFALL",
